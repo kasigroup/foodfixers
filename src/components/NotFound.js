@@ -1,14 +1,14 @@
 import React from 'react';
 
 
-class App extends React.Component {
+class NotFound extends React.Component {
   render() {
     return (
         <div className="food-fixers">
-          <p>App</p>
+          <p>Not Found sorry</p>
         </div>
     )
   }
 }
 
-export default App;
+export default NotFound;
