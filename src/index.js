@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { BrowserRouter, Match, Miss } from 'react-router';
 
 import './css/style.css';
+import './css/flat-ui/css/flat-ui.css';
 import App from './components/App';
 import StoreFront from './components/StoreFront';
 import NotFound from './components/NotFound';
