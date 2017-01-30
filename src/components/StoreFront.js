@@ -10,7 +10,7 @@ class StoreFront extends React.Component {
     return (
       <div className="store-front">
         <div className="start-btn">
-          <Link to="/main"><button className="btn btn-primary">Main</button></Link>
+          <Link to="/login"><button className="btn btn-primary">Get started</button></Link>
         </div>
       </div>
     )
