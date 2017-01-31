@@ -6,7 +6,8 @@ import './css/style.css';
 import './css/flat-ui/css/flat-ui.css';
 import App from './components/App';
 import StoreFront from './components/StoreFront';
-import Login from './components/Login';
+import SignUpPage from './components/SignUpPage';
+import LogInPage from './components/LogInPage';
 import NotFound from './components/NotFound';
 
 const Root = () => {
@@ -14,7 +15,8 @@ const Root = () => {
     <BrowserRouter>
       <div>
         <Match exactly pattern="/" component={StoreFront} />
-        <Match exactly pattern="/login" component={Login} />
+        <Match exactly pattern="/signup" component={SignUpPage} />
+        <Match exactly pattern="/login" component={LogInPage} />
         <Match exactly pattern="/app" component={App} />
         <Miss component={NotFound} />
       </div>

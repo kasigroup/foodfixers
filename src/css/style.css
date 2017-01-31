@@ -17,6 +17,9 @@ html,body {
   margin-bottom: 10px;
 }
 
+form input {
+  margin-bottom: 10px;
+}
 
 .start-btn {
   margin-top: 50px;
