@@ -4,26 +4,45 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../actions/actionCreators';
 
+const theURL = "api.kasigroup.se/v1/accompaniments";
+
 class LoginPage extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {credentials: {email: '', password: ''}}
     this.onChange = this.onChange.bind(this);
     this.onSave = this.onSave.bind(this);
+    this.getRequest = this.getRequest.bind(this);
+
   }
 
   onChange(event) {
     const field = event.target.name;
     const credentials = this.state.credentials;
     credentials[field] = event.target.value;
-    console.log(credentials);
     return this.setState({credentials: credentials});
   }
 
   onSave(event) {
     event.preventDefault();
-    this.props.actions.logInUser(this.state.credentials);
+    this.props.logInUser(this.state.credentials);
   }
+
+
+
+  getRequest(theURL)
+  {
+      event.preventDefault();
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", theURL, false);
+      xhr.send();
+
+      console.log(xhr.status);
+      console.log(xhr.statusText);
+      console.log("get get")
+      console.log(this.state);
+  }
+
 
   render() {
     return (
@@ -48,6 +67,9 @@ class LoginPage extends React.Component {
              className="btn btn-primary"
              onClick={this.onSave}/>
         </form>
+
+        <button onClick={this.getRequest}>Get Request</button>
+
       </div>
     )
   }

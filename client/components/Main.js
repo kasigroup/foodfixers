@@ -6,7 +6,7 @@ class Main extends React.Component {
   render() {
     return (
       <div>
-        <LoginPage />
+        <LoginPage {...this.props} />
       </div>
     )
   }
