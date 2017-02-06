@@ -1,6 +1,6 @@
 class SessionApi {
   static login(credentials) {
-    const request = new Request('http://localhost:5000/login', {
+    const request = new Request('http://api.kasigroup.se/v1/account_token', {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json'
@@ -10,6 +10,7 @@ class SessionApi {
 
 
     return fetch(request).then(response => {
+      console.log(response);
       return response.json();
     }).catch(error => {
       return error;

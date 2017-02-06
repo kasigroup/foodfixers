@@ -16,6 +16,7 @@ class LoginPage extends React.Component {
     const field = event.target.name;
     const credentials = this.state.credentials;
     credentials[field] = event.target.value;
+    console.log(credentials);
     return this.setState({credentials: credentials});
   }
 
@@ -27,6 +28,7 @@ class LoginPage extends React.Component {
   render() {
     return (
       <div>
+        <h1>Login Page</h1>
         <form>
           <TextInput
              name="email"

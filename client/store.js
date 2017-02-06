@@ -1,6 +1,7 @@
-import { createStore, compose} from 'redux';
+import { createStore, compose , applyMiddleware} from 'redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
+import thunk from 'redux-thunk';
 
 // Import the root reducers
 import rootReducer from './reducers/index';
@@ -14,7 +15,9 @@ const defaultState = {
   comments
 };
 
-const store = createStore(rootReducer);
+const store = createStore(
+  rootReducer, applyMiddleware(thunk)
+);
 
 export const history = syncHistoryWithStore(browserHistory, store);
 
