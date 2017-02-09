@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as actionCreators from '../actions/actionCreators';
+import Accompaniments from './Accompaniments'
+import * as sessionCreators from '../actions/sessionCreators';
 
 class Home extends React.Component {
 
@@ -22,6 +23,8 @@ class Home extends React.Component {
           Home
         </h1>
 
+        <Accompaniments />
+
         <a href="/logout" onClick={this.logOut}>log out</a>
       </div>
     )
@@ -30,7 +33,7 @@ class Home extends React.Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(actionCreators, dispatch)
+    actions: bindActionCreators(sessionCreators, dispatch)
   };
 }
 

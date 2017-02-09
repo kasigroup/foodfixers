@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import TextInput from './common/TextInput';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as actionCreators from '../actions/actionCreators';
+import * as sessionCreators from '../actions/sessionCreators';
 
 
 class LoginPage extends React.Component {
@@ -64,7 +64,7 @@ class LoginPage extends React.Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(actionCreators, dispatch)
+    actions: bindActionCreators(sessionCreators, dispatch)
   };
 }
 

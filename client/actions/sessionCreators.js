@@ -22,8 +22,3 @@ export function logInUser(credentials) {
     });
   };
 }
-
-
-// var array = Object.keys(credentials).map(key => credentials[key])
-// console.log(`LoginUser ran without error`);
-// console.log(`The Credentials passed is: ${array}`);

@@ -38,12 +38,3 @@ function requireAuth(nextState, replace) {
 }
 
 render(<Root />, document.getElementById('root'));
-
-{/* <Provider store={store}>
-  <Router history={browserHistory}>
-    <Route path="/" component={App}>
-      <Route path="/login" component={LoginPage}/>
-      <Route path="/home" component={Home}/>
-    </Route>
-  </Router>
-</Provider> */}

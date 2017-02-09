@@ -1,6 +1,6 @@
 class SessionApi {
   static login(credentials) {
-    const request = new Request('http://api.kasigroup.se/v1/account_token', {
+    const request = new Request('http://api.kasigroup.se/account_token', {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json'
