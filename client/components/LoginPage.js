@@ -24,7 +24,7 @@ class LoginPage extends React.Component {
 
   onSave(event) {
     event.preventDefault();
-    this.props.logInUser(this.state.credentials);
+    this.props.actions.logInUser(this.state.credentials);
   }
 
   testing(event) {
