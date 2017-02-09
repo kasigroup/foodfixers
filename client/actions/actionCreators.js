@@ -7,16 +7,19 @@ export function loginSuccess() {
   }
 }
 
+
 export function logInUser(credentials) {
   return function(dispatch) {
     return sessionApi.login(credentials).then(response => {
       sessionStorage.setItem('jwt', response.jwt);
-      // Show object as an array
-      var array = Object.keys(credentials).map(key => credentials[key])
-      console.log(`LoginUser ran without error`);
-      console.log(`The Credentials passed is: ${array}`);
+      dispatch(loginSuccess());
     }).catch(error => {
       throw(error);
     });
   };
 }
+
+
+// var array = Object.keys(credentials).map(key => credentials[key])
+// console.log(`LoginUser ran without error`);
+// console.log(`The Credentials passed is: ${array}`);

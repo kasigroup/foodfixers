@@ -12,12 +12,12 @@ import Home from './components/Home';
 // Import react router deps
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
-import store, { history } from './store';
+import store from './store';
 
 const Root = () => {
   return(
     <Provider store={store}>
-      <Router history={history}>
+      <Router history={browserHistory}>
         <Route path="/" component={App}>
           <Route path="/home" component={Home}/>
         </Route>

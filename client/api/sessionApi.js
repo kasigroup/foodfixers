@@ -2,11 +2,10 @@ class SessionApi {
   static login(credentials) {
     const request = new Request('http://api.kasigroup.se/v1/account_token', {
       method: 'POST',
-      mode: 'no-cors',
       headers: new Headers({
         'Content-Type': 'application/json'
       }),
-      body: JSON.stringify({auth: { "email": "foo@bar.com", "password": "foobar" }})
+      body: JSON.stringify({auth: credentials})
     });
 
 
