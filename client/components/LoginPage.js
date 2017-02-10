@@ -41,6 +41,7 @@ class LoginPage extends React.Component {
         <form>
           <TextInput
              name="email"
+             type="email"
              label="email"
              value={this.state.credentials.email}
              onChange={this.onChange}/>
