@@ -15,8 +15,12 @@ export function logOutUser() {
 export function logInUser(credentials) {
   return function(dispatch) {
     return sessionApi.login(credentials).then(response => {
-      sessionStorage.setItem('jwt', response.jwt);
-      dispatch(loginSuccess());
+      if (response === undefined) {
+        console.log("not defined");
+      }else {
+        sessionStorage.setItem('jwt', response.jwt);
+        dispatch(loginSuccess());
+      }
     }).catch(error => {
       throw(error);
     });

@@ -10,8 +10,10 @@ class SessionApi {
 
 
     return fetch(request).then(response => {
-      console.log(response);
-      return response.json();
+      console.log(response.status + " status");
+      if (response.status === 201) {
+        return response.json();
+      }
     }).catch(error => {
       return error;
     });

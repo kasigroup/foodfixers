@@ -3,6 +3,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Accompaniments from './Accompaniments'
 import * as sessionCreators from '../actions/sessionCreators';
+import store from '../store';
+import { loadAccompaniments } from '../actions/accompanimentActions';
 
 class Home extends React.Component {
 
@@ -15,6 +17,8 @@ class Home extends React.Component {
     event.preventDefault();
     this.props.actions.logOutUser();
   }
+
+
 
   render() {
     return (

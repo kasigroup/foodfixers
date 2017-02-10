@@ -1,6 +1,6 @@
 import * as types from '../actions/actionTypes';
 import initialState from './initialState';
-import {browserHistory} from 'react-router';
+import { browserHistory } from 'react-router';
 
 export default function sessionReducer(state = initialState.session, action) {
   switch(action.type) {
