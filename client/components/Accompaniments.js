@@ -7,28 +7,32 @@ class Accompaniments extends React.Component {
 
   constructor(props) {
    super(props);
-   this.loadAccompaniments = this.loadAccompaniments.bind(this);
+   // Load Accompaniments
+   this.props.actions.loadAccompaniments();
 
-  }
-
-  loadAccompaniments(event) {
-    event.preventDefault();
-    this.props.actions.loadAccompaniments();
   }
 
 
   render() {
     return (
-      <div>
-        <h3>
-          Accompaniments
-        </h3>
+      <div className="col-md-12">
+        <h3>Accompaniments</h3>
+        <div className="col-md-4">
 
-        <a href="#" onClick={this.loadAccompaniments}>get</a>
-
+        </div>
       </div>
     )
   }
+}
+
+
+
+function mapStateToProps(state, ownProps) {
+  // state = {cats: [{id:1, name: "Maru"}, etc.]}
+  console.log("hej")
+  return {
+    accompaniments: state.accompaniments
+  };
 }
 
 function mapDispatchToProps(dispatch) {

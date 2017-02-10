@@ -13,7 +13,12 @@ import LoginPage from './components/loginPage';
 // Import react router deps
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
-import store from './store';
+import configureStore from './store';
+
+import { loadAccompaniments } from './actions/accompanimentActions';
+
+const store = configureStore();
+
 
 const Root = () => {
   return(

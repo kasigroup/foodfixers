@@ -11,9 +11,16 @@ import rootReducer from './reducers/index';
 //   accompaniments
 // };
 
-const store = createStore(
-  rootReducer,
-  applyMiddleware(thunk)
-);
+// const store = createStore(
+//   rootReducer,
+//   applyMiddleware(thunk)
+// );
+//
+// export default store;
 
-export default store;
+export default function configureStore() {
+  return createStore(
+    rootReducer,
+    applyMiddleware(thunk)
+  );
+}

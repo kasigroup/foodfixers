@@ -3,14 +3,16 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Accompaniments from './Accompaniments'
 import * as sessionCreators from '../actions/sessionCreators';
-import store from '../store';
-import { loadAccompaniments } from '../actions/accompanimentActions';
+
+
 
 class Home extends React.Component {
 
   constructor(props) {
    super(props);
    this.logOut = this.logOut.bind(this);
+
+  //  store.dispatch(loadAccompaniments());
   }
 
   logOut(event) {
@@ -28,7 +30,6 @@ class Home extends React.Component {
         </h1>
 
         <Accompaniments />
-
         <a href="/logout" onClick={this.logOut}>log out</a>
       </div>
     )
