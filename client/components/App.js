@@ -1,18 +1,20 @@
 import React, {PropTypes} from 'react';
 import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux'; 
-import Main from './Main';
+import { connect } from 'react-redux';
+import Home from './Home';
 
 
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        {this.props.children}
-      </div>
-    );
+function mapStateToProps(state) {
+  return {
+    accompaniments: state.accompaniments
   }
 }
+
+// function mapDispatchToProps(dispatch) {
+//     // bind action creators
+// }
+
+const App = connect(mapStateToProps)(Home);
 
 export default App;

@@ -24,10 +24,11 @@ const Root = () => {
   return(
     <Provider store={store}>
       <Router history={browserHistory}>
-        <Route path="/" component={App}>
-          <Route path="/home" component={Home} onEnter={requireAuth} />
-          <Route path="/login" component={LoginPage} />
+        <Route path="/" component={App} />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/home" component={Home} onEnter={requireAuth}>
         </Route>
+
       </Router>
     </Provider>
   )

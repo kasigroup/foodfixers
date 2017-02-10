@@ -18,7 +18,7 @@ class Accompaniments extends React.Component {
       <div className="col-md-12">
         <h3>Accompaniments</h3>
         <div className="col-md-4">
-
+          {this.state}
         </div>
       </div>
     )
@@ -27,13 +27,6 @@ class Accompaniments extends React.Component {
 
 
 
-function mapStateToProps(state, ownProps) {
-  // state = {cats: [{id:1, name: "Maru"}, etc.]}
-  console.log("hej")
-  return {
-    accompaniments: state.accompaniments
-  };
-}
 
 function mapDispatchToProps(dispatch) {
   return {

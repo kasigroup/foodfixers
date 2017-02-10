@@ -28,7 +28,9 @@ class Home extends React.Component {
         <h1>
           Home
         </h1>
-
+        {this.props.accompaniments.map(accompaniment =>
+          <p>{accompaniment.name}</p>
+        )}
         <Accompaniments />
         <a href="/logout" onClick={this.logOut}>log out</a>
       </div>
