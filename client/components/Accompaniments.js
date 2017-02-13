@@ -16,10 +16,6 @@ class Accompaniments extends React.Component {
   render() {
     return (
       <div className="col-md-12">
-        <h3>Accompaniments</h3>
-        <div className="col-md-4">
-          {this.state}
-        </div>
       </div>
     )
   }

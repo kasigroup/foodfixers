@@ -9,9 +9,10 @@ import css from './styles/style.styl';
 import App from './components/App';
 import Home from './components/Home';
 import LoginPage from './components/loginPage';
+import NotFound from './components/NotFound';
 
 // Import react router deps
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory, Miss } from 'react-router';
 import { Provider } from 'react-redux';
 import configureStore from './store';
 
@@ -24,11 +25,10 @@ const Root = () => {
   return(
     <Provider store={store}>
       <Router history={browserHistory}>
-        <Route path="/" component={App} />
-        <Route path="/login" component={LoginPage} />
-        <Route path="/home" component={Home} onEnter={requireAuth}>
-        </Route>
-
+        <Route path="/" component={App} onEnter={requireAuth}/>
+          <Route path="/login" component={LoginPage} />
+        <Route />
+        <Route path="*" component={NotFound}/>
       </Router>
     </Provider>
   )

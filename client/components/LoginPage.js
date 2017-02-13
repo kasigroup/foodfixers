@@ -3,6 +3,7 @@ import TextInput from './common/TextInput';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as sessionCreators from '../actions/sessionCreators';
+import Header from './Header';
 
 
 class LoginPage extends React.Component {
@@ -37,7 +38,8 @@ class LoginPage extends React.Component {
   render() {
     return (
       <div>
-        <h1>Login Page</h1>
+        <Header />
+        <h3>Login Page</h3>
         <form>
           <TextInput
              name="email"
@@ -55,6 +57,8 @@ class LoginPage extends React.Component {
 
            <input
              type="submit"
+             value="Login"
+             name="Login"
              className="btn btn-primary"
              onClick={this.onSave}/>
         </form>

@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Accompaniments from './Accompaniments'
-import * as sessionCreators from '../actions/sessionCreators';
+import Header from './Header'
 
 
 
@@ -11,37 +11,40 @@ class Home extends React.Component {
   constructor(props) {
    super(props);
    this.logOut = this.logOut.bind(this);
+   this.renderInventory = this.renderInventory.bind(this);
 
   //  store.dispatch(loadAccompaniments());
   }
 
   logOut(event) {
     event.preventDefault();
-    this.props.actions.logOutUser();
+    this.props.logOutUser();
   }
 
+  renderInventory(key) {
+  const accompaniment = this.props.accompaniments[key];
+  return (
+    <div key={key}>
+      <p>{accompaniment.name} {accompaniment.price}<span>kr</span></p>
+    </div>
+  )
+}
 
 
   render() {
     return (
       <div>
-        <h1>
+        <Header />
+        <h3>
           Home
-        </h1>
-        {this.props.accompaniments.map(accompaniment =>
-          <p>{accompaniment.name}</p>
-        )}
+        </h3>
+        {Object.keys(this.props.accompaniments).map(this.renderInventory)}
         <Accompaniments />
-        <a href="/logout" onClick={this.logOut}>log out</a>
+        <a href="/logout" className="btn btn-primary" onClick={this.logOut}>log out</a>
       </div>
     )
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(sessionCreators, dispatch)
-  };
-}
 
-export default connect(null, mapDispatchToProps)(Home);
+export default Home;
