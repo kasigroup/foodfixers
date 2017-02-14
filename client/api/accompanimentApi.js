@@ -1,3 +1,5 @@
+import 'whatwg-fetch'; 
+
 class AccompanimentApi {
 
   static requestHeaders() {
