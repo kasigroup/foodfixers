@@ -1,3 +1,5 @@
+import 'whatwg-fetch'; 
+
 class SessionApi {
   static login(credentials) {
     const request = new Request('http://api.kasigroup.se/account_token', {

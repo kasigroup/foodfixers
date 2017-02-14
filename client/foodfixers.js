@@ -10,6 +10,10 @@ import App from './components/App';
 import Home from './components/Home';
 import LoginPage from './components/loginPage';
 import NotFound from './components/NotFound';
+import LandingPage from './components/LandingPage';
+import ProductPage from './components/ProductPage';
+import Product from './components/Product';
+import ProductSingle from './components/ProductSingle';
 
 // Import react router deps
 import { Router, Route, IndexRoute, browserHistory, Miss } from 'react-router';
@@ -25,8 +29,12 @@ const Root = () => {
   return(
     <Provider store={store}>
       <Router history={browserHistory}>
-        <Route path="/" component={App} onEnter={requireAuth}/>
+        <Route path="/" component={LandingPage} onEnter={checkAuth}/>
           <Route path="/login" component={LoginPage} />
+          <Route path="/home" component={App} onEnter={requireAuth}>
+            <IndexRoute component={ProductPage}></IndexRoute>
+            <Route path="/product/:id" component={ProductSingle}/>
+          </Route>
         <Route />
         <Route path="*" component={NotFound}/>
       </Router>
@@ -38,6 +46,15 @@ function requireAuth(nextState, replace) {
   if (!sessionStorage.jwt) {
     replace({
       pathname: '/login',
+      state: { nextPathname: nextState.location.pathname }
+    })
+  }
+}
+
+function checkAuth(nextState, replace) {
+  if (sessionStorage.jwt) {
+    replace({
+      pathname: '/home',
       state: { nextPathname: nextState.location.pathname }
     })
   }
