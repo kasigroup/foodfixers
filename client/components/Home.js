@@ -12,24 +12,12 @@ class Home extends React.Component {
   constructor(props) {
    super(props);
    this.logOut = this.logOut.bind(this);
-  //  this.renderInventory = this.renderInventory.bind(this);
-
-  //  store.dispatch(loadAccompaniments());
   }
 
   logOut(event) {
     event.preventDefault();
     this.props.logOutUser();
   }
-
-  // renderInventory(key) {
-  // const accompaniment = this.props.accompaniments[key];
-  // return (
-  //   <div key={key}>
-  //     <p>{accompaniment.name} {accompaniment.price}<span>kr</span></p>
-  //   </div>
-  // )
-  // }
 
 
   render() {
