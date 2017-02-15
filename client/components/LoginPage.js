@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as sessionCreators from '../actions/sessionCreators';
 import Header from './Header';
+import { Link } from 'react-router';
 
 
 class LoginPage extends React.Component {
@@ -62,6 +63,11 @@ class LoginPage extends React.Component {
              className="btn btn-primary"
              onClick={this.onSave}/>
         </form>
+
+        <div>
+          <Link to="/register" className="btn btn-link">Don't have an account yet?</Link>
+        </div>
+
       </div>
     )
   }

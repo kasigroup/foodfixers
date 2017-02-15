@@ -9,6 +9,7 @@ import css from './styles/style.styl';
 import App from './components/App';
 import Home from './components/Home';
 import LoginPage from './components/loginPage';
+import RegisterPage from './components/RegisterPage';
 import NotFound from './components/NotFound';
 import LandingPage from './components/LandingPage';
 import ProductPage from './components/ProductPage';
@@ -30,7 +31,8 @@ const Root = () => {
     <Provider store={store}>
       <Router history={browserHistory}>
         <Route path="/" component={LandingPage} onEnter={checkAuth}/>
-          <Route path="/login" component={LoginPage} />
+          <Route path="/login" component={LoginPage} onEnter={checkAuth}/>
+          <Route path="/register" component={RegisterPage} onEnter={checkAuth}/>
           <Route path="/home" component={App} onEnter={requireAuth}>
             <IndexRoute component={ProductPage}></IndexRoute>
             <Route path="/product/:id" component={ProductSingle}/>

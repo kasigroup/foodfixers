@@ -1,5 +1,6 @@
 import * as types from './actionTypes';
 import sessionApi from '../api/SessionApi';
+import registerApi from '../api/registerApi';
 
 export function loginSuccess() {
   return {
@@ -21,6 +22,16 @@ export function logInUser(credentials) {
         sessionStorage.setItem('jwt', response.jwt);
         dispatch(loginSuccess());
       }
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}
+
+export function RegisterUser(account) {
+  return function(dispatch) {
+    return registerApi.register(account).then(response => {
+      
     }).catch(error => {
       throw(error);
     });
