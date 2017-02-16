@@ -1,4 +1,5 @@
 import 'whatwg-fetch';
+import { browserHistory } from 'react-router';
 
 class RegisterApi {
   static register(account) {
@@ -16,8 +17,9 @@ class RegisterApi {
         var jsonPretty = JSON.stringify(JSON.parse(text),null,2);
         console.log(jsonPretty);
       });
-      if (respones.status === 201) {
+      if (response.status === 201) {
         console.log("Yay du skapade en användare")
+        browserHistory.push('/login');
         return response.json();
       }
     }).catch(errors => {

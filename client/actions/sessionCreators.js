@@ -31,7 +31,6 @@ export function logInUser(credentials) {
 export function RegisterUser(account) {
   return function(dispatch) {
     return registerApi.register(account).then(response => {
-      
     }).catch(error => {
       throw(error);
     });
