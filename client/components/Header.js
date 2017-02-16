@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { browserHistory } from 'react-router';
 import {bindActionCreators} from 'redux';
 import * as sessionCreators from '../actions/sessionCreators';
 
@@ -32,7 +33,10 @@ class Header extends React.Component{
           <h1>
             Food Fixers
           </h1>
-          <a href="/logout" className="btn btn-primary" onClick={this.logOut}>log out</a>
+          <div className="btn-group">
+            <a href="" onClick={browserHistory.goBack} className="btn btn-primary">Back</a>
+            <a href="/logout" className="btn btn-primary" onClick={this.logOut}>Log out</a>
+          </div>
         </header>
       )
     }

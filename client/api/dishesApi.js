@@ -14,7 +14,6 @@ class DishesApi {
     });
 
     return fetch(request).then(response => {
-      console.log("dishes request works")
       return response.json();
     }).catch(error => {
       return error;

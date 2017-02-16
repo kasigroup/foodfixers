@@ -9,7 +9,6 @@ export function loadDishes() {
   // make async call to api, handle promise, dispatch action when promise is resolved
   return function(dispatch) {
     return dishesApi.getAllDishes().then(dishes => {
-      console.log(dishes);
       dispatch(loadDishesSuccess(dishes));
     }).catch(error => {
       throw(error);

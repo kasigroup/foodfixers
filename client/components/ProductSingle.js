@@ -27,8 +27,11 @@ class ProductSingle extends React.Component {
       const dish = this.props.dishes[index];
 
       return (
-        <div>
-          <Product i={index} dish={dish} {...this.props} />
+        <div className="single-product">
+          <img className="" src="http://placehold.it/500x300" alt="Card image cap"></img>
+          <h2>{dish.name}</h2>
+          <p>{dish.price}kr</p>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
         </div>
       )
     }else {

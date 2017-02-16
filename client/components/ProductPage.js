@@ -12,11 +12,8 @@ class LandingPage extends React.Component {
 
   render() {
     return (
-      <div>
-        <p>Product Page</p>
-        <ul className="list-group">
+      <div className="cards">
           {this.props.dishes.map((dish, i) => <Product {...this.props} key={i} i={i} dish={dish} />)}
-        </ul>
       </div>
     )
   }
