@@ -7,13 +7,6 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers/index';
 
 
-// Create an object for default data
-
-// const defaultState = {
-//   accompaniments
-// };
-
-
 export default function configureStore() {
   return createStore(
     rootReducer,

@@ -10,6 +10,7 @@ import App from './components/App';
 import Home from './components/Home';
 import LoginPage from './components/loginPage';
 import RegisterPage from './components/RegisterPage';
+import CreateProfilePage from './components/CreateProfilePage';
 import NotFound from './components/NotFound';
 import LandingPage from './components/LandingPage';
 import ProductPage from './components/ProductPage';
@@ -33,6 +34,7 @@ const Root = () => {
         <Route path="/" component={LandingPage} onEnter={checkAuth}/>
           <Route path="/login" component={LoginPage} onEnter={checkAuth}/>
           <Route path="/register" component={RegisterPage} onEnter={checkAuth}/>
+          <Route path="/createprofile" component={CreateProfilePage} onEnter={checkAuth}/>
           <Route path="/home" component={App} onEnter={requireAuth}>
             <IndexRoute component={ProductPage}></IndexRoute>
             <Route path="/product/:id" component={ProductSingle}/>

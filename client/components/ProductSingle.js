@@ -15,20 +15,20 @@ class ProductSingle extends React.Component {
   render() {
 
 
-    if (this.props.accompaniments.length > 0) {
+    if (this.props.dishes.length > 0) {
 
       // Get params id
       const { id } = this.props.params;
       // params id from string to int
       const paramsId = parseInt(id)
       // Find index in array and give back the one with the same id as params
-      const index = this.props.accompaniments.findIndex((accompaniment) => accompaniment.id === paramsId);
+      const index = this.props.dishes.findIndex((dish) => dish.id === paramsId);
       // Return the meal with the right id
-      const accompaniment = this.props.accompaniments[index];
+      const dish = this.props.dishes[index];
 
       return (
         <div>
-          <Product i={index} accompaniment={accompaniment} {...this.props} />
+          <Product i={index} dish={dish} {...this.props} />
         </div>
       )
     }else {

@@ -16,7 +16,7 @@ class Home extends React.Component {
 
   componentWillMount() {
     console.log("loading")
-    this.props.loadAccompaniments();
+    this.props.loadDishes();
   }
 
   render() {

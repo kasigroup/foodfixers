@@ -15,7 +15,7 @@ class LandingPage extends React.Component {
       <div>
         <p>Product Page</p>
         <ul className="list-group">
-          {this.props.accompaniments.map((accompaniment, i) => <Product {...this.props} key={i} i={i} accompaniment={accompaniment} />)}
+          {this.props.dishes.map((dish, i) => <Product {...this.props} key={i} i={i} dish={dish} />)}
         </ul>
       </div>
     )
