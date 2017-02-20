@@ -33,7 +33,7 @@ class Header extends React.Component{
           </h1>
         </header>
       )
-    }else {
+    }else if (this.props.location.pathname === "/home") {
       return (
         <header>
           <h1>
@@ -43,7 +43,21 @@ class Header extends React.Component{
 
 
           <div className="btn-group">
-            <button onClick={this.goBack} className="btn btn-primary">Back</button>
+            <a href="/logout" className="btn btn-primary" onClick={this.logOut}>Log out</a>
+          </div>
+        </header>
+      )
+    } else {
+      return (
+        <header>
+          <h1>
+            Food Fixers
+          </h1>
+
+
+
+          <div className="btn-group">
+            <button onClick={browserHistory.goBack} className="btn btn-primary">Back</button>
             <a href="/logout" className="btn btn-primary" onClick={this.logOut}>Log out</a>
           </div>
         </header>
