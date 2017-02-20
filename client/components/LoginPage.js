@@ -39,7 +39,6 @@ class LoginPage extends React.Component {
   render() {
     return (
       <div>
-        <Header />
         <h3>Login Page</h3>
         <form>
           <TextInput
