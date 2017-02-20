@@ -11,11 +11,17 @@ class Header extends React.Component{
   constructor(props) {
    super(props);
    this.logOut = this.logOut.bind(this);
+   this.goBack = this.goBack.bind(this);
   }
 
   logOut(event) {
     event.preventDefault();
     this.props.actions.logOutUser();
+  }
+
+  goBack() {
+    event.preventDefault();
+    window.history.back();
   }
 
   render(){
@@ -33,8 +39,11 @@ class Header extends React.Component{
           <h1>
             Food Fixers
           </h1>
+
+
+
           <div className="btn-group">
-            <a href="" onClick={browserHistory.goBack} className="btn btn-primary">Back</a>
+            <button onClick={this.goBack} className="btn btn-primary">Back</button>
             <a href="/logout" className="btn btn-primary" onClick={this.logOut}>Log out</a>
           </div>
         </header>
