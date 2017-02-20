@@ -1,8 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import * as orderActions from '../actions/orderActions';
 
 class Product extends React.Component {
   render() {
@@ -25,8 +22,4 @@ class Product extends React.Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(orderActions, dispatch)
-}
-
-export default connect(null, mapDispatchToProps)(Product);
+export default Product;

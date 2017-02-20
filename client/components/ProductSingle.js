@@ -25,6 +25,7 @@ class ProductSingle extends React.Component {
       const index = this.props.dishes.findIndex((dish) => dish.id === paramsId);
       // Return the meal with the right id
       const dish = this.props.dishes[index];
+      const i = this.props.dishes[index].id;
 
       return (
         <div className="single-product">
@@ -32,6 +33,7 @@ class ProductSingle extends React.Component {
           <h2>{dish.name}</h2>
           <p>{dish.price}kr</p>
           <p>{dish.description}</p>
+          <button className="btn btn-primary" onClick={() => this.props.addToOrder(i, dish)}>Add to cart</button>
         </div>
       )
     }else {

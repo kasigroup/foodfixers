@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Accompaniments from './Accompaniments'
 import Header from './Header'
 import { Link } from 'react-router';
+import * as orderActions from '../actions/orderActions';
 
 
 
@@ -32,5 +33,8 @@ class Home extends React.Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(orderActions, dispatch)
+}
 
-export default Home;
+export default connect(null, mapDispatchToProps)(Home);

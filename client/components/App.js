@@ -8,7 +8,8 @@ import * as dishesActions from '../actions/dishesActions';
 
 function mapStateToProps(state) {
   return {
-    dishes: state.dishes
+    dishes: state.dishes,
+    orders: state.order
   }
 }
 
