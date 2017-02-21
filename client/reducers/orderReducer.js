@@ -13,6 +13,14 @@ function orderReducer(state = initialState.order, action){
         id: action.dish.id,
         price: action.dish.price
       }];
+    case "REMOVE_ORDER":
+      console.log(`Removing: ${action.index}`);
+
+      return [
+        ...state.slice(0,action.index),
+
+        ...state.slice(action.index + 1)
+      ]
     default:
       return state;
 

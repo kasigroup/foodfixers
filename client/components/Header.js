@@ -27,7 +27,8 @@ class Header extends React.Component{
 
   render(){
 
-    const cart = <p>{`Cart: ${this.props.orders.length}`}</p>;
+
+    const cart = <Link to="/cart"><p>{`Cart: ${this.props.orders.length}`}</p></Link>;
 
     if (!sessionStorage.jwt) {
       return (
@@ -35,8 +36,6 @@ class Header extends React.Component{
           <h1>
             Food Fixers
           </h1>
-
-
         </header>
       )
     }else if (this.props.location.pathname === "/home") {
@@ -46,7 +45,7 @@ class Header extends React.Component{
             Food Fixers
           </h1>
 
-          <Link to="/cart">{cart}</Link>
+          {cart}
 
           <div className="btn-group">
             <a href="/logout" className="btn btn-primary" onClick={this.logOut}>Log out</a>
@@ -60,7 +59,8 @@ class Header extends React.Component{
             Food Fixers
           </h1>
 
-          <Link to="/cart">{cart}</Link>
+
+          {cart}
 
 
           <div className="btn-group">
