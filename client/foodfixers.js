@@ -15,6 +15,7 @@ import NotFound from './components/NotFound';
 import LandingPage from './components/LandingPage';
 import ProductPage from './components/ProductPage';
 import OrderPage from './components/OrderPage';
+import ProfilePage from './components/ProfilePage';
 import Product from './components/Product';
 import ProductSingle from './components/ProductSingle';
 
@@ -37,9 +38,10 @@ const Root = () => {
           <Route path="/register" component={RegisterPage} onEnter={checkAuth}/>
           <Route path="/createprofile" component={CreateProfilePage} onEnter={requireAuth}/>
           <Route path="/home" component={App} onEnter={requireAuth}>
-            <IndexRoute component={ProductPage}></IndexRoute>
+            <IndexRoute component={ProductPage}/>
             <Route path="/product/:id" component={ProductSingle}/>
             <Route path="/cart" component={OrderPage}/>
+            <Route path="/profile" component={ProfilePage}/>
           </Route>
         <Route />
         <Route path="*" component={NotFound}/>

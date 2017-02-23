@@ -13,6 +13,7 @@ class Header extends React.Component{
    super(props);
    this.logOut = this.logOut.bind(this);
    this.goBack = this.goBack.bind(this);
+   this.props.actions.loadProfile();
   }
 
   logOut(event) {
@@ -48,6 +49,7 @@ class Header extends React.Component{
           {cart}
 
           <div className="btn-group">
+            <a href="/profile" className="btn btn-primary">Profile</a>
             <a href="/logout" className="btn btn-primary" onClick={this.logOut}>Log out</a>
           </div>
         </header>
@@ -65,6 +67,7 @@ class Header extends React.Component{
 
           <div className="btn-group">
             <button onClick={browserHistory.goBack} className="btn btn-primary">Back</button>
+            <a href="/profile" className="btn btn-primary">Profile</a>
             <a href="/logout" className="btn btn-primary" onClick={this.logOut}>Log out</a>
           </div>
         </header>

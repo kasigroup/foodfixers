@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Accompaniments from './Accompaniments'
 import Header from './Header'
+import CreateProfilePage from './CreateProfilePage'
 import { Link } from 'react-router';
 import * as orderActions from '../actions/orderActions';
 

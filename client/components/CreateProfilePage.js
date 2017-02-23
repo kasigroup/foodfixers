@@ -4,7 +4,6 @@ import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as profileActions from '../actions/profileActions';
-import Header from './Header';
 
 
 class CreateProfilePage extends React.Component {
@@ -31,7 +30,6 @@ class CreateProfilePage extends React.Component {
   render() {
     return (
       <div>
-        <h3>Create Profile Page</h3>
 
         <form>
           <TextInput

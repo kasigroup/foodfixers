@@ -9,7 +9,8 @@ import * as dishesActions from '../actions/dishesActions';
 function mapStateToProps(state) {
   return {
     dishes: state.dishes,
-    orders: state.order
+    orders: state.order,
+    profile: state.profile
   }
 }
 
