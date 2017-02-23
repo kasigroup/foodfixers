@@ -35,7 +35,7 @@ const Root = () => {
         <Route path="/" component={LandingPage} onEnter={checkAuth}/>
           <Route path="/login" component={LoginPage} onEnter={checkAuth}/>
           <Route path="/register" component={RegisterPage} onEnter={checkAuth}/>
-          <Route path="/createprofile" component={CreateProfilePage} onEnter={checkAuth}/>
+          <Route path="/createprofile" component={CreateProfilePage} onEnter={requireAuth}/>
           <Route path="/home" component={App} onEnter={requireAuth}>
             <IndexRoute component={ProductPage}></IndexRoute>
             <Route path="/product/:id" component={ProductSingle}/>

@@ -1,5 +1,5 @@
 export default {
-  accompaniments: [],
+  sideDishes: [],
   dishes: [],
   order: [],
   session: !!sessionStorage.jwt

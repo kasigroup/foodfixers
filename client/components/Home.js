@@ -13,9 +13,6 @@ class Home extends React.Component {
   constructor(props) {
    super(props);
 
-   this.state = {
-      order: {}
-    };
   }
 
   componentWillMount() {
@@ -24,6 +21,7 @@ class Home extends React.Component {
   }
 
   render() {
+
     return (
       <div>
         <Header {...this.props}/>

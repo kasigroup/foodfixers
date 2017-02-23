@@ -25,14 +25,13 @@ class RegisterPage extends React.Component {
 
   onSave(event) {
     event.preventDefault();
-    this.props.actions.RegisterUser(this.state.account);
+    this.props.actions.registerUser(this.state.account);
   }
 
 
   render() {
     return (
       <div>
-        <Header />
         <h3>Register Page</h3>
         <form>
           <TextInput
