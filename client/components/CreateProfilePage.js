@@ -23,6 +23,7 @@ class CreateProfilePage extends React.Component {
   }
 
   onSave(event) {
+    event.preventDefault();
     this.props.actions.createProfile(this.state.profile);
   }
 
