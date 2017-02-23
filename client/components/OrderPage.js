@@ -16,7 +16,6 @@ class OrderPage extends React.Component {
   }
 
   render() {
-
     let totalPrice = 0;
     this.props.orders.map((dish) => totalPrice += dish.price)
 

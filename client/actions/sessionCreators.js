@@ -10,6 +10,12 @@ export function loginSuccess() {
   }
 }
 
+export function createProfileSuccess() {
+  return {
+    type: types.CREATE_PROFILE_SUCCESS
+  }
+}
+
 export function logOutUser() {
   sessionStorage.removeItem('jwt');
   return {type: types.LOG_OUT}
@@ -46,11 +52,7 @@ export function loadProfileSuccess(profile) {
 export function createProfile(profile) {
   return function(dispatch) {
     return CreateProfileApi.createProfile(profile).then(response => {
-      if (response === undefined) {
-        console.log("not defined");
-      }else {
-        sessionStorage.setItem('profile', response);
-      }
+      dispatch(createProfileSuccess(profile));
     }).catch(error => {
       throw(error);
     });

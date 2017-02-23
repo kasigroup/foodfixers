@@ -3,7 +3,7 @@ import TextInput from './common/TextInput';
 import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as profileActions from '../actions/profileActions';
+import * as sessionCreators from '../actions/sessionCreators';
 
 
 class CreateProfilePage extends React.Component {
@@ -23,13 +23,15 @@ class CreateProfilePage extends React.Component {
   }
 
   onSave(event) {
-    event.preventDefault();
     this.props.actions.createProfile(this.state.profile);
   }
 
   render() {
+
     return (
       <div>
+
+        <h2>Please create profile</h2>
 
         <form>
           <TextInput
@@ -48,7 +50,7 @@ class CreateProfilePage extends React.Component {
 
           <input
               type="submit"
-              value="Submit"
+              value="Save"
               name="Login"
               className="btn btn-primary"
               onClick={this.onSave}/>
@@ -62,7 +64,7 @@ class CreateProfilePage extends React.Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(profileActions, dispatch)
+    actions: bindActionCreators(sessionCreators, dispatch)
   };
 }
 

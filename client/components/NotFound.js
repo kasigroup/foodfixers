@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class NotFound extends React.Component {
 
@@ -8,6 +9,7 @@ class NotFound extends React.Component {
           <h1>
             Page Not Found
           </h1>
+          <Link to="/login">Login</Link>
         </div>
       )
     }

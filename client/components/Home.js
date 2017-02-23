@@ -22,10 +22,17 @@ class Home extends React.Component {
   }
 
   render() {
+    let checkProfile;
+    if (!this.props.profile.first_name && !this.props.profile.last_name) {
+     checkProfile = (
+       <CreateProfilePage/>
+     )
+   }
 
     return (
       <div>
         <Header {...this.props}/>
+        {checkProfile}
         {React.cloneElement(this.props.children, this.props)}
       </div>
     )
