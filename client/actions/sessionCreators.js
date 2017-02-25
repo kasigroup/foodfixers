@@ -25,7 +25,8 @@ export function logInUser(credentials) {
   return function(dispatch) {
     return sessionApi.login(credentials).then(response => {
       if (response === undefined) {
-        console.log("not defined");
+        const errorDiv = document.getElementById('errorDiv');
+        errorDiv.innerHTML = "Password or E-mail is wrong";
       }else {
         sessionStorage.setItem('jwt', response.jwt);
         dispatch(loginSuccess());

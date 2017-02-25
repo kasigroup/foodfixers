@@ -63,6 +63,8 @@ class LoginPage extends React.Component {
              onClick={this.onSave}/>
         </form>
 
+        <div id="errorDiv"></div>
+
         <div>
           <Link to="/register" className="btn btn-link">Don't have an account yet?</Link>
         </div>
