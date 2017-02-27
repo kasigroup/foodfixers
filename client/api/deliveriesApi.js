@@ -1,25 +1,24 @@
 import 'whatwg-fetch';
 
-class AccompanimentApi {
+class GetLocationApi {
 
   static requestHeaders() {
     return {'AUTHORIZATION': `Bearer ${sessionStorage.jwt}`}
   }
 
-  static getAllAccompaniments() {
+  static getDeliveries(url) {
     const headers = this.requestHeaders();
-    const request = new Request('http://api.kasigroup.se/side_dish', {
+    const request = new Request(`http://api.kasigroup.se/deliveries/${url}`, {
       method: 'GET',
       headers: headers
     });
 
     return fetch(request).then(response => {
-      console.log("request works")
-      return response.json();
+        return response.json();
     }).catch(error => {
       return error;
     });
   }
 }
 
-export default AccompanimentApi;
+export default GetLocationApi;

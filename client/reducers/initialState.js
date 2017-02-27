@@ -3,5 +3,6 @@ export default {
   dishes: [],
   order: [],
   profile: [],
+  deliveries: [],
   session: !!sessionStorage.jwt
 }

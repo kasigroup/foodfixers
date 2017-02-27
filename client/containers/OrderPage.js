@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import OrderList from '../components/OrderList';
+import LocationContainer from "./LocationContainer";
 
 
 class OrderPage extends React.Component {
@@ -20,11 +21,14 @@ class OrderPage extends React.Component {
     this.props.orders.map((dish) => totalPrice += dish.price)
 
     return (
-      <div className="cards">
-          {this.props.orders.map((dish, i) => <OrderList {...this.props} key={i} i={i} dish={dish} />)}
-          <h3>Total price: {totalPrice}kr</h3>
+      <div>
+        <LocationContainer deliveries={this.props.deliveries}/>
+        <div className="cards">
+            {this.props.orders.map((dish, i) => <OrderList {...this.props} key={i} i={i} dish={dish} />)}
+            <h3>Total price: {totalPrice}kr</h3>
 
-          <button className="btn btn-primary" onClick={this.onSave}>Send order</button>
+            <button className="btn btn-primary" onClick={this.onSave}>Send order</button>
+        </div>
       </div>
     )
   }
