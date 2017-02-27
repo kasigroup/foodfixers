@@ -4,5 +4,6 @@ export default {
   order: [],
   profile: [],
   deliveries: [],
+  locations: [],
   session: !!sessionStorage.jwt
 }

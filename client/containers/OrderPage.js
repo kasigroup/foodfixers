@@ -22,7 +22,7 @@ class OrderPage extends React.Component {
 
     return (
       <div>
-        <LocationContainer deliveries={this.props.deliveries}/>
+        <LocationContainer deliveries={this.props.deliveries} locations={this.props.locations}/>
         <div className="cards">
             {this.props.orders.map((dish, i) => <OrderList {...this.props} key={i} i={i} dish={dish} />)}
             <h3>Total price: {totalPrice}kr</h3>
