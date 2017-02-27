@@ -18,16 +18,18 @@ class RegisterApi {
       const errorPassword = document.getElementById('error-password');
       const errorPasswordConf = document.getElementById('error-password_confirmation');
 
-      const errorResponse = response.json().then(function(error) {
-        errorEmail.innerHTML = error.email ? error.email : "";
-        errorPassword.innerHTML = error.password ? error.password : "";
-        errorPasswordConf.innerHTML = error.password_confirmation ? error.password_confirmation : "";
-      });
-
       if (response.status === 201) {
         browserHistory.push('/login');
         return response.json();
+      }else {
+        const errorResponse = response.json().then(function(error) {
+          errorEmail.innerHTML = error.email ? error.email : "";
+          errorPassword.innerHTML = error.password ? error.password : "";
+          errorPasswordConf.innerHTML = error.password_confirmation ? error.password_confirmation : "";
+        });
       }
+
+
     }).catch(errors => {
       return errors;
     });

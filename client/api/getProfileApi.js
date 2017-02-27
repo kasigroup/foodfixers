@@ -14,8 +14,9 @@ class GetProfileApi {
     });
 
     return fetch(request).then(response => {
-      console.log("getting profile")
-      return response.json();
+      if (response.status === 200) {
+        return response.json();
+      }
     }).catch(error => {
       return error;
     });
