@@ -1,9 +1,8 @@
 import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Accompaniments from './Accompaniments'
-import Header from './Header'
-import CreateProfilePage from './CreateProfilePage'
+import Header from '../containers/Header'
+import CreateProfilePage from '../containers/CreateProfilePage'
 import { Link } from 'react-router';
 import * as orderActions from '../actions/orderActions';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import OrderList from './OrderList';
+import OrderList from '../components/OrderList';
 
 
 class OrderPage extends React.Component {

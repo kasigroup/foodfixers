@@ -13,12 +13,18 @@ class RegisterApi {
 
 
     return fetch(request).then(response => {
-      response.text().then(function(text) {
-        var jsonPretty = JSON.stringify(JSON.parse(text),null,2);
-        console.log(jsonPretty);
+
+      const errorEmail = document.getElementById('error-email');
+      const errorPassword = document.getElementById('error-password');
+      const errorPasswordConf = document.getElementById('error-password_confirmation');
+
+      const errorResponse = response.json().then(function(error) {
+        errorEmail.innerHTML = error.email ? error.email : "";
+        errorPassword.innerHTML = error.password ? error.password : "";
+        errorPasswordConf.innerHTML = error.password_confirmation ? error.password_confirmation : "";
       });
+
       if (response.status === 201) {
-        console.log("Yay du skapade en användare")
         browserHistory.push('/login');
         return response.json();
       }

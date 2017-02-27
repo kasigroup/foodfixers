@@ -1,5 +1,4 @@
 import React from 'react';
-import Product from './Product';
 import * as accompanimentActions from '../actions/accompanimentActions';
 
 class ProductSingle extends React.Component {

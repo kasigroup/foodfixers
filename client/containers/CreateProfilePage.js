@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import TextInput from './common/TextInput';
+import TextInput from '../components/common/TextInput';
 import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';

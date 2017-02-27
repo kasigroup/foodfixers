@@ -1,4 +1,4 @@
-import 'whatwg-fetch'; 
+import 'whatwg-fetch';
 
 class SessionApi {
   static login(credentials) {

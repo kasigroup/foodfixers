@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import TextInput from './common/TextInput';
+import TextInput from '../components/common/TextInput';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as sessionCreators from '../actions/sessionCreators';
@@ -13,8 +13,6 @@ class LoginPage extends React.Component {
     this.state = {credentials: {email: '', password: ''}}
     this.onChange = this.onChange.bind(this);
     this.onSave = this.onSave.bind(this);
-    this.testing = this.testing.bind(this);
-
   }
 
   onChange(event) {
@@ -29,18 +27,13 @@ class LoginPage extends React.Component {
     this.props.actions.logInUser(this.state.credentials);
   }
 
-  testing(event) {
-    event.preventDefault();
-    this.props.dispatchTest();
-  }
-
-
 
   render() {
     return (
       <div>
         <h3>Login Page</h3>
-        <form>
+
+        <form id="loginForm">
           <TextInput
              name="email"
              type="email"
