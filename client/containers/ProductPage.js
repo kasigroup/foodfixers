@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Product from './Product';
+import Product from '../components/Product';
 
 
 class LandingPage extends React.Component {

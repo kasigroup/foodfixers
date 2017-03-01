@@ -15,6 +15,7 @@ const TextInput = ({name, label, onChange, placeholder, value, error, type="text
           value={value}
           onChange={onChange} required/>
       </div>
+      <div className="inputError" id={`error-${name}`}></div>
     </div>
   );
 };

@@ -10,7 +10,9 @@ function mapStateToProps(state) {
   return {
     dishes: state.dishes,
     orders: state.order,
-    profile: state.profile
+    profile: state.profile,
+    deliveries: state.deliveries,
+    locations: state.locations
   }
 }
 

@@ -17,11 +17,21 @@ class CreateProfileApi {
 
 
     return fetch(request).then(response => {
-      response.text().then(function(text) {
-        var jsonPretty = JSON.stringify(JSON.parse(text),null,2);
-        console.log(jsonPretty);
-      });
-      return response.json();
+
+      const errorFirst = document.getElementById('error-first_name');
+      const errorLast = document.getElementById('error-last_name');
+
+      console.log(response.status);
+
+      if (response.status === 201) {
+         console.log("do something")
+         return response.json();
+      }else {
+        const errorResponse = response.json().then(function(error) {
+          errorFirst.innerHTML = error.first_name ? error.first_name : "";
+          errorLast.innerHTML = error.last_name ? error.last_name : "";
+        });
+      }      
     }).catch(errors => {
       return errors;
     });

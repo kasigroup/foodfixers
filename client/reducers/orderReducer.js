@@ -1,3 +1,4 @@
+import * as types from '../actions/actionTypes';
 import initialState from './initialState';
 
 // a reducer takes in two things:
@@ -5,14 +6,12 @@ import initialState from './initialState';
 // 1. The action (info about what happend)
 // 2. Copy of current state
 
-function orderReducer(state = initialState.order, action){
+function orderReducer(state = initialState.order.items_attributes, action){
   switch (action.type) {
     case "ADD_ORDER":
-      return [...state, {
-        dish: action.dish.name,
-        id: action.dish.id,
-        price: action.dish.price
-      }];
+      return {...state,
+        dish: action.dish.name
+      };
     case "REMOVE_ORDER":
       console.log(`Removing: ${action.index}`);
 

@@ -6,18 +6,17 @@ import { render } from 'react-dom';
 import css from './styles/style.styl';
 
 // Import Components
-import App from './components/App';
-import Home from './components/Home';
-import LoginPage from './components/loginPage';
-import RegisterPage from './components/RegisterPage';
-import CreateProfilePage from './components/CreateProfilePage';
-import NotFound from './components/NotFound';
-import LandingPage from './components/LandingPage';
-import ProductPage from './components/ProductPage';
-import OrderPage from './components/OrderPage';
-import ProfilePage from './components/ProfilePage';
-import Product from './components/Product';
-import ProductSingle from './components/ProductSingle';
+import App from './containers/App';
+import Home from './containers/Home';
+import LoginPage from './containers/loginPage';
+import RegisterPage from './containers/RegisterPage';
+import CreateProfilePage from './containers/CreateProfilePage';
+import NotFound from './containers/NotFound';
+import LandingPage from './containers/LandingPage';
+import ProductPage from './containers/ProductPage';
+import OrderPage from './containers/OrderPage';
+import ProfilePage from './containers/ProfilePage';
+import ProductSingle from './containers/ProductSingle';
 
 // Import react router deps
 import { Router, Route, IndexRoute, browserHistory, Miss } from 'react-router';

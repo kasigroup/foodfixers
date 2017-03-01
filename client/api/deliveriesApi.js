@@ -1,26 +1,24 @@
 import 'whatwg-fetch';
 
-class GetProfileApi {
+class GetLocationApi {
 
   static requestHeaders() {
     return {'AUTHORIZATION': `Bearer ${sessionStorage.jwt}`}
   }
 
-  static getProfile() {
+  static getDeliveries(url) {
     const headers = this.requestHeaders();
-    const request = new Request('http://api.kasigroup.se/profile', {
+    const request = new Request(`http://api.kasigroup.se/deliveries/${url}`, {
       method: 'GET',
       headers: headers
     });
 
     return fetch(request).then(response => {
-      if (response.status === 200) {
         return response.json();
-      }
     }).catch(error => {
       return error;
     });
   }
 }
 
-export default GetProfileApi;
+export default GetLocationApi;

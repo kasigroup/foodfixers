@@ -8,7 +8,7 @@ class AccompanimentApi {
 
   static getAllAccompaniments() {
     const headers = this.requestHeaders();
-    const request = new Request('http://api.kasigroup.se/accompaniments', {
+    const request = new Request('http://api.kasigroup.se/side_dish', {
       method: 'GET',
       headers: headers
     });

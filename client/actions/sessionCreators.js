@@ -16,6 +16,10 @@ export function createProfileSuccess() {
   }
 }
 
+
+
+
+
 export function logOutUser() {
   sessionStorage.removeItem('jwt');
   return {type: types.LOG_OUT}
@@ -25,7 +29,8 @@ export function logInUser(credentials) {
   return function(dispatch) {
     return sessionApi.login(credentials).then(response => {
       if (response === undefined) {
-        console.log("not defined");
+        const errorDiv = document.getElementById('errorDiv');
+        errorDiv.innerHTML = "Password or E-mail is wrong";
       }else {
         sessionStorage.setItem('jwt', response.jwt);
         dispatch(loginSuccess());
@@ -49,10 +54,18 @@ export function loadProfileSuccess(profile) {
   return {type: types.LOAD_PROFILE_SUCCESS, profile};
 }
 
+export function loadProfileMissing(profile) {
+  return {type: types.LOAD_PROFILE_MISSING, profile};
+}
+
 export function createProfile(profile) {
   return function(dispatch) {
     return CreateProfileApi.createProfile(profile).then(response => {
-      dispatch(createProfileSuccess(profile));
+      if (response === undefined) {
+        console.log("undefined response")
+      }else {
+        dispatch(createProfileSuccess());
+      }
     }).catch(error => {
       throw(error);
     });
@@ -62,7 +75,11 @@ export function createProfile(profile) {
 export function loadProfile() {
   return function(dispatch) {
     return GetProfileApi.getProfile().then(profile => {
-      dispatch(loadProfileSuccess(profile));
+      if (profile === undefined) {
+        dispatch(loadProfileMissing(profile));
+      }else {
+        dispatch(loadProfileSuccess(profile));
+      }
     }).catch(error => {
       throw(error);
     });

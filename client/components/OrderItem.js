@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-class OrderList extends React.Component {
+class OrderItem extends React.Component {
   render() {
     const { dish, i } = this.props;
 
@@ -18,4 +18,4 @@ class OrderList extends React.Component {
 }
 
 
-export default OrderList;
+export default OrderItem;
