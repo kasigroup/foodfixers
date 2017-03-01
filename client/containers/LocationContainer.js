@@ -27,6 +27,7 @@ class LocationContainer extends React.Component {
 
   handleChangeArea(event) {
    this.setState({area: event.target.value});
+   this.props.chooseArea(event.target.value);
    console.log(event.target.value);
  }
 
@@ -37,22 +38,22 @@ class LocationContainer extends React.Component {
 
   render() {
     return (
-      <div>
-        <label className="mr-sm-2">
-          Pick your area:
-          <select className="custom-select mb-2 mr-sm-2 mb-sm-0" value={this.state.value} onChange={this.handleChangeArea}>
-            <option defaultValue="" disabled>Choose...</option>
-            {this.props.deliveries.map((item, i) =>  <ChooseDay key={i} i={i} item={item}/>)}
-          </select>
-        </label>
+      <div className="delivery-container">
 
-        <label className="mr-sm-2">
+
+        <form value={this.state.value} onChange={this.handleChangeArea}>
+          <div className="custom-controls-stacked">
+            {this.props.deliveries.map((item, i) =>  <ChooseDay key={i} i={i} item={item}/>)}
+          </div>
+        </form>
+
+        {/* <label className="mr-sm-2">
           Pick your adress:
           <select className="custom-select mb-2 mr-sm-2 mb-sm-0" value={this.state.value} onChange={this.handleChangeLocation}>
-            <option defaultValue="" disabled>Choose...</option>
+            <option defaultValue="" >Choose...</option>
             {this.props.locations.map((item, i) =>  <ChooseAdress key={i} i={i} item={item}/>)}
           </select>
-        </label>
+        </label> */}
 
       </div>
     )

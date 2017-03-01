@@ -20,7 +20,6 @@ export function loadDeliveries(url) {
   };
 }
 
-
 export function loadLocations(url) {
   return function(dispatch) {
     return deliveriesApi.getDeliveries(url).then(locations => {
@@ -30,4 +29,11 @@ export function loadLocations(url) {
       throw(error);
     });
   };
+}
+
+export function chooseArea(value) {
+  return {
+    type: types.CHOOSE_AREA,
+    value
+  }
 }

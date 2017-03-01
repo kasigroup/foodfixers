@@ -1,7 +1,7 @@
 export default {
   sideDishes: [],
   dishes: [],
-  order: [],
+  order: {items_attributes:[]},
   profile: [],
   deliveries: [],
   locations: [],
