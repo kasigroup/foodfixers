@@ -1,15 +1,47 @@
-import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
-import { reducer as formReducer } from 'redux-form'
+import { combineReducers } from 'redux'
+import products, * as fromProducts from './products'
+import session, * as fromSession from './session'
+import cart, * as fromCart from './cart'
+import locations, * as fromLocations from './locations'
+import areas, * as fromAreas from './areas'
+import { routerReducer } from 'react-router-redux'
+import { reducer as form } from 'redux-form'
 
-import session from './sessionReducer';
-import accompaniments from './accompanimentReducer';
-import dishes from './dishesReducer';
-import order from './orderReducer';
-import profile from './profileReducer';
-import deliveries from './deliveriesReducer';
-import locations from './locationsReducer';
+export default combineReducers({
+  form,
+  cart,
+  session,
+  locations,
+  areas,
+  products,
+  routing: routerReducer
+})
 
-const rootReducer = combineReducers({session, accompaniments, dishes, profile, order, deliveries, locations, routing: routerReducer, form: formReducer });
 
-export default rootReducer;
+// Cart reducing
+
+const getAddedIds = state => fromCart.getAddedIds(state.cart)
+const getQuantity = (state, id) => fromCart.getQuantity(state.cart, id)
+const getProduct = (state, id) => fromProducts.getProduct(state.products, id)
+
+export const getTotal = state =>
+  getAddedIds(state)
+    .reduce((total, id) =>
+      total + getProduct(state, id).price * getQuantity(state, id),
+      0
+    )
+    .toFixed(0)
+
+export const getCartProducts = state =>
+  getAddedIds(state).map(id => ({
+    ...getProduct(state, id),
+    quantity: getQuantity(state, id)
+  }))
+
+export const getCartQuantity = state =>
+  getAddedIds(state)
+    .reduce((quantity, id) =>
+      quantity + getQuantity(state, id),
+      0
+    )
+    .toFixed(0)

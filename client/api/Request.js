@@ -1,14 +1,14 @@
 import 'whatwg-fetch';
 
-class DishesApi {
+class ApiRequest {
 
   static requestHeaders() {
     return {'AUTHORIZATION': `Bearer ${sessionStorage.jwt}`}
   }
 
-  static getAllDishes() {
+  static getAllItems(url) {
     const headers = this.requestHeaders();
-    const request = new Request('http://api.kasigroup.se/dishes', {
+    const request = new Request(`http://api.kasigroup.se/${url}`, {
       method: 'GET',
       headers: headers
     });
@@ -21,4 +21,4 @@ class DishesApi {
   }
 }
 
-export default DishesApi;
+export default ApiRequest;

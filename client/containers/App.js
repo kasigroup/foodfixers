@@ -1,25 +1,17 @@
-import React, {PropTypes} from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import Home from './Home';
-import * as dishesActions from '../actions/dishesActions';
+import React from 'react'
+import { connect } from 'react-redux'
+import ProductsContainer from './ProductsContainer'
+import CartContainer from './CartContainer'
+import LocationContainer from './LocationContainer'
+import { logInUser } from '../actions/sessionActions'
 
 
+const App = ({logInUser}) => (
+  <div>
+    <button className="btn btn-primary" onClick={() => logInUser()}>Press then refresh</button>
+  </div>
+)
 
-function mapStateToProps(state) {
-  return {
-    dishes: state.dishes,
-    orders: state.order,
-    profile: state.profile,
-    deliveries: state.deliveries,
-    locations: state.locations
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(dishesActions, dispatch);
-}
-
-const App = connect(mapStateToProps, mapDispatchToProps)(Home);
-
-export default App;
+export default connect(
+  null,{ logInUser }
+)(App)
