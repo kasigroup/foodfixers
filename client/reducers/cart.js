@@ -41,7 +41,7 @@ const setLocation = (state = initialState.location, action) => {
 const quantityById = (state = initialState.quantityById, action) => {
   switch (action.type) {
     case ADD_TO_CART:
-      console.log(action.productId)
+      console.log(`added product ${action.productId} to cart`)
       const { productId } = action
       return { ...state,
         [productId]: (state[productId] || 0) + 1

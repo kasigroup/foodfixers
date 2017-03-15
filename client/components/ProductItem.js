@@ -1,12 +1,15 @@
 import React, { PropTypes } from 'react'
 import Product from './Product'
+import { Link } from 'react-router-dom'
 
 const ProductItem = ({ product, onAddToCartClicked }) => (
   <div id="productItem">
+    <Link to={`product/${product.id}`}>
     <Product
       title={product.name}
       desc={product.description}
       price={product.price} />
+    </Link>
     <button
       className="btn"
       onClick={onAddToCartClicked}>Add to cart

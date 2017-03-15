@@ -20,6 +20,7 @@ import App from './containers/App';
 import ProductsContainer from './containers/ProductsContainer';
 import CartContainer from './containers/CartContainer';
 import NavBar from './containers/NavBar';
+import ProductView from './containers/ProductView';
 
 const enhancers = compose(
   window.devToolsExtension ? window.devToolsExtension() : f => f
@@ -53,9 +54,10 @@ const Root = () => {
         <div>
 
           <NavBar />
-          <Route exact path="/" component={App} />
-          <Route path="/home" component={ProductsContainer} />
-          <Route path="/cart" component={CartContainer} />
+            <Route exact path="/" component={App} />
+            <Route path="/home" component={ProductsContainer} />
+            <Route path="/product/:id" component={ProductView} />
+            <Route path="/cart" component={CartContainer} />
 
         </div>
        </Router>
