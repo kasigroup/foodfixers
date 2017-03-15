@@ -1,7 +1,6 @@
 import 'whatwg-fetch';
-import { browserHistory } from 'react-router';
 
-class RegisterApi {
+class ApiOrderRequest {
 
   static requestHeaders() {
     return {'AUTHORIZATION': `Bearer ${sessionStorage.jwt}`, 'Content-Type': 'application/json'}
@@ -27,4 +26,4 @@ class RegisterApi {
   }
 }
 
-export default RegisterApi;
+export default ApiOrderRequest;
