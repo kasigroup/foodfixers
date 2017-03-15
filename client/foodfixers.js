@@ -7,6 +7,9 @@ import { loadDishes } from './actions/productActions'
 import { loadLocation } from './actions/locationActions'
 import { loadAreas } from './actions/locationActions'
 import { loadProfile, loadOrders } from './actions/profileActions'
+import { loginSuccess } from './actions/sessionActions'
+
+
 import reducer from './reducers'
 
 // import { Router, Route, browserHistory } from 'react-router'
@@ -23,6 +26,7 @@ import CartContainer from './containers/CartContainer';
 import ProfileContainer from './containers/ProfileContainer';
 import NavBar from './containers/NavBar';
 import ProductView from './containers/ProductView';
+import Login from './containers/Login';
 
 const enhancers = compose(
   window.devToolsExtension ? window.devToolsExtension() : f => f
@@ -40,18 +44,28 @@ const store = createStore(
 // Create an enhanced history that syncs navigation events with the store
 // const history = syncHistoryWithStore(browserHistory, store)
 
-// Gets all products
-store.dispatch(loadDishes())
+// Check if logged in
+if (sessionStorage.jwt) {
+  store.dispatch(loginSuccess())
 
-// Gets all locations
-store.dispatch(loadLocation())
+  // Gets all products
+  store.dispatch(loadDishes())
 
-// Gets all areas
-store.dispatch(loadAreas())
+  // Gets all locations
+  store.dispatch(loadLocation())
 
-// Gets profile
-store.dispatch(loadProfile())
-store.dispatch(loadOrders())
+  // Gets all areas
+  store.dispatch(loadAreas())
+
+  // Gets profile
+  store.dispatch(loadProfile())
+  store.dispatch(loadOrders())
+
+}else {
+  console.log("not logged in")
+}
+
+
 
 const Root = () => {
   return(
@@ -59,8 +73,10 @@ const Root = () => {
       <Router>
         <div>
 
-          <NavBar />
+            <NavBar />
+
             <Route exact path="/" component={App} />
+            <Route path="/login" component={Login} />
             <Route path="/home" component={ProductsContainer} />
             <Route path="/profile" component={ProfileContainer} />
             <Route path="/product/:id" component={ProductView} />
