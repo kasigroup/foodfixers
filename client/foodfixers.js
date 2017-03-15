@@ -6,6 +6,7 @@ import thunk from 'redux-thunk'
 import { loadDishes } from './actions/productActions'
 import { loadLocation } from './actions/locationActions'
 import { loadAreas } from './actions/locationActions'
+import { loadProfile, loadOrders } from './actions/profileActions'
 import reducer from './reducers'
 
 // import { Router, Route, browserHistory } from 'react-router'
@@ -19,6 +20,7 @@ import css from './styles/style.styl';
 import App from './containers/App';
 import ProductsContainer from './containers/ProductsContainer';
 import CartContainer from './containers/CartContainer';
+import ProfileContainer from './containers/ProfileContainer';
 import NavBar from './containers/NavBar';
 import ProductView from './containers/ProductView';
 
@@ -47,6 +49,10 @@ store.dispatch(loadLocation())
 // Gets all areas
 store.dispatch(loadAreas())
 
+// Gets profile
+store.dispatch(loadProfile())
+store.dispatch(loadOrders())
+
 const Root = () => {
   return(
     <Provider store={store}>
@@ -56,6 +62,7 @@ const Root = () => {
           <NavBar />
             <Route exact path="/" component={App} />
             <Route path="/home" component={ProductsContainer} />
+            <Route path="/profile" component={ProfileContainer} />
             <Route path="/product/:id" component={ProductView} />
             <Route path="/cart" component={CartContainer} />
 

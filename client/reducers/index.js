@@ -4,6 +4,7 @@ import session, * as fromSession from './session'
 import cart, * as fromCart from './cart'
 import locations, * as fromLocations from './locations'
 import areas, * as fromAreas from './areas'
+import profile_data, * as fromProfile from './profile'
 import { routerReducer } from 'react-router-redux'
 import { reducer as form } from 'redux-form'
 
@@ -13,6 +14,7 @@ export default combineReducers({
   session,
   locations,
   areas,
+  profile_data,
   products,
   routing: routerReducer
 })

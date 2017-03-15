@@ -9,6 +9,9 @@ export const SET_LOCATION = 'SET_LOCATION'
 // Session
 export const LOG_IN_SUCCESS = 'LOG_IN_SUCCESS'
 
+// Profile
+export const LOAD_PROFILE_SUCCESS = 'LOAD_PROFILE_SUCCESS'
+export const LOAD_ORDERS_SUCCESS = 'LOAD_ORDERS_SUCCESS'
 
 // Cart
 export const ADD_TO_CART = 'ADD_TO_CART'
