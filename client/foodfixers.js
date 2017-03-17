@@ -26,7 +26,7 @@ import CartContainer from './containers/CartContainer';
 import ProfileContainer from './containers/ProfileContainer';
 import NavBar from './containers/NavBar';
 import ProductView from './containers/ProductView';
-import Login from './containers/Login';
+import LoginContainer from './containers/LoginContainer';
 
 const enhancers = compose(
   window.devToolsExtension ? window.devToolsExtension() : f => f
@@ -76,7 +76,7 @@ const Root = () => {
             <NavBar />
 
             <Route exact path="/" component={App} />
-            <Route path="/login" component={Login} />
+            <Route path="/login" component={LoginContainer} />
             <Route path="/home" component={ProductsContainer} />
             <Route path="/profile" component={ProfileContainer} />
             <Route path="/product/:id" component={ProductView} />
