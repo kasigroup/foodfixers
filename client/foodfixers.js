@@ -14,7 +14,6 @@ import reducer from './reducers'
 
 // import { Router, Route, browserHistory } from 'react-router'
 import { BrowserRouter as Router, Route, Redirect, withRouter, Link } from 'react-router-dom'
-import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 
 // Import css
 import css from './styles/style.styl';
@@ -40,6 +39,7 @@ const store = createStore(
   enhancers,
   applyMiddleware(...middleware)
 )
+
 
 // Create an enhanced history that syncs navigation events with the store
 // const history = syncHistoryWithStore(browserHistory, store)
@@ -77,16 +77,31 @@ const Root = () => {
 
             <Route exact path="/" component={App} />
             <Route path="/login" component={LoginContainer} />
-            <Route path="/home" component={ProductsContainer} />
-            <Route path="/profile" component={ProfileContainer} />
-            <Route path="/product/:id" component={ProductView} />
-            <Route path="/cart" component={CartContainer} />
+            <PrivateRoute path="/home" component={ProductsContainer} />
+            <PrivateRoute path="/profile" component={ProfileContainer} />
+            <PrivateRoute path="/product/:id" component={ProductView} />
+            <PrivateRoute path="/cart" component={CartContainer} />
 
         </div>
        </Router>
     </Provider>
   )
 }
+
+
+// Redirects if no sessionStorage.jwt
+const PrivateRoute = ({ component, ...rest }) => (
+  <Route {...rest} render={props => (
+    sessionStorage.jwt ? (
+      React.createElement(component, props)
+    ) : (
+      <Redirect to={{
+        pathname: '/login'
+      }}/>
+    )
+  )}/>
+)
+
 
 
 render(<Root />, document.getElementById('root'));
