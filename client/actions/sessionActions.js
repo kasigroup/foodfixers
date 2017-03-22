@@ -9,6 +9,12 @@ export function loginSuccess() {
   }
 }
 
+export function registerSuccess() {
+  return {
+    type: types.REGISTER_SUCCESS
+  }
+}
+
 export function logInUser(values) {
   const url = "account_token";
   return function(dispatch) {
@@ -33,12 +39,10 @@ export function registerUser(values) {
     return ApiRegisterRequest.register(url,values).then(response => {
       console.log(response)
       if (response.created_at) {
-        throw new SubmissionError({ _error: 'Register done!' })
+        dispatch(registerSuccess());
       }else {
         throw new SubmissionError({ email: "E-mail " + response.email, password: "Password " +response.password, _error: 'Register failed!' })
       }
-
-      dispatch(registerSuccess());
     }).catch(error => {
       throw(error);
     });

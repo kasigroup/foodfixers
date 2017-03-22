@@ -8,6 +8,8 @@ export const SET_LOCATION = 'SET_LOCATION'
 
 // Session
 export const LOG_IN_SUCCESS = 'LOG_IN_SUCCESS'
+export const REGISTER_SUCCESS = 'REGISTER_SUCCESS'
+
 
 // Profile
 export const LOAD_PROFILE_SUCCESS = 'LOAD_PROFILE_SUCCESS'
