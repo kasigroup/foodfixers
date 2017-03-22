@@ -1,4 +1,5 @@
-import ApiPostRequest from '../api/PostRequest';
+import ApiPostRequest from '../api/PostRequest'
+import ApiRegisterRequest from '../api/RegisterRequest'
 import * as types from '../constants/ActionTypes'
 import { SubmissionError } from 'redux-form'
 
@@ -19,6 +20,25 @@ export function logInUser(values) {
         sessionStorage.setItem('jwt', response.jwt);
         dispatch(loginSuccess());
       }
+    }).catch(error => {
+      throw(error);
+    });
+  }
+}
+
+export function registerUser(values) {
+  const url = "account";
+  console.log(values)
+  return function(dispatch) {
+    return ApiRegisterRequest.register(url,values).then(response => {
+      console.log(response)
+      if (response.created_at) {
+        throw new SubmissionError({ _error: 'Register done!' })
+      }else {
+        throw new SubmissionError({ email: "E-mail " + response.email, password: "Password " +response.password, _error: 'Register failed!' })
+      }
+
+      dispatch(registerSuccess());
     }).catch(error => {
       throw(error);
     });

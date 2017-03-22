@@ -7,26 +7,26 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => (
     <label>{label}</label>
     <div>
       <input {...input} placeholder={label} type={type}/>
-      {touched && error && <span>{error}</span>}
+      {touched && error && <p className="error-text">{error}</p>}
     </div>
   </div>
 )
 
-const SubmitValidationForm = (props) => {
-  const { error, handleSubmit, pristine, reset, submitting, login } = props
+const SubmitRegisterForm = (props) => {
+  const { error, handleSubmit, pristine, reset, submitting, register } = props
   return (
-    <form onSubmit={handleSubmit(login)}>
+    <form onSubmit={handleSubmit(register)}>
       <Field name="email" type="text" component={renderField} label="Email"/>
       <Field name="password" type="password" component={renderField} label="Password"/>
       {error && <strong>{error}</strong>}
-      <Link to="/register">Register new account?</Link>
+      <p><Link to="/login">Already registered?</Link></p>
       <div>
-        <button type="submit" disabled={submitting}>Log In</button>
+        <button type="submit" disabled={submitting}>Register</button>
       </div>
     </form>
   )
 }
 
 export default reduxForm({
-  form: 'submitValidation'  // a unique identifier for this form
-})(SubmitValidationForm)
+  form: 'registerForm'  // a unique identifier for this form
+})(SubmitRegisterForm)

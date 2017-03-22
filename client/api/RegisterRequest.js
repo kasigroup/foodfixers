@@ -1,23 +1,21 @@
 import 'whatwg-fetch';
 
-class ApiPostRequest {
-  static login(url,values) {
-    console.log("hej")
+class ApiRegisterRequest {
+  static register(url,values) {
+    console.log("hejsan")
     const request = new Request(`http://api.kasigroup.se/${url}`, {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json'
       }),
-      body: JSON.stringify({auth: values})
+      body: JSON.stringify({account: values})
     });
     return fetch(request).then(response => {
-      if (response.status === 201) {
-        return response.json();
-      }
+      return response.json();
     }).catch(error => {
       return error;
     });
   }
 }
 
-export default ApiPostRequest;
+export default ApiRegisterRequest;
