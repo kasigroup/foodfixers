@@ -27,6 +27,7 @@ import NavBar from './containers/NavBar';
 import ProductView from './containers/ProductView';
 import LoginContainer from './containers/LoginContainer';
 import RegisterContainer from './containers/RegisterContainer';
+import CreateProfileContainer from './containers/CreateProfileContainer';
 
 const enhancers = compose(
   window.devToolsExtension ? window.devToolsExtension() : f => f
@@ -79,6 +80,7 @@ const Root = () => {
             <Route exact path="/" component={App} />
             <Route path="/login" component={LoginContainer} />
             <Route path="/register" component={RegisterContainer} />
+            <PrivateRoute path="/createprofile" component={CreateProfileContainer} />
             <PrivateRoute path="/home" component={ProductsContainer} />
             <PrivateRoute path="/profile" component={ProfileContainer} />
             <PrivateRoute path="/product/:id" component={ProductView} />

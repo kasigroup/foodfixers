@@ -1,5 +1,6 @@
 import ApiPostRequest from '../api/PostRequest'
 import ApiRegisterRequest from '../api/RegisterRequest'
+import ApiCreateProfileRequest from '../api/CreateProfileRequest'
 import * as types from '../constants/ActionTypes'
 import { SubmissionError } from 'redux-form'
 
@@ -12,6 +13,12 @@ export function loginSuccess() {
 export function registerSuccess() {
   return {
     type: types.REGISTER_SUCCESS
+  }
+}
+
+export function createProfileSuccess() {
+  return {
+    type: types.CREATE_PROFILE_SUCCESS
   }
 }
 
@@ -32,6 +39,19 @@ export function logInUser(values) {
   }
 }
 
+export function createProfile(values) {
+  const url = "profile";
+  console.log(values)
+  return function(dispatch) {
+    return ApiCreateProfileRequest.create(url,values).then(response => {
+      console.log(response)
+      dispatch(createProfileSuccess());
+    }).catch(error => {
+      throw(error);
+    });
+  }
+}
+
 export function registerUser(values) {
   const url = "account";
   console.log(values)
@@ -41,7 +61,7 @@ export function registerUser(values) {
       if (response.created_at) {
         dispatch(registerSuccess());
       }else {
-        throw new SubmissionError({ email: "E-mail " + response.email, password: "Password " +response.password, _error: 'Register failed!' })
+        throw new SubmissionError({ email: "E-mail " + response.email, password: "Password " + response.password, _error: 'Register failed!' })
       }
     }).catch(error => {
       throw(error);
