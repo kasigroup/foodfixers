@@ -10,7 +10,7 @@ const LocationForm = (props) => {
             {locations.map((item, i) => <div className="form-check" key={i}><label className="form-check-label"><Field name="location" className="form-check-input" component="input" type="radio" value={`${item.id}`}/>{item.street_address}</label></div> )}
         </div>
         <div>
-        <button type="submit" disabled={pristine || submitting}>Save choice</button>
+        {/* <button type="submit" disabled={pristine || submitting}>Save choice</button> */}
         </div>
       </fieldset>
     </form>

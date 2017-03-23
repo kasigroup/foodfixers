@@ -8,7 +8,7 @@ import { logInUser } from '../actions/sessionActions'
 
 const App = ({logInUser}) => (
   <div>
-    <button className="btn btn-primary" onClick={() => logInUser()}>Press then refresh</button>
+    {/* <button className="btn btn-primary" onClick={() => logInUser()}>Press then refresh</button> */}
   </div>
 )
 

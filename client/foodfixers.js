@@ -51,17 +51,17 @@ if (sessionStorage.jwt) {
   store.dispatch(loginSuccess())
 
   // Gets all products
-  store.dispatch(loadDishes())
+  // store.dispatch(loadDishes())
 
   // Gets all locations
-  store.dispatch(loadLocation())
+  // store.dispatch(loadLocation())
 
   // Gets all areas
-  store.dispatch(loadAreas())
+  // store.dispatch(loadAreas())
 
   // Gets profile
-  store.dispatch(loadProfile())
-  store.dispatch(loadOrders())
+  // store.dispatch(loadProfile())
+  // store.dispatch(loadOrders())
 
 }else {
   console.log("not logged in")
