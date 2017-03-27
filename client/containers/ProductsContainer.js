@@ -5,7 +5,9 @@ import { getVisibleProducts } from '../reducers/products'
 import { addToCart } from '../actions/productActions'
 import ProductItem from '../components/ProductItem'
 import ProductsList from '../components/ProductsList'
+import CreateProfile from '../components/CreateProfile'
 import { loadDishes } from '../actions/productActions'
+import { loadProfile } from '../actions/profileActions'
 
 
 class ProductsContainer extends Component {
@@ -14,23 +16,31 @@ class ProductsContainer extends Component {
     super(props)
   }
 
-  componentDidMount() {
-    const { loadDishes } = this.props
+  componentWillMount() {
+    const { loadDishes,loadProfile } = this.props
     loadDishes()
+    loadProfile()
   }
 
   render() {
-    const { products, addToCart } = this.props
-    return (
-      <ProductsList title="Products">
-        {products.map(product =>
-            <ProductItem
-              key={product.id}
-              product={product}
-              onAddToCartClicked={() => addToCart(product.id)} />
-        )}
-      </ProductsList>
-    )
+    const { products, profile, addToCart } = this.props
+    if (!profile.first_name) {
+      return (
+        <CreateProfile />
+      )
+    }else {
+      return (
+        <ProductsList title="Products">
+          {products.map(product =>
+              <ProductItem
+                key={product.id}
+                product={product}
+                onAddToCartClicked={() => addToCart(product.id)} />
+          )}
+        </ProductsList>
+      )
+    }
+
   }
 }
 
@@ -46,11 +56,12 @@ class ProductsContainer extends Component {
 // )
 
 const mapStateToProps = state => ({
-  products: getVisibleProducts(state.products)
+  products: getVisibleProducts(state.products),
+  profile: state.profile_data.profile
 })
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ addToCart,loadDishes }, dispatch)
+  return bindActionCreators({ addToCart,loadDishes,loadProfile }, dispatch)
 }
 
 export default connect(

@@ -25,6 +25,7 @@ import CartContainer from './containers/CartContainer';
 import ProfileContainer from './containers/ProfileContainer';
 import NavBar from './containers/NavBar';
 import ProductView from './containers/ProductView';
+import Private from './containers/Private';
 import LoginContainer from './containers/LoginContainer';
 import RegisterContainer from './containers/RegisterContainer';
 import CreateProfileContainer from './containers/CreateProfileContainer';
@@ -93,6 +94,9 @@ const Root = () => {
 }
 
 
+
+
+
 // Redirects if no sessionStorage.jwt
 const PrivateRoute = ({ component, ...rest }) => (
   <Route {...rest} render={props => (
@@ -100,10 +104,16 @@ const PrivateRoute = ({ component, ...rest }) => (
       React.createElement(component, props)
     ) : (
       <Redirect to={{
-        pathname: '/login'
+        pathname: '/login',
+        state: { from: props.location }
       }}/>
     )
   )}/>
+)
+
+
+const CheckProfile = ({ component, ...rest }) => (
+  <Route {...rest} component={Private}/>
 )
 
 
