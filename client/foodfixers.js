@@ -12,20 +12,18 @@ import { loginSuccess } from './actions/sessionActions'
 
 import reducer from './reducers'
 
-// import { Router, Route, browserHistory } from 'react-router'
-import { BrowserRouter as Router, Route, Redirect, withRouter, Link } from 'react-router-dom'
+import { Router, Route, browserHistory } from 'react-router'
+import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux'
 
 // Import css
 import css from './styles/style.styl';
 
 // Import Components
 import App from './containers/App';
-import ProductsContainer from './containers/ProductsContainer';
+import HomeContainer from './containers/HomeContainer';
 import CartContainer from './containers/CartContainer';
 import ProfileContainer from './containers/ProfileContainer';
-import NavBar from './containers/NavBar';
 import ProductView from './containers/ProductView';
-import Private from './containers/Private';
 import LoginContainer from './containers/LoginContainer';
 import RegisterContainer from './containers/RegisterContainer';
 import CreateProfileContainer from './containers/CreateProfileContainer';
@@ -35,87 +33,57 @@ const enhancers = compose(
 );
 
 
-// Create store
-const middleware = [ thunk ];
+
+const middleware = routerMiddleware(browserHistory)
 const store = createStore(
   reducer,
   enhancers,
-  applyMiddleware(...middleware)
+  applyMiddleware(thunk, middleware)
 )
 
 
 // Create an enhanced history that syncs navigation events with the store
-// const history = syncHistoryWithStore(browserHistory, store)
+const history = syncHistoryWithStore(browserHistory, store)
 
 // Check if logged in
 if (sessionStorage.jwt) {
   store.dispatch(loginSuccess())
-
-  // Gets all products
-  // store.dispatch(loadDishes())
-
-  // Gets all locations
-  // store.dispatch(loadLocation())
-
-  // Gets all areas
-  // store.dispatch(loadAreas())
-
-  // Gets profile
-  // store.dispatch(loadProfile())
-  // store.dispatch(loadOrders())
-
 }else {
   console.log("not logged in")
 }
 
 
-
 const Root = () => {
   return(
     <Provider store={store}>
-      <Router>
-        <div>
-
-            <NavBar />
-
-            <Route exact path="/" component={App} />
-            <Route path="/login" component={LoginContainer} />
-            <Route path="/register" component={RegisterContainer} />
-            <PrivateRoute path="/createprofile" component={CreateProfileContainer} />
-            <PrivateRoute path="/home" component={ProductsContainer} />
-            <PrivateRoute path="/profile" component={ProfileContainer} />
-            <PrivateRoute path="/product/:id" component={ProductView} />
-            <PrivateRoute path="/cart" component={CartContainer} />
-
-        </div>
+      <Router history={browserHistory} >
+            <Route path="/" component={App}>
+              <Route path="login" component={LoginContainer} />
+              <Route path="register" component={RegisterContainer} />
+              <Route path="createprofile" component={CreateProfileContainer} />
+              <Route path="home" component={HomeContainer} onEnter={requireAuth}/>
+              <Route path="profile" component={ProfileContainer} onEnter={requireAuth}/>
+              <Route path="cart" component={CartContainer} onEnter={requireAuth}/>
+              <Route path="product/:id" component={ProductView} onEnter={requireAuth}/>
+            </Route>
        </Router>
-    </Provider>
+     </Provider>
   )
 }
 
-
-
-
-
-// Redirects if no sessionStorage.jwt
-const PrivateRoute = ({ component, ...rest }) => (
-  <Route {...rest} render={props => (
-    sessionStorage.jwt ? (
-      React.createElement(component, props)
-    ) : (
-      <Redirect to={{
-        pathname: '/login',
-        state: { from: props.location }
-      }}/>
-    )
-  )}/>
-)
-
-
-const CheckProfile = ({ component, ...rest }) => (
-  <Route {...rest} component={Private}/>
-)
-
-
+function requireAuth(nextState, replace) {
+  const { profile_data } = store.getState()
+  if (!sessionStorage.jwt) {
+    replace({
+      pathname: '/login',
+      state: { nextPathname: nextState.location.pathname }
+    })
+  }else if(profile_data.profile.created) {
+    replace({
+      pathname: '/createprofile',
+      state: { nextPathname: nextState.location.pathname }
+    })
+  }
+}
 
 render(<Root />, document.getElementById('root'));

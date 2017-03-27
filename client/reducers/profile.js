@@ -6,6 +6,7 @@ const initialState = {
   orders: []
 }
 
+
 const loadedOrders = (state = initialState.orders, action) => {
   switch (action.type) {
     case types.LOAD_ORDERS_SUCCESS:

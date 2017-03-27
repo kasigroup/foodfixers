@@ -1,6 +1,6 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 
 const renderField = ({ input, label, type, meta: { touched, error } }) => (
   <div>
