@@ -13,8 +13,7 @@ import { loginSuccess } from './actions/sessionActions'
 import reducer from './reducers'
 
 import { Router, Route, browserHistory } from 'react-router'
-// import { BrowserRouter as Router, Route, Redirect, withRouter, Link } from 'react-router-dom'
-import { syncHistoryWithStore } from 'react-router-redux'
+import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux'
 
 // Import css
 import css from './styles/style.styl';
@@ -34,12 +33,12 @@ const enhancers = compose(
 );
 
 
-// Create store
-const middleware = [ thunk ];
+
+const middleware = routerMiddleware(browserHistory)
 const store = createStore(
   reducer,
   enhancers,
-  applyMiddleware(...middleware)
+  applyMiddleware(thunk, middleware)
 )
 
 
@@ -49,48 +48,10 @@ const history = syncHistoryWithStore(browserHistory, store)
 // Check if logged in
 if (sessionStorage.jwt) {
   store.dispatch(loginSuccess())
-
-  // Gets all products
-  // store.dispatch(loadDishes())
-
-  // Gets all locations
-  // store.dispatch(loadLocation())
-
-  // Gets all areas
-  // store.dispatch(loadAreas())
-
-  // Gets profile
-  // store.dispatch(loadProfile())
-  // store.dispatch(loadOrders())
-
 }else {
   console.log("not logged in")
 }
 
-
-
-// const Root = () => {
-//   return(
-//     <Provider store={store}>
-//       <Router>
-//         <div>
-//
-//             <NavBar />
-//
-//             <Route exact path="/" component={App} />
-//             <Route path="/login" component={LoginContainer} />
-//             <Route path="/register" component={RegisterContainer} />
-//             <PrivateRoute path="/createprofile" component={CreateProfileContainer} />
-//             <PrivateRoute path="/home" component={ProductsContainer} />
-//             <PrivateRoute path="/profile" component={ProfileContainer} />
-//             <PrivateRoute path="/product/:id" component={ProductView} />
-//             <PrivateRoute path="/cart" component={CartContainer} />
-//
-//         </div>
-//        </Router>
-//     </Provider>
-//   )
-// }
 
 const Root = () => {
   return(
@@ -99,17 +60,24 @@ const Root = () => {
             <Route path="/" component={App}>
               <Route path="login" component={LoginContainer} />
               <Route path="register" component={RegisterContainer} />
-              <Route path="createprofile" component={CreateProfileContainer} />
-              <Route path="home" component={ProductsContainer} />
-              <Route path="profile" component={ProfileContainer} />
-              <Route path="cart" component={CartContainer} />
-              <Route path="product/:id" component={ProductView} />
+              <Route path="createprofile" component={CreateProfileContainer} onEnter={requireAuth}/>
+              <Route path="home" component={ProductsContainer} onEnter={requireAuth}/>
+              <Route path="profile" component={ProfileContainer} onEnter={requireAuth}/>
+              <Route path="cart" component={CartContainer} onEnter={requireAuth}/>
+              <Route path="product/:id" component={ProductView} onEnter={requireAuth}/>
             </Route>
        </Router>
      </Provider>
   )
 }
 
-
+function requireAuth(nextState, replace) {
+  if (!sessionStorage.jwt) {
+    replace({
+      pathname: '/login',
+      state: { nextPathname: nextState.location.pathname }
+    })
+  }
+}
 
 render(<Root />, document.getElementById('root'));

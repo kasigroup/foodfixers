@@ -3,10 +3,17 @@ import ApiRegisterRequest from '../api/RegisterRequest'
 import ApiCreateProfileRequest from '../api/CreateProfileRequest'
 import * as types from '../constants/ActionTypes'
 import { SubmissionError } from 'redux-form'
+import { push } from 'react-router-redux'
 
 export function loginSuccess() {
   return {
     type: types.LOG_IN_SUCCESS
+  }
+}
+
+export function logOutSuccess() {
+  return {
+    type: types.LOG_OUT_SUCCESS
   }
 }
 
@@ -31,6 +38,7 @@ export function logInUser(values) {
          throw new SubmissionError({ _error: 'User does not exist or Bad password' })
        }else {
         sessionStorage.setItem('jwt', response.jwt);
+        dispatch(push("/home"));
         dispatch(loginSuccess());
       }
     }).catch(error => {
@@ -49,6 +57,14 @@ export function createProfile(values) {
     }).catch(error => {
       throw(error);
     });
+  }
+}
+
+export function logOutUser() {
+  return function(dispatch) {
+    console.log("logginout")
+    dispatch(push("/login"));
+    dispatch(logOutSuccess());
   }
 }
 
