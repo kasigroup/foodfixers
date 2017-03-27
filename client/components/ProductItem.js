@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import Product from './Product'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 
 const ProductItem = ({ product, onAddToCartClicked }) => (
   <div id="productItem">

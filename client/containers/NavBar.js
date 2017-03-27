@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { getCartProducts, getCartQuantity } from '../reducers'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 
 const NavBar = ({ products, quantity }) => (
   <div>

@@ -5,12 +5,12 @@ import { addToCart } from '../actions/productActions'
 import ProductSingle from '../components/ProductSingle'
 
 
-const ProductView = ({ match, products, addToCart }) => {
+const ProductView = ({ params, products, addToCart }) => {
 
   if (products.length > 0) {
 
     // Get params id
-    const { id } = match.params;
+    const { id } = params;
     // params id from string to int
     const paramsId = parseInt(id)
     // Find index in array and give back the one with the same id as params
@@ -31,7 +31,7 @@ const ProductView = ({ match, products, addToCart }) => {
            />
         </div>
       )
-    }  
+    }
   }else {
     return (
       <p>Loading...</p>

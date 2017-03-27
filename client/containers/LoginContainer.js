@@ -1,29 +1,15 @@
-import React, { PropTypes } from 'react'
-import { connect } from 'react-redux'
+import React, { Component, PropTypes } from 'react'
 import Login from '../components/Login'
-import { Redirect } from 'react-router-dom'
 
-const LoginContainer = ({ session }) => {
 
-  const { from } = { from: { pathname: '/home' } }
+class LoginContainer extends Component {
 
-  if (session === true) {
+   render() {
      return (
-       <Redirect to={from}/>
+       <Login />
      )
- }
-
- return (
-   <Login>
-   </Login>
-  )
-
+   }
 }
 
-const mapStateToProps = state => ({
-  session: state.session
-})
 
-export default connect(
-  mapStateToProps,
-)(LoginContainer)
+export default LoginContainer
