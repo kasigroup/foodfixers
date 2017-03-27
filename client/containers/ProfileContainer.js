@@ -19,8 +19,8 @@ class ProfileContainer extends Component {
      const { profile, orders } = this.props
      return (
        <div>
-         <h3>Profile</h3>
-         <p>Name: {profile.first_name} <span/> {profile.last_name}</p>
+         <h3 className="title">Profile</h3>
+         <p className="profile-name">{profile.first_name} <span/> {profile.last_name}</p>
          <h3>Orders</h3>
          {orders.map((item, i) =>  <p key={i}>id: {item.id} Price: {item.price}kr</p>)}
        </div>

@@ -1,8 +1,7 @@
 import React, { PropTypes } from 'react'
 
 const ProductsList = ({ title, children }) => (
-  <div>
-    <h3>{title}</h3>
+  <div>  
     <div>{children}</div>
   </div>
 )

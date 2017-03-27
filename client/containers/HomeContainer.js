@@ -6,8 +6,6 @@ import { loadDishes } from '../actions/productActions'
 import { loadProfile } from '../actions/profileActions'
 
 
-
-
 class HomeContainer extends Component {
 
   constructor(props) {
@@ -23,9 +21,6 @@ class HomeContainer extends Component {
   render() {
       return (
         <div>
-          <div className="Home-Header">
-
-          </div>
           <ProductsContainer />
         </div>
 

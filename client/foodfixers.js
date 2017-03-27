@@ -56,8 +56,8 @@ if (sessionStorage.jwt) {
 const Root = () => {
   return(
     <Provider store={store}>
-      <Router history={browserHistory} >
-            <Route path="/" component={App}>
+      <Router history={browserHistory}>
+            <Route path="/" component={App} >
               <Route path="login" component={LoginContainer} />
               <Route path="register" component={RegisterContainer} />
               <Route path="createprofile" component={CreateProfileContainer} />

@@ -19,12 +19,12 @@ class ProductsContainer extends Component {
     const { products, profile, addToCart } = this.props
       return (
         <ProductsList title="Products">
-          {products.map(product =>
-              <ProductItem
-                key={product.id}
-                product={product}
-                onAddToCartClicked={() => addToCart(product.id)} />
-          )}
+            {products.map(product =>
+                <ProductItem
+                  key={product.id}
+                  product={product}
+                  onAddToCartClicked={() => addToCart(product.id)} />
+            )}
         </ProductsList>
       )
   }

@@ -9,7 +9,10 @@ const Register  = ({props, registerUser}) => {
 
   return (
     <div>
-      <h3>Register Form</h3>
+      <div className="form-head">
+        <h3>REGISTER</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum.</p>
+      </div>
       <RegisterForm register={registerUser} />
     </div>
   )

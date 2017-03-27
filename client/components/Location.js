@@ -11,7 +11,7 @@ function saveLocation(values) {
 const Location  = ({ locations , showResults}) => {
   return (
     <div>
-      <h3>Locations</h3>
+      <h3 className="title">Locations</h3>
       <LocationForm locations={locations} onSubmit={saveLocation}/>
     </div>
   )

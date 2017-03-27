@@ -4,9 +4,9 @@ import { Link } from 'react-router'
 
 const renderField = ({ input, label, type, meta: { touched, error } }) => (
   <div>
-    <label>{label}</label>
+    {/* <label>{label}</label> */}
     <div>
-      <input {...input} placeholder={label} type={type}/>
+      <input className="form-input" {...input} placeholder={label} type={type}/>
       {touched && error && <p className="error-text">{error}</p>}
     </div>
   </div>
@@ -15,14 +15,14 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => (
 const SubmitRegisterForm = (props) => {
   const { error, handleSubmit, pristine, reset, submitting, register } = props
   return (
-    <form onSubmit={handleSubmit(register)}>
+    <form className="ReduxForm" onSubmit={handleSubmit(register)}>
       <Field name="email" type="text" component={renderField} label="Email"/>
       <Field name="password" type="password" component={renderField} label="Password"/>
       {error && <strong>{error}</strong>}
-      <p><Link to="/login">Already registered?</Link></p>
       <div>
-        <button type="submit" disabled={submitting}>Register</button>
+        <button className="btn main-btn" type="submit" disabled={submitting}>Register</button>
       </div>
+      <Link className="loginToRegBtn" to="/login">Already registered?</Link>
     </form>
   )
 }

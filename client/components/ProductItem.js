@@ -14,7 +14,7 @@ const ProductItem = ({ product, onAddToCartClicked }) => (
       price={product.price} />
     </Link>
     <button
-      className="btn product-btn"
+      className="btn main-btn"
       onClick={onAddToCartClicked}>Add to cart
     </button>
   </div>
