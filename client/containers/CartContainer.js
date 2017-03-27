@@ -38,18 +38,6 @@ class CartContainer extends Component {
 
 }
 
-// const CartContainer = ({ products, total, checkout, location }) => (
-//   <div>
-//     <LocationContainer />
-//     <Cart
-//       location={location}
-//       products={products}
-//       total={total}
-//       onCheckoutClicked={() => checkout(products, total)}>
-//     </Cart>
-//   </div>
-//
-// )
 
 CartContainer.propTypes = {
   products: PropTypes.arrayOf(PropTypes.shape({

@@ -20,7 +20,7 @@ import css from './styles/style.styl';
 
 // Import Components
 import App from './containers/App';
-import ProductsContainer from './containers/ProductsContainer';
+import HomeContainer from './containers/HomeContainer';
 import CartContainer from './containers/CartContainer';
 import ProfileContainer from './containers/ProfileContainer';
 import ProductView from './containers/ProductView';
@@ -60,8 +60,8 @@ const Root = () => {
             <Route path="/" component={App}>
               <Route path="login" component={LoginContainer} />
               <Route path="register" component={RegisterContainer} />
-              <Route path="createprofile" component={CreateProfileContainer} onEnter={requireAuth}/>
-              <Route path="home" component={ProductsContainer} onEnter={requireAuth}/>
+              <Route path="createprofile" component={CreateProfileContainer} />
+              <Route path="home" component={HomeContainer} onEnter={requireAuth}/>
               <Route path="profile" component={ProfileContainer} onEnter={requireAuth}/>
               <Route path="cart" component={CartContainer} onEnter={requireAuth}/>
               <Route path="product/:id" component={ProductView} onEnter={requireAuth}/>
@@ -72,9 +72,15 @@ const Root = () => {
 }
 
 function requireAuth(nextState, replace) {
+  const { profile_data } = store.getState()
   if (!sessionStorage.jwt) {
     replace({
       pathname: '/login',
+      state: { nextPathname: nextState.location.pathname }
+    })
+  }else if(profile_data.profile.created) {
+    replace({
+      pathname: '/createprofile',
       state: { nextPathname: nextState.location.pathname }
     })
   }

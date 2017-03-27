@@ -25,7 +25,8 @@ export function registerSuccess() {
 
 export function createProfileSuccess() {
   return {
-    type: types.CREATE_PROFILE_SUCCESS
+    type: types.CREATE_PROFILE_SUCCESS,
+    created: true
   }
 }
 
@@ -53,6 +54,7 @@ export function createProfile(values) {
   return function(dispatch) {
     return ApiCreateProfileRequest.create(url,values).then(response => {
       console.log(response)
+      dispatch(push("/home"));
       dispatch(createProfileSuccess());
     }).catch(error => {
       throw(error);
