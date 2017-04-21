@@ -1,5 +1,6 @@
 import ApiRequest from '../api/Request';
 import * as types from '../constants/ActionTypes'
+import { push } from 'react-router-redux'
 
 
 export function loadProfileSuccess(profile) {
@@ -14,7 +15,11 @@ export function loadProfile() {
   // make async call to api, handle promise, dispatch action when promise is resolved
   return function(dispatch) {
     return ApiRequest.getAllItems(url).then(profile => {
-      dispatch(loadProfileSuccess(profile));
+      if (profile === 404) {
+        dispatch(push("/createprofile"));
+      }else {
+        dispatch(loadProfileSuccess(profile));
+      }
     }).catch(error => {
       throw(error);
     });

@@ -1,25 +1,28 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 
+const required = value => value ? undefined : 'Required'
+
 const renderField = ({ input, label, type, meta: { touched, error } }) => (
   <div>
-    <label>{label}</label>
     <div>
-      <input {...input} placeholder={label} type={type}/>
-      {touched && error && <span>{error}</span>}
+      <input className="form-input" {...input} placeholder={label} type={type}/>
+      {touched && error && <p className="error-text">{error}</p>}
     </div>
   </div>
 )
 
+
 const SubmitCreateProfileForm = (props) => {
   const { error, handleSubmit, pristine, reset, submitting, create } = props
   return (
-    <form onSubmit={handleSubmit(create)}>
-      <Field name="first_name" type="text" component={renderField} label="First Name"/>
-      <Field name="last_name" type="text" component={renderField} label="Last Name"/>
+    <form className="ReduxForm" onSubmit={handleSubmit(create)}>
+      <Field name="first_name" type="text" component={renderField} label="First Name" validate={[ required ]}/>
+      <Field name="last_name" type="text" component={renderField} label="Last Name" validate={[ required ]}/>
+      <p>Please check so the name is correct</p>
       {error && <strong>{error}</strong>}
       <div>
-        <button type="submit" disabled={submitting}>Save Profile</button>
+        <button className="btn main-btn" type="submit" disabled={pristine || submitting}>Save Profile</button>
       </div>
     </form>
   )

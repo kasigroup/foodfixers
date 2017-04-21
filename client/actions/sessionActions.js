@@ -77,6 +77,7 @@ export function registerUser(values) {
     return ApiRegisterRequest.register(url,values).then(response => {
       console.log(response)
       if (response.created_at) {
+        dispatch(push("/login"));
         dispatch(registerSuccess());
       }else {
         throw new SubmissionError({ email: "E-mail " + response.email, password: "Password " + response.password, _error: 'Register failed!' })

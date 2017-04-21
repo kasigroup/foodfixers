@@ -14,6 +14,9 @@ class ApiRequest {
     });
 
     return fetch(request).then(response => {
+      if (response.status === 404) {
+        return response.status
+      }
       return response.json();
     }).catch(error => {
       return error;
