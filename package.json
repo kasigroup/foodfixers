@@ -1,7 +1,7 @@
 {
-  "name": "learn-redux",
-  "version": "1.0.0",
-  "description": ":) ",
+  "name": "Foodfixers",
+  "version": "0.1.0",
+  "description": "Sushi Time",
   "scripts": {
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
     "build": "npm run clean && npm run build:webpack",
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "https://github.com/wesbos/Learn-Redux.git"
   },
-  "author": "Wes Bos",
+  "author": "Iskall AB",
   "license": "MIT",
   "homepage": "https://github.com/wesbos/Learn-Redux",
   "dependencies": {

@@ -32,11 +32,6 @@ const Cart  = ({ products, total, removeFromCart, onCheckoutClicked, location}) 
   )
 }
 
-Cart.propTypes = {
-  products: PropTypes.array,
-  total: PropTypes.string,
-}
-
 export default connect(
   null,
   { removeFromCart }
