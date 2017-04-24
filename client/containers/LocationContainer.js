@@ -1,18 +1,21 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { getVisibleLocations } from '../reducers/locations'
+import { getVisibleDeliveries } from '../reducers/deliveries'
+import { getVisibleAreas } from '../reducers/areas'
 import Location from '../components/Location'
 
-const LocationContainer = ({ locations }) => (
+const LocationContainer = ({ deliveries, areas }) => (
   <Location
-    locations={locations}
+    deliveries={deliveries}
+    areas={areas}
     >
   </Location>
 )
 
 const mapStateToProps = state => ({
   form: state.form.location,
-  locations: getVisibleLocations(state.locations)
+  deliveries: getVisibleDeliveries(state.deliveries),
+  areas: getVisibleAreas(state.areas)
 })
 
 export default connect(

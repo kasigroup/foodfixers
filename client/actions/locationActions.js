@@ -16,7 +16,7 @@ export function loadLocationsSuccess(locations) {
 }
 
 export function loadLocation() {
-  const url = "deliveries/locations";
+  const url = "delivery_locations";
   // make async call to api, handle promise, dispatch action when promise is resolved
   return function(dispatch) {
     return ApiRequest.getAllItems(url).then(locations => {
@@ -35,7 +35,7 @@ export function loadAreasSuccess(areas) {
 }
 
 export function loadAreas() {
-  const url = "deliveries/areas";
+  const url = "delivery_areas";
   // make async call to api, handle promise, dispatch action when promise is resolved
   return function(dispatch) {
     return ApiRequest.getAllItems(url).then(areas => {

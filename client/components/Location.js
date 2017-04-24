@@ -8,11 +8,11 @@ function saveLocation(values) {
 }
 
 
-const Location  = ({ locations , showResults}) => {
+const Location  = ({ deliveries , areas, showResults}) => {
   return (
     <div>
       <h3 className="title">Locations</h3>
-      <LocationForm locations={locations} onSubmit={saveLocation}/>
+      <LocationForm deliveries={deliveries} areas={areas} onSubmit={saveLocation}/>
     </div>
   )
 }

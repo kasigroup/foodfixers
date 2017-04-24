@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import Product from './Product'
 
 const CartItem = ({ price, title, quantity, desc ,removeFromCart}) => (

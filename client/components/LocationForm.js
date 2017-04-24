@@ -1,22 +1,36 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
+import LocationFormFirstPage from './LocationFormFirstPage'
+import LocationFormSecondPage from './LocationFormSecondPage'
 
-const LocationForm = (props) => {
-  const { handleSubmit, pristine, reset, submitting, locations } = props
-  return (
-    <form onSubmit={handleSubmit}>
-      <fieldset className="form-group row">
-        <div className="col-sm-6 margin-center align-left">
-            {locations.map((item, i) => <div className="form-check" key={i}><label className="form-check-label"><Field name="location" className="form-check-input" component="input" type="radio" value={`${item.id}`}/>{item.street_address}</label></div> )}
-        </div>
-        <div>
-        {/* <button type="submit" disabled={pristine || submitting}>Save choice</button> */}
-        </div>
-      </fieldset>
-    </form>
-  )
+class LocationForm extends Component {
+  constructor(props) {
+    super(props)
+    this.nextPage = this.nextPage.bind(this)
+    this.previousPage = this.previousPage.bind(this)
+    this.state = {
+      page: 1
+    }
+  }
+  nextPage() {
+    this.setState({ page: this.state.page + 1 })
+  }
+
+  previousPage() {
+    this.setState({ page: this.state.page - 1 })
+  }
+
+  render() {
+    const { onSubmit } = this.props
+    const { deliveries } = this.props
+    const { areas } = this.props
+    const { page } = this.state
+    return (<div>
+        {page === 1 && <LocationFormFirstPage areas={areas} onSubmit={this.nextPage}/>}
+        {page === 2 && <LocationFormSecondPage  deliveries={deliveries} previousPage={this.previousPage} onSubmit={this.nextPage}/>}
+      </div>
+    )
+  }
 }
 
-export default reduxForm({
-  form: 'location'  // a unique identifier for this form
-})(LocationForm)
+export default LocationForm

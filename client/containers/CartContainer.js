@@ -6,6 +6,7 @@ import { getTotal, getCartProducts } from '../reducers'
 import Cart from '../components/Cart'
 import LocationContainer from './LocationContainer'
 import { loadDishes } from '../actions/productActions'
+import { loadDeliveries } from '../actions/deliveriesActions'
 import { loadLocation, loadAreas } from '../actions/locationActions'
 
 class CartContainer extends Component {
@@ -14,15 +15,16 @@ class CartContainer extends Component {
   }
 
   componentDidMount() {
-    const { loadDishes,loadLocation,loadAreas } = this.props
+    const { loadDishes,loadLocation,loadAreas,loadDeliveries } = this.props
     // Dispatch the requests
     loadDishes()
     loadLocation()
+    loadDeliveries()
     loadAreas()
   }
 
   render() {
-    const { products, total, checkout, location } = this.props
+    const { products, total, checkout, location, areas } = this.props
     return (
       <div>
         <LocationContainer />
@@ -56,7 +58,7 @@ const mapStateToProps = (state) => ({
 })
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ checkout, loadDishes, loadLocation, loadAreas }, dispatch)
+  return bindActionCreators({ checkout, loadDishes, loadLocation, loadAreas, loadDeliveries }, dispatch)
 }
 
 export default connect(

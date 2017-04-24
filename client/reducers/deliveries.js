@@ -3,12 +3,12 @@ import * as types from '../constants/ActionTypes';
 
 const byId = (state = [], action) => {
   switch (action.type) {
-    case types.LOAD_AREAS_SUCCESS:
-      console.log(action.areas)
+    case types.LOAD_DELIVERIES_SUCCESS:
+      console.log(action.deliveries)
       return {
         ...state,
-        ...action.areas.reduce((obj, area) => {
-          obj[area.id] = area
+        ...action.deliveries.reduce((obj, delivery) => {
+          obj[delivery.id] = delivery
           return obj
         }, {})
       }
@@ -19,8 +19,8 @@ const byId = (state = [], action) => {
 
 const visibleIds = (state = [], action) => {
   switch (action.type) {
-    case types.LOAD_AREAS_SUCCESS:
-      return action.areas.map(area => area.id)
+    case types.LOAD_DELIVERIES_SUCCESS:
+      return action.deliveries.map(delivery => delivery.id)
     default:
       return state
   }
@@ -33,8 +33,8 @@ export default combineReducers({
 })
 
 
-export const getArea = (state, id) =>
+export const getDelivery = (state, id) =>
   state.byId[id]
 
-export const getVisibleAreas = state =>
-  state.visibleIds.map(id => getArea(state, id))
+export const getVisibleDeliveries = state =>
+  state.visibleIds.map(id => getDelivery(state, id))
