@@ -24,10 +24,10 @@ const Cart  = ({ products, total, removeFromCart, onCheckoutClicked, location}) 
       <h3 className="title">Your Cart</h3>
       <div>{nodes}</div>
       <p>Total: {total}kr</p>
-      <button className="btn main-btn" onClick={onCheckoutClicked}
+      {/* <button className="btn main-btn" onClick={onCheckoutClicked}
         disabled={hasProducts ? '' : 'disabled'}>
         Checkout
-      </button>
+      </button> */}
     </div>
   )
 }

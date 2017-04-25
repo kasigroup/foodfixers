@@ -1,16 +1,29 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
 import { getVisibleDeliveries } from '../reducers/deliveries'
 import { getVisibleAreas } from '../reducers/areas'
 import Location from '../components/Location'
 
-const LocationContainer = ({ deliveries, areas }) => (
-  <Location
-    deliveries={deliveries}
-    areas={areas}
-    >
-  </Location>
-)
+
+class LocationContainer extends Component {
+
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+      const { deliveries, areas } = this.props
+      return (
+        <Location
+          deliveries={deliveries}
+          areas={areas}
+          >
+        </Location>
+      )
+  }
+
+}
+
 
 const mapStateToProps = state => ({
   form: state.form.location,

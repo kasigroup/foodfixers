@@ -5,6 +5,7 @@ import { checkout } from '../actions/cartActions'
 import { getTotal, getCartProducts } from '../reducers'
 import Cart from '../components/Cart'
 import LocationContainer from './LocationContainer'
+import CheckoutContainer from './CheckoutContainer'
 import { loadDishes } from '../actions/productActions'
 import { loadDeliveries } from '../actions/deliveriesActions'
 import { loadLocation, loadAreas } from '../actions/locationActions'
@@ -32,8 +33,9 @@ class CartContainer extends Component {
           location={location}
           products={products}
           total={total}
-          onCheckoutClicked={() => checkout(products, total)}>
+          >
         </Cart>
+        <CheckoutContainer products={products} total={total} />
       </div>
     )
   }

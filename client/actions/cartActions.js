@@ -9,7 +9,7 @@ export function checkoutRequest(order) {
 }
 
 
-export function checkout(products, total) {
+export function checkout(products, total, token) {
   // make async call to api, handle promise, dispatch action when promise is resolved
   return function(dispatch, getState) {
 
@@ -17,21 +17,23 @@ export function checkout(products, total) {
     const { cart,form } = getState()
 
     // Gets location from form
-    const location = form.location.values.location
-
-    console.log(location);
-
+    // const location = form.location.values.location
+    //
+    // console.log(location);
+    console.log("CHECKING OOOUT");
 
     // Creating order object
     const order = {
       price: total,
-      paid:100,
-      delivery_id: location,
-      items_attributes:cart.addedIds
+      currency: "SEK",
+      delivery_id: 1,
+      items_attributes:[cart.addedIds, cart.quantityById]
     }
 
+    console.log(order)
+
     // Sends order object to server
-    return ApiOrderRequest.sendOrder(order).then(response => {
+    return ApiOrderRequest.sendOrder(order, token).then(response => {
         // Dispatches checkoutRequest and sends order to reducer
         dispatch(checkoutRequest(order));
       }).catch(error => {

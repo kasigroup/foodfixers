@@ -12,7 +12,7 @@ let LocationFormFirstPage = (props) => {
   const renderField = ({ input, label, type, meta: { touched, error } }) => (
     <div className="form-check" ><label className="form-check-label">
         <input {...input} className="form-check-input" placeholder={label} type={type}/>
-        {label.location.street_address}, <br/> {getDate(label.delivery_at)}</label>
+        {label.location.street_address}, <br/> {label.delivery_at}</label>
         {touched && error && <p className="error-text">{error}</p>}
     </div>
   )

@@ -6,12 +6,12 @@ class ApiOrderRequest {
     return {'AUTHORIZATION': `Bearer ${sessionStorage.jwt}`, 'Content-Type': 'application/json'}
   };
 
-  static sendOrder(order) {
+  static sendOrder(order, token) {
     const headers = this.requestHeaders();
     const request = new Request('http://api.kasigroup.se/orders', {
       method: 'POST',
       headers: headers,
-      body: JSON.stringify({order})
+      body: JSON.stringify({order, stripe_token: token.id})
     });
 
 
