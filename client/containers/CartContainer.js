@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { checkout } from '../actions/cartActions'
-import { getTotal, getCartProducts } from '../reducers'
+import { getTotal, getCartProducts, getOrder } from '../reducers'
 import Cart from '../components/Cart'
 import LocationContainer from './LocationContainer'
 import CheckoutContainer from './CheckoutContainer'
@@ -13,19 +13,22 @@ import { loadLocation, loadAreas } from '../actions/locationActions'
 class CartContainer extends Component {
   constructor(props) {
     super(props)
+
   }
 
   componentDidMount() {
-    const { loadDishes,loadLocation,loadAreas,loadDeliveries } = this.props
+    const { loadDishes,loadLocation,loadAreas,loadDeliveries, products, order } = this.props
     // Dispatch the requests
     loadDishes()
     loadLocation()
     loadDeliveries()
     loadAreas()
+
+
   }
 
   render() {
-    const { products, total, checkout, location, areas } = this.props
+    const { products, total, checkout, location, areas, orderFormatted } = this.props
     return (
       <div>
         <LocationContainer />
@@ -35,7 +38,7 @@ class CartContainer extends Component {
           total={total}
           >
         </Cart>
-        <CheckoutContainer products={products} total={total} />
+        <CheckoutContainer products={products} orderFormatted={orderFormatted} total={total} />
       </div>
     )
   }
@@ -55,6 +58,7 @@ CartContainer.propTypes = {
 
 const mapStateToProps = (state) => ({
   products: getCartProducts(state),
+  orderFormatted: getOrder(state),
   location: state.form.location,
   total: getTotal(state)
 })

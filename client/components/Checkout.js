@@ -13,13 +13,14 @@ class Checkout extends Component {
   }
 
   sendStripeData(token) {
-    const { total, products, checkout } = this.props
-    checkout(products, total, token)
+    const { total, products, checkout, orderFormatted } = this.props
+    checkout(orderFormatted, total, token)
   }
 
   render() {
     const { total } = this.props
     const totalInt = parseInt(total)
+    // Changing to öre from only kr
     const totalOre = totalInt * 100
     return (
       // ...

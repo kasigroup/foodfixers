@@ -9,25 +9,19 @@ export function checkoutRequest(order) {
 }
 
 
-export function checkout(products, total, token) {
+export function checkout(orderFormatted, total, token) {
   // make async call to api, handle promise, dispatch action when promise is resolved
   return function(dispatch, getState) {
 
-    // Getting cart state
-    const { cart,form } = getState()
-
-    // Gets location from form
-    // const location = form.location.values.location
-    //
-    // console.log(location);
-    console.log("CHECKING OOOUT");
+    // String to int
+    const totalInt = parseInt(total)
 
     // Creating order object
     const order = {
-      price: total,
-      currency: "SEK",
+      total: totalInt,
+      currency: "sek",
       delivery_id: 1,
-      items_attributes:[cart.addedIds, cart.quantityById]
+      items_attributes:orderFormatted
     }
 
     console.log(order)
