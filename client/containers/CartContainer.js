@@ -20,7 +20,6 @@ class CartContainer extends Component {
     const { loadDishes,loadLocation,loadAreas,loadDeliveries, products, order } = this.props
     // Dispatch the requests
     loadDishes()
-    loadLocation()
     loadDeliveries()
     loadAreas()
 

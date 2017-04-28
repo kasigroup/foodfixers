@@ -11,6 +11,7 @@ class LocationForm extends Component {
     this.state = {
       page: 1
     }
+
   }
   nextPage() {
     this.setState({ page: this.state.page + 1 })
@@ -23,11 +24,18 @@ class LocationForm extends Component {
   render() {
     const { onSubmit } = this.props
     const { deliveries } = this.props
+    // Converting date to an date object and then back to string
+    let convertedDates = deliveries.map(function(item) {
+      let newArray = {...item}
+      newArray.delivery_at = new Date(item.delivery_at)
+      newArray.delivery_at = newArray.delivery_at.toString()
+      return newArray
+    });
     const { areas } = this.props
     const { page } = this.state
     return (<div>
         {page === 1 && <LocationFormFirstPage areas={areas} onSubmit={this.nextPage}/>}
-        {page === 2 && <LocationFormSecondPage  deliveries={deliveries} previousPage={this.previousPage} onSubmit={this.nextPage}/>}
+        {page === 2 && <LocationFormSecondPage deliveries={convertedDates} previousPage={this.previousPage} onSubmit={this.nextPage}/>}
       </div>
     )
   }

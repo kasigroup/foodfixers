@@ -13,7 +13,6 @@ export default combineReducers({
   form,
   cart,
   session,
-  locations,
   areas,
   deliveries,
   profile_data,

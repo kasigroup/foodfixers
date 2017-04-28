@@ -20,7 +20,7 @@ export function checkout(orderFormatted, total, token) {
     const order = {
       total: totalInt,
       currency: "sek",
-      delivery_id: 1,
+      delivery_id: 3,
       items_attributes:orderFormatted
     }
 

@@ -7,7 +7,7 @@ let LocationFormFirstPage = (props) => {
 
   const required = value => value ? undefined : 'Required'
 
-  console.log("Area choosen: " + locationValue)
+  // console.log("Area choosen: " + locationValue)
 
   const renderField = ({ input, label, type, meta: { touched, error } }) => (
     <div className="form-check" ><label className="form-check-label">
