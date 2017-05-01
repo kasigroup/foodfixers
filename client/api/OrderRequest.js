@@ -16,10 +16,9 @@ class ApiOrderRequest {
 
 
     return fetch(request).then(response => {
-      response.text().then(function(text) {
-        console.log(text);
-      });
-      console.log(response);
+        response.text().then(function(text) {
+          console.log(text);
+        });
     }).catch(errors => {
       return errors;
     });

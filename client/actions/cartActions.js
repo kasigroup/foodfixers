@@ -28,8 +28,13 @@ export function checkout(orderFormatted, total, token) {
 
     // Sends order object to server
     return ApiOrderRequest.sendOrder(order, token).then(response => {
+      if (!response) {
+        console.log("no response")
+      }else {
+        console.log(response)
         // Dispatches checkoutRequest and sends order to reducer
         dispatch(checkoutRequest(order));
+      }  
       }).catch(error => {
         throw(error);
       });
