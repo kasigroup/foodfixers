@@ -31,7 +31,7 @@ class Checkout extends Component {
         token={this.sendStripeData}
         stripeKey="pk_test_tuiIc9CcK7Rf8qBOJ3cFeYjT"
       >
-        <button className="btn main-btn">
+        <button className="btn main-btn" disabled={total <= 0}>
           Checkout
         </button>
       </StripeCheckout>

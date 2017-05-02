@@ -4,11 +4,11 @@ import { Field, reduxForm, formValueSelector } from 'redux-form'
 import {FormattedDate} from 'react-intl';
 
 let LocationFormFirstPage = (props) => {
-  const { handleSubmit, pristine, reset, submitting, previousPage, deliveries, locationValue } = props
+  const { handleSubmit, pristine, reset, submitting, previousPage, deliveries, areaValue } = props
 
   const required = value => value ? undefined : 'Required'
 
-  let locationValueInt = parseInt(locationValue)
+  let locationValueInt = parseInt(areaValue)
 
   function renderField({ input, label, type, meta: { touched, error } }) {
     if (locationValueInt === label.location.area_id) {
@@ -34,7 +34,7 @@ let LocationFormFirstPage = (props) => {
     <form onSubmit={handleSubmit}>
       <fieldset className="form-group row">
         <div className="col-sm-6 margin-center align-left">
-          <p>Choose date</p>
+          <p className="align-center">Choose date</p>
           {deliveries.map((item, i) => <div key={i}>
             <Field
               name="day"
@@ -46,8 +46,8 @@ let LocationFormFirstPage = (props) => {
           </div>)}
         </div>
         <div>
-          <button type="button" className="previous" onClick={previousPage}>Previous</button>
-          <button type="submit" disabled={pristine || submitting} className="next">Next</button>
+          <button type="button" className="previous btn main-btn btn-45" onClick={previousPage}>Previous</button>
+          <button type="submit" disabled={pristine || submitting } className="next btn main-btn btn-45">Next</button>
         </div>
       </fieldset>
     </form>
@@ -65,9 +65,9 @@ const selector = formValueSelector('location') // <-- same as form name
 LocationFormFirstPage = connect(
   state => {
     // can select values individually
-    const locationValue = selector(state, 'area')
+    const areaValue = selector(state, 'area')
     return {
-      locationValue
+      areaValue
     }
   }
 )(LocationFormFirstPage)

@@ -4,12 +4,12 @@ import { Field, reduxForm, formValueSelector } from 'redux-form'
 import {FormattedDate} from 'react-intl';
 
 let LocationFormFirstPage = (props) => {
-  const { handleSubmit, pristine, reset, submitting, previousPage, deliveries, locationValue } = props
+  const { handleSubmit, pristine, reset, submitting, previousPage, deliveries, areaValue, locationValue } = props
 
   const required = value => value ? undefined : 'Required'
 
-  console.log(locationValue)
-  let locationValueInt = parseInt(locationValue)
+  console.log(areaValue)
+  let locationValueInt = parseInt(areaValue)
 
   function renderField({ input, label, type, meta: { touched, error } }) {
     if (locationValueInt === label.location.area_id) {
@@ -42,20 +42,20 @@ let LocationFormFirstPage = (props) => {
     <form onSubmit={handleSubmit}>
       <fieldset className="form-group row">
         <div className="col-sm-6 margin-center align-left">
-          <p>Choose address</p>
-            {deliveries.map((item, i) => <div key={i}>
-              <Field
-                name="location"
-                component={renderField}
-                type="radio"
-                label={item}
-                value={`${item.id}`}
-                validate={[ required ]}/>
-              </div>)}
+          <p className="align-center">Choose address</p>
+          {deliveries.map((item, i) => <div key={i}>
+            <Field
+              name="location"
+              component={renderField}
+              type="radio"
+              label={item}
+              value={`${item.id}`}
+              validate={[ required ]}/>
+          </div>)}
         </div>
         <div>
-          <button type="button" className="previous" onClick={previousPage}>Previous</button>
-          <button type="submit" disabled={pristine || submitting}>Submit</button>
+          <button type="button" className="previous btn main-btn btn-45" onClick={previousPage}>Previous</button>
+          <button type="submit" className="btn main-btn btn-45" disabled={pristine || submitting || !locationValue}>Submit</button>
         </div>
       </fieldset>
     </form>
@@ -73,8 +73,10 @@ const selector = formValueSelector('location') // <-- same as form name
 LocationFormFirstPage = connect(
   state => {
     // can select values individually
-    const locationValue = selector(state, 'area')
+    const areaValue = selector(state, 'area')
+    const locationValue = selector(state, 'location')
     return {
+      areaValue,
       locationValue
     }
   }
