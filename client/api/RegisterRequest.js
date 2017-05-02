@@ -3,7 +3,7 @@ import 'whatwg-fetch';
 class ApiRegisterRequest {
   static register(url,values) {
     console.log("hejsan")
-    const request = new Request(`http://api.kasigroup.se/${url}`, {
+    const request = new Request(`https://api.kasigroup.se/${url}`, {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json'

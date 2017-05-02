@@ -8,6 +8,7 @@ let LocationFormFirstPage = (props) => {
 
   const required = value => value ? undefined : 'Required'
 
+  console.log(locationValue)
   let locationValueInt = parseInt(locationValue)
 
   function renderField({ input, label, type, meta: { touched, error } }) {
@@ -15,7 +16,7 @@ let LocationFormFirstPage = (props) => {
       return (
         <div className="form-check" ><label className="form-check-label">
           <input {...input} className="form-check-input" placeholder={label} type={type}/>
-          {<FormattedDate value={label.delivery_at}
+          {label.location.street_address}, <br/> {<FormattedDate value={label.delivery_at}
             year='numeric'
             month='long'
             day='numeric'
@@ -29,25 +30,32 @@ let LocationFormFirstPage = (props) => {
 
   }
 
+  // const renderField = ({ input, label, type, meta: { touched, error } }) => (
+  //   <div className="form-check" ><label className="form-check-label">
+  //     <input {...input} className="form-check-input" placeholder={label} type={type}/>
+  //     {label.location.street_address}, <br/> {<FormattedDate value={label.delivery_at} />}</label>
+  //     {touched && error && <p className="error-text">{error}</p>}
+  //   </div>
+  // )
 
   return (
     <form onSubmit={handleSubmit}>
       <fieldset className="form-group row">
         <div className="col-sm-6 margin-center align-left">
-          <p>Choose date</p>
-          {deliveries.map((item, i) => <div key={i}>
-            <Field
-              name="day"
-              component={renderField}
-              type="radio"
-              label={item}
-              value={`${item.id}`}
-              validate={[ required ]}/>
-          </div>)}
+          <p>Choose address</p>
+            {deliveries.map((item, i) => <div key={i}>
+              <Field
+                name="location"
+                component={renderField}
+                type="radio"
+                label={item}
+                value={`${item.id}`}
+                validate={[ required ]}/>
+              </div>)}
         </div>
         <div>
           <button type="button" className="previous" onClick={previousPage}>Previous</button>
-          <button type="submit" disabled={pristine || submitting} className="next">Next</button>
+          <button type="submit" disabled={pristine || submitting}>Submit</button>
         </div>
       </fieldset>
     </form>

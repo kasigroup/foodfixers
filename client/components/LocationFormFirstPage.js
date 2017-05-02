@@ -10,7 +10,7 @@ const LocationFormFirstPage = (props) => {
     <div className="form-check" ><label className="form-check-label">
         <input {...input} className="form-check-input" placeholder={label} type={type}/>
         {label}</label>
-        {touched && error && <p className="error-text">{error}</p>}      
+        {touched && error && <p className="error-text">{error}</p>}
     </div>
   )
 
@@ -18,18 +18,19 @@ const LocationFormFirstPage = (props) => {
     <form onSubmit={handleSubmit}>
       <fieldset className="form-group row">
         <div className="col-sm-6 margin-center align-left">
-            {areas.map((item, i) => <div key={i}>
-              <Field
+          <p>Choose area</p>
+          {areas.map((item, i) => <div key={i}>
+            <Field
               name="area"
               component={renderField}
               label={item.name}
               type="radio"
               value={`${item.id}`}
               validate={[ required ]}/>
-              </div>)}
+          </div>)}
         </div>
         <div>
-        <button type="submit" disabled={pristine || submitting} className="next">Next</button>
+          <button type="submit" disabled={pristine || submitting} className="next">Next</button>
         </div>
       </fieldset>
     </form>
