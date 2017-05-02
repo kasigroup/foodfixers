@@ -9,6 +9,9 @@ import { loadAreas } from './actions/locationActions'
 import { loadProfile, loadOrders } from './actions/profileActions'
 import { loginSuccess } from './actions/sessionActions'
 
+import {addLocaleData,IntlProvider} from 'react-intl';
+import svLocaleData from 'react-intl/locale-data/sv';
+addLocaleData(svLocaleData);
 
 import reducer from './reducers'
 
@@ -88,4 +91,4 @@ function requireAuth(nextState, replace) {
   }
 }
 
-render(<Root />, document.getElementById('root'));
+render(<IntlProvider locale="sv"><Root /></IntlProvider>, document.getElementById('root'));

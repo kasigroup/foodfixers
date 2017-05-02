@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm, formValueSelector } from 'redux-form'
+import {FormattedDate} from 'react-intl';
 
 let LocationFormFirstPage = (props) => {
   const { handleSubmit, pristine, reset, submitting, previousPage, deliveries, locationValue } = props
@@ -11,8 +12,8 @@ let LocationFormFirstPage = (props) => {
 
   const renderField = ({ input, label, type, meta: { touched, error } }) => (
     <div className="form-check" ><label className="form-check-label">
-        <input {...input} className="form-check-input" placeholder={label} type={type}/>
-        {label.location.street_address}, <br/> {label.delivery_at}</label>
+      <input {...input} className="form-check-input" placeholder={label} type={type}/>
+      {label.location.street_address}, <br/> {<FormattedDate value={label.delivery_at} />}</label>
         {touched && error && <p className="error-text">{error}</p>}
     </div>
   )
