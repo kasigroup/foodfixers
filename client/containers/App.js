@@ -8,8 +8,9 @@ class App extends Component{
     return (
       <div>
         <NavBar />
+        <div className="top-divider"></div>
         <div id="main">
-          <h4 className="logo">Food Fixers</h4>
+          <h4 className="logo"></h4>
           {this.props.children}
         </div>
       </div>

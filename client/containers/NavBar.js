@@ -23,6 +23,7 @@ function AdminButton(props) {
 
 const NavBar = ({ products, quantity, logOutUser }) => (
   <div className="top-nav">
+    <h4 className="logo">Foodfixers Express</h4>
     <ul className="nav justify-content-center">
       <SessionButton logOut={ logOutUser }/>
       <li className="nav-item"><Link className="nav-link" to="/home">Home</Link></li>

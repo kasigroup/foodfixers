@@ -6,8 +6,9 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => (
   <div>
     {/* <label>{label}</label> */}
     <div>
-      <input className="form-input" {...input} placeholder={label} type={type}/>
       {touched && error && <p className="error-text">{error}</p>}
+      <input className="form-input" {...input} placeholder={label} type={type}/>
+
     </div>
   </div>
 )

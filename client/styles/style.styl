@@ -14,6 +14,10 @@
   font-family: 'Oswald', sans-serif;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .align-center {
   text-align: center;
 }
@@ -106,9 +110,9 @@
 
 .logo {
   font-family: 'Oswald', sans-serif;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  font-size: 3.5em;
+  color: white;
+  padding-top: 10px;
+  font-size: 1.5em;
 }
 
 .ReduxForm {
@@ -190,7 +194,10 @@ footer {
   background: white;
 }
 
-
+.top-divider {
+  margin-top: 50px;
+  display: inline-block;
+}
 
 .top-nav {
   position: fixed;
@@ -215,10 +222,9 @@ footer {
 }
 
 .product-image {
-  img {
-    width: 100%;
-  }
-  padding-bottom: 15px;
+  margin-bottom: 15px;
+  height: 150px;
+  background-position: center center;
 }
 
 .align-left {
@@ -234,5 +240,9 @@ footer {
 }
 
 .error-text {
-  color: red;
+  color: rgba(255, 0, 0, 0.61);
+  font-style: italic;
+  text-align: left;
+  letter-spacing: 0.06em;
+  font-size: 14px;
 }
