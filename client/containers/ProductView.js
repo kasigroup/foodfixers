@@ -7,6 +7,7 @@ import ProductSingle from '../components/ProductSingle'
 
 const ProductView = ({ params, products, addToCart }) => {
 
+
   if (products.length > 0) {
 
     // Get params id
@@ -18,6 +19,10 @@ const ProductView = ({ params, products, addToCart }) => {
     // Return the meal with the right id
     const product = products[index];
 
+    const image = {
+          backgroundImage: `url('http://api.kasigroup.se${product.image_url}')`
+    };
+
     if (!product) {
       return (
         <p>No product here!</p>
@@ -27,6 +32,7 @@ const ProductView = ({ params, products, addToCart }) => {
         <div>
           <ProductSingle
             product={product}
+            image={image}
             onAddToCartClicked={() => addToCart(product.id)}
            />
         </div>

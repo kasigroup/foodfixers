@@ -13,12 +13,12 @@ class Checkout extends Component {
   }
 
   sendStripeData(token) {
-    const { total, products, checkout, orderFormatted } = this.props
-    checkout(orderFormatted, total, token)
+    const { total, products, checkout, orderFormatted, choosenLocation } = this.props
+    checkout(orderFormatted, total, token, choosenLocation)
   }
 
   render() {
-    const { total } = this.props
+    const { total, choosenLocation } = this.props
     const totalInt = parseInt(total)
     // Changing to öre from only kr
     const totalOre = totalInt * 100
@@ -31,7 +31,7 @@ class Checkout extends Component {
         token={this.sendStripeData}
         stripeKey="pk_test_tuiIc9CcK7Rf8qBOJ3cFeYjT"
       >
-        <button className="btn main-btn" disabled={total <= 0}>
+        <button className="btn main-btn" disabled={total <= 0 || !choosenLocation}>
           Checkout
         </button>
       </StripeCheckout>

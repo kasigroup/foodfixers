@@ -8,19 +8,28 @@ export function checkoutRequest(order) {
   };
 }
 
+export function saveLocation(values) {
+  return {
+    type: types.SUBMIT_LOCATION,
+    values
+  };
+}
 
-export function checkout(orderFormatted, total, token) {
+
+
+export function checkout(orderFormatted, total, token, choosenLocation) {
   // make async call to api, handle promise, dispatch action when promise is resolved
   return function(dispatch, getState) {
 
     // String to int
     const totalInt = parseInt(total)
+    const choosenLocationInt = parseInt(choosenLocation)
 
     // Creating order object
     const order = {
       total: totalInt,
       currency: "sek",
-      delivery_id: 3,
+      delivery_id: choosenLocationInt,
       items_attributes:orderFormatted
     }
 
@@ -34,7 +43,7 @@ export function checkout(orderFormatted, total, token) {
         console.log(response)
         // Dispatches checkoutRequest and sends order to reducer
         dispatch(checkoutRequest(order));
-      }  
+      }
       }).catch(error => {
         throw(error);
       });

@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react'
 
-const ProductSingle = ({ product, onAddToCartClicked }) => (
+
+const ProductSingle = ({ product, onAddToCartClicked, image }) => (
   <div>
-    <div className="product-single-header">
+    <div className="product-single-header" style={image}>
 
     </div>
     <h3>{product.name}</h3>

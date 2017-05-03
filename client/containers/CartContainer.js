@@ -32,12 +32,11 @@ class CartContainer extends Component {
       <div>
         <LocationContainer />
         <Cart
-          location={location}
           products={products}
           total={total}
-          >
+        >
         </Cart>
-        <CheckoutContainer products={products} orderFormatted={orderFormatted} total={total} />
+        <CheckoutContainer products={products} orderFormatted={orderFormatted} location={location} total={total} />
       </div>
     )
   }
@@ -58,7 +57,7 @@ CartContainer.propTypes = {
 const mapStateToProps = (state) => ({
   products: getCartProducts(state),
   orderFormatted: getOrder(state),
-  location: state.form.location,
+  location: state.cart.choosenLocation,
   total: getTotal(state)
 })
 

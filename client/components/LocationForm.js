@@ -37,7 +37,7 @@ class LocationForm extends Component {
     return (<div>
       {page === 1 && <LocationFormFirstPage areas={areas} onSubmit={this.nextPage}/>}
       {page === 2 && <LocationFormSecondPage deliveries={deliveries} previousPage={this.previousPage} onSubmit={this.nextPage}/>}
-      {page === 3 && <LocationFormThirdPage deliveries={deliveries} previousPage={this.previousPage} onSubmit={this.nextPage}/>}
+      {page === 3 && <LocationFormThirdPage deliveries={deliveries} previousPage={this.previousPage} onSubmit={onSubmit}/>}
       </div>
     )
   }

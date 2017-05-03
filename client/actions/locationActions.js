@@ -1,13 +1,6 @@
 import ApiRequest from '../api/Request';
 import * as types from '../constants/ActionTypes'
 
-export function setOrderLocation(location) {
-  return {
-    type: types.SET_LOCATION,
-    locations: location
-  };
-}
-
 export function loadLocationsSuccess(locations) {
   return {
     type: types.LOAD_LOCATIONS_SUCCESS,

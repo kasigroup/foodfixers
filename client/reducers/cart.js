@@ -3,13 +3,23 @@ import {
   ADD_TO_CART,
   CHECKOUT_REQUEST,
   CHECKOUT_FAILURE,
-  SET_LOCATION
+  SUBMIT_LOCATION
 } from '../constants/ActionTypes'
 
 const initialState = {
   addedIds: [],
   quantityById: {},
-  location: {}
+  choosenLocation: {}
+}
+
+// Adds item to cart with id
+const addLocation = (state = initialState.choosenLocation, action) => {
+  switch (action.type) {
+    case SUBMIT_LOCATION:
+        return action.values.location
+    default:
+      return state
+  }
 }
 
 // Adds item to cart with id
@@ -27,15 +37,6 @@ const addedIds = (state = initialState.addedIds, action) => {
   }
 }
 
-// Adds location to cart
-const setLocation = (state = initialState.location, action) => {
-  switch (action.type) {
-    case SET_LOCATION:
-      return [ ...state, action.location ]
-    default:
-      return state
-  }
-}
 
 // Adds quantity to the correct id
 const quantityById = (state = initialState.quantityById, action) => {
@@ -75,7 +76,7 @@ const cart = (state = initialState, action) => {
       return {
         addedIds: addedIds(state.addedIds, action),
         quantityById: quantityById(state.quantityById, action),
-        location: setLocation(state.location, action)
+        choosenLocation: addLocation(state.choosenLocation, action)
       }
   }
 }

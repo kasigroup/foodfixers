@@ -5,11 +5,11 @@ import { Link } from 'react-router'
 const ProductItem = ({ product, onAddToCartClicked }) => (
   <div className="productItem">
     <Link to={`product/${product.id}`}>
-    <div className="product-image">
-      <img src="http://i.imgur.com/UEL3Q8q.jpg"></img>
-    </div>
-    <Product
-      title={product.name}
+      <div className="product-image">
+        <img src={"http://api.kasigroup.se" + product.image_url}></img>
+      </div>
+      <Product
+        title={product.name}
       desc={product.description}
       price={product.price} />
     </Link>
