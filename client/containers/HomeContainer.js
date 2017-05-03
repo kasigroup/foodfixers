@@ -2,7 +2,8 @@ import React, { Component,PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import ProductsContainer from './ProductsContainer'
-import { loadDishes } from '../actions/productActions'
+import SideDishesContainer from './SideDishesContainer'
+import { loadDishes, loadSideDishes } from '../actions/productActions'
 import { loadProfile } from '../actions/profileActions'
 
 
@@ -13,8 +14,9 @@ class HomeContainer extends Component {
   }
 
   componentWillMount() {
-    const { loadDishes,loadProfile } = this.props
+    const { loadDishes,loadProfile, loadSideDishes } = this.props
     loadDishes()
+    loadSideDishes()
     loadProfile()
   }
 
@@ -22,6 +24,7 @@ class HomeContainer extends Component {
       return (
         <div>
           <ProductsContainer />
+          <SideDishesContainer />
         </div>
 
       )
@@ -31,7 +34,7 @@ class HomeContainer extends Component {
 
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ loadDishes,loadProfile }, dispatch)
+  return bindActionCreators({ loadDishes,loadProfile, loadSideDishes }, dispatch)
 }
 
 export default connect(

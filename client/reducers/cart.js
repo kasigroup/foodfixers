@@ -9,10 +9,10 @@ import {
 const initialState = {
   addedIds: [],
   quantityById: {},
-  choosenLocation: {}
+  choosenLocation: 0
 }
 
-// Adds item to cart with id
+// Adds location to cart
 const addLocation = (state = initialState.choosenLocation, action) => {
   switch (action.type) {
     case SUBMIT_LOCATION:

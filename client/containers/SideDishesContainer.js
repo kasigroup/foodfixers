@@ -1,10 +1,9 @@
 import React, { Component,PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { getVisibleProducts } from '../reducers/products'
+import { getVisibleSideDishes } from '../reducers/sidedishes'
 import { addToCart } from '../actions/productActions'
-import ProductItem from '../components/ProductItem'
-import ProductsList from '../components/ProductsList'
+import SideDish from '../components/SideDish'
 
 
 
@@ -16,23 +15,23 @@ class ProductsContainer extends Component {
   }
 
   render() {
-    const { products, profile, addToCart } = this.props
+      const { sidedishes, addToCart } = this.props
       return (
-        <ProductsList title="Products">
-          {products.map(product =>
-            <ProductItem
-              key={product.id}
-              product={product}
-              onAddToCartClicked={() => addToCart(product.id)} />
+        <div>
+          {sidedishes.map(dish =>
+            <SideDish
+              key={dish.id}
+              dish={dish}
+              onAddToCartClicked={() => addToCart(dish.id)} />
           )}
-        </ProductsList>
+        </div>
       )
   }
 }
 
 
 const mapStateToProps = state => ({
-  products: getVisibleProducts(state.products),
+  sidedishes: getVisibleSideDishes(state.sideDishes),
   profile: state.profile_data.profile
 })
 

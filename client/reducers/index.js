@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import products, * as fromProducts from './products'
+import sideDishes, * as fromSidedishes from './sidedishes'
 import session, * as fromSession from './session'
 import cart, * as fromCart from './cart'
 import locations, * as fromLocations from './locations'
@@ -17,6 +18,7 @@ export default combineReducers({
   deliveries,
   profile_data,
   products,
+  sideDishes,
   routing: routerReducer
 })
 
@@ -26,20 +28,32 @@ export default combineReducers({
 const getAddedIds = state => fromCart.getAddedIds(state.cart)
 const getQuantity = (state, id) => fromCart.getQuantity(state.cart, id)
 const getProduct = (state, id) => fromProducts.getProduct(state.products, id)
+const getSideDishes = (state, id) => fromSidedishes.getSideDishes(state.sideDishes, id)
+
+// export const getTotal = state =>
+//   getAddedIds(state)
+//     .reduce((total, id) =>
+//       total + getProduct(state, id).price * getQuantity(state, id),
+//       0
+//     )
+//     .toFixed(0)
 
 export const getTotal = state =>
-  getAddedIds(state)
-    .reduce((total, id) =>
-      total + getProduct(state, id).price * getQuantity(state, id),
-      0
-    )
-    .toFixed(0)
+  getAddedIds(state).reduce(function (total, id) {
+    if (typeof getProduct(state, id) !== 'undefined' && getProduct(state, id).price) {
+      return total + getProduct(state, id).price * getQuantity(state, id);
+    }else {
+      return total + getSideDishes(state, id).price * getQuantity(state, id);
+    }
+  }, 0).toFixed(0);
 
 export const getCartProducts = state =>
   getAddedIds(state).map(id => ({
     ...getProduct(state, id),
+    ...getSideDishes(state, id),
     quantity: getQuantity(state, id)
   }))
+
 
 export const getOrder = state =>
   getAddedIds(state).map(id => ({
