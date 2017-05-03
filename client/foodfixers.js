@@ -24,6 +24,7 @@ import css from './styles/style.styl';
 // Import Components
 import App from './containers/App';
 import HomeContainer from './containers/HomeContainer';
+import SideDishesContainer from './containers/SideDishesContainer';
 import CartContainer from './containers/CartContainer';
 import ProfileContainer from './containers/ProfileContainer';
 import ProductView from './containers/ProductView';
@@ -61,16 +62,17 @@ const Root = () => {
   return(
     <Provider store={store}>
       <Router history={browserHistory}>
-            <Route path="/" component={App} >
-              <Route path="login" component={LoginContainer} />
-              <Route path="register" component={RegisterContainer} />
-              <Route path="createprofile" component={CreateProfileContainer} />
-              <Route path="home" component={HomeContainer} onEnter={requireAuth}/>
-              <Route path="profile" component={ProfileContainer} onEnter={requireAuth}/>
-              <Route path="cart" component={CartContainer} onEnter={requireAuth}/>
-              <Route path="admin" component={AdminContainer} onEnter={requireAuth}/>
-              <Route path="product/:id" component={ProductView} onEnter={requireAuth}/>
-            </Route>
+        <Route path="/" component={App} >
+          <Route path="login" component={LoginContainer} />
+          <Route path="register" component={RegisterContainer} />
+          <Route path="createprofile" component={CreateProfileContainer} />
+          <Route path="home" component={HomeContainer} onEnter={requireAuth}/>
+          <Route path="sidedishes" component={SideDishesContainer} onEnter={requireAuth}/>
+          <Route path="profile" component={ProfileContainer} onEnter={requireAuth}/>
+          <Route path="cart" component={CartContainer} onEnter={requireAuth}/>
+          <Route path="admin" component={AdminContainer} onEnter={requireAuth}/>
+          <Route path="product/:id" component={ProductView} onEnter={requireAuth}/>
+        </Route>
        </Router>
      </Provider>
   )

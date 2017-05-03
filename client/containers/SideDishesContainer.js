@@ -18,6 +18,7 @@ class ProductsContainer extends Component {
       const { sidedishes, addToCart } = this.props
       return (
         <div>
+          <p className="align-center">Do you want a side to that?</p>
           {sidedishes.map(dish =>
             <SideDish
               key={dish.id}

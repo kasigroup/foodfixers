@@ -5,7 +5,7 @@ import ProductsContainer from './ProductsContainer'
 import SideDishesContainer from './SideDishesContainer'
 import { loadDishes, loadSideDishes } from '../actions/productActions'
 import { loadProfile } from '../actions/profileActions'
-
+import ModalContainer from './ModalContainer'
 
 class HomeContainer extends Component {
 
@@ -24,7 +24,7 @@ class HomeContainer extends Component {
       return (
         <div>
           <ProductsContainer />
-          <SideDishesContainer />
+          <ModalContainer />
         </div>
 
       )
