@@ -4,39 +4,27 @@ import SideDishesContainer from './SideDishesContainer'
 import { Link } from 'react-router'
 
 class ModalContainer extends Component {
-
   constructor () {
     super();
-    this.state = {
-      showModal: false
-    };
 
-    this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
-  handleOpenModal () {
-    this.setState({ showModal: true });
-  }
-
-  handleCloseModal () {
-    this.setState({ showModal: false });
-  }
 
   render () {
+    const { isOpen, isClose } = this.props
     return (
       <div>
-        <button onClick={this.handleOpenModal}>Trigger Modal</button>
         <ReactModal
-          isOpen={this.state.showModal}
+          isOpen={isOpen}
           contentLabel="Minimal Modal Example"
-          onRequestClose={this.handleCloseModal}
+          onRequestClose={isClose}
           shouldCloseOnOverlayClick={true}
           className="Modal"
           overlayClassName="ModalOverlay"
         >
+          <span className="modal-close-icon float-right" onClick={isClose}><i className="fa fa-times-circle-o" aria-hidden="true"></i></span>
           <SideDishesContainer />
-          <button className="btn main-btn btn-45" onClick={this.handleCloseModal}>Order more</button>
+          <button className="btn main-btn btn-45" onClick={isClose}>Order more</button>
           <Link className="btn main-btn btn-45 float-right" to="/cart">Cart</Link>
         </ReactModal>
       </div>

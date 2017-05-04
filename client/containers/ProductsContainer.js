@@ -13,22 +13,33 @@ class ProductsContainer extends Component {
 
   constructor(props) {
     super(props)
+    this.addToTheCart = this.addToTheCart.bind(this);
+  }
+
+  addToTheCart(id){
+    const { addToCart, openModal } = this.props
+    addToCart(id)
+    openModal()
   }
 
   render() {
-    const { products, profile, addToCart } = this.props
+    const { products, profile, addToCart, openModal } = this.props
 
-    
+
 
       return (
-        <ProductsList title="Products">
-          {products.map(product =>
-            <ProductItem
-              key={product.id}
-              product={product}
-              onAddToCartClicked={() => addToCart(product.id)} />
-          )}
-        </ProductsList>
+        <div>
+
+          <ProductsList title="Products">
+            {products.map(product =>
+              <ProductItem
+                key={product.id}
+                product={product}
+                onAddToCartClicked={() => this.addToTheCart(product.id)} />
+            )}
+          </ProductsList>
+        </div>
+
       )
   }
 }

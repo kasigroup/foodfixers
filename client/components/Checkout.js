@@ -19,6 +19,9 @@ class Checkout extends Component {
 
   render() {
     const { total, choosenLocation } = this.props
+
+    const choosenLocationInt = parseInt(choosenLocation)
+
     const totalInt = parseInt(total)
     // Changing to öre from only kr
     const totalOre = totalInt * 100
@@ -31,7 +34,7 @@ class Checkout extends Component {
         token={this.sendStripeData}
         stripeKey="pk_test_tuiIc9CcK7Rf8qBOJ3cFeYjT"
       >
-        <button className="btn main-btn" disabled={total <= 0 || !choosenLocation}>
+        <button className="btn main-btn" disabled={total <= 0 || choosenLocationInt <= 0}>
           Checkout
         </button>
       </StripeCheckout>

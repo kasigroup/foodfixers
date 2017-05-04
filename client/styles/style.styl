@@ -39,13 +39,17 @@ button:hover {
   padding: 5%;
   max-width: 600px;
   margin: 0 auto;
-  top: 46px;
+  top: 10px;
   left: 10px;
   right: 10px;
   bottom: 10px;
   background-color: white;
+  transition: all 1s;
   overflow: auto;
   }
+
+
+
 
 .ModalOverlay {
   position: fixed;
@@ -53,7 +57,27 @@ button:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(41, 43, 44, 0.55);
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: background-color 0.1s;
+  }
+
+  .ReactModalPortal > * {
+      // When the modal is closed, overlay div has no css class
+      // This selector should be overridden by the `&--after-open` class below
+      opacity: 0;
+      transform: scale(1.3);
+  }
+
+  .ReactModal__Overlay {
+      z-index: 9999;
+      transition: all 200ms ease-in-out;
+      &--after-open {
+          opacity: 1;
+          transform: scale(1);
+      }
+      &--before-close {
+          opacity: 0;
+      }
   }
 
 #main {
@@ -73,23 +97,6 @@ button:hover {
 
 }
 
-.example-enter {
-  opacity: 0.01;
-}
-
-.example-enter.example-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
-.example-leave {
-  opacity: 1;
-}
-
-.example-leave.example-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
-}
 
 .product-single-header {
     background: black;
@@ -108,12 +115,7 @@ button:hover {
   text-decoration: none;
 }
 
-.logo {
-  font-family: 'Oswald', sans-serif;
-  color: white;
-  padding-top: 10px;
-  font-size: 1.5em;
-}
+
 
 .ReduxForm {
   max-width: 400px;
@@ -189,6 +191,10 @@ button:hover {
   float: right;
 }
 
+.modal-close-icon {
+  font-size: 1.5em;
+}
+
 footer {
   height: 100px;
   background: white;
@@ -201,17 +207,58 @@ footer {
 
 .top-nav {
   position: fixed;
-  background: #1a1a1a;
+  display: table;
+  background: white;
   width: 100%;
   max-width: 600px;
   z-index: 999;
+  box-shadow: 1px 1px 5px #7f7f7f;
 
   a {
-    color: white;
+    color: black;
     font-size: 0.95em;
     text-transform: uppercase;
   }
 
+}
+
+.logo {
+  font-family: 'Oswald', sans-serif;
+  color: black;
+  display: inline-block;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  font-size: 1.5em;
+}
+
+.burger-menu {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.cart-link {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.bot-nav {
+  position: fixed;
+  background: white;
+  width: 100%;
+  max-width: 600px;
+  z-index: 999;
+  bottom: 0;
+
+  a {
+    color: black;
+    font-size: 0.95em;
+    text-transform: uppercase;
+  }
+
+}
+
+.shopping-icon {
+  font-size: 1.2em;
 }
 
 .Home-Header {

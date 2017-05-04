@@ -16,9 +16,16 @@ class ApiOrderRequest {
 
 
     return fetch(request).then(response => {
+      if (response.status === 200 || 201) {
         response.text().then(function(text) {
           console.log(text);
         });
+        return response.json();
+      }else {
+        console.log("Bad request")
+        console.log(response.status);
+      }
+
     }).catch(errors => {
       return errors;
     });

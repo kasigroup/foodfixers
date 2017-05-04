@@ -22,15 +22,26 @@ function AdminButton(props) {
 }
 
 const NavBar = ({ products, quantity, logOutUser }) => (
-  <div className="top-nav">
-    <h4 className="logo">Foodfixers Express</h4>
-    <ul className="nav justify-content-center">
-      <SessionButton logOut={ logOutUser }/>
-      <li className="nav-item"><Link className="nav-link" to="/home">Home</Link></li>
-      <li className="nav-item"><Link className="nav-link" to="/profile">Profile</Link></li>
-      <li className="nav-item"><Link className="nav-link" to="/cart">Cart ({quantity})</Link></li>
-      <AdminButton />
-    </ul>
+  <div>
+    <div className="top-nav" >
+      <div className="burger-menu" >
+        <span>BRG</span>
+      </div>
+      <div className="logo" >
+        <h4>Foodfixers Express</h4>
+      </div>
+      <div className="cart-link" >
+        <Link to="/cart"><i className="fa fa-shopping-basket shopping-icon" aria-hidden="true"></i> {quantity}</Link>
+      </div>
+    </div>
+    <div className="bot-nav">
+      <ul className="nav justify-content-center">
+        <SessionButton logOut={ logOutUser }/>
+        <li className="nav-item"><Link className="nav-link" to="/home">Home</Link></li>
+        <li className="nav-item"><Link className="nav-link" to="/profile">Profile</Link></li>
+        <AdminButton />
+      </ul>
+    </div>
   </div>
 )
 
