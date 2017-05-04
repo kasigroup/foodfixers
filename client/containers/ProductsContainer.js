@@ -29,7 +29,10 @@ class ProductsContainer extends Component {
 
       return (
         <div>
-
+          <div className="product-intro">
+            <h4>Meals</h4>
+            <p>Our fresh dishes</p>
+          </div>
           <ProductsList title="Products">
             {products.map(product =>
               <ProductItem

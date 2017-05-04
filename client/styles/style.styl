@@ -9,6 +9,10 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+html {
+  touch-action: manipulation;
+}
+
 .title {
   font-size: 3.5em;
   font-family: 'Oswald', sans-serif;
@@ -71,6 +75,8 @@ button:hover {
   .ReactModal__Overlay {
       z-index: 9999;
       transition: all 200ms ease-in-out;
+      -webkit-transition-delay: 0.5s; /* Safari */
+      transition-delay: 0.5s;
       &--after-open {
           opacity: 1;
           transform: scale(1);
@@ -81,7 +87,6 @@ button:hover {
   }
 
 #main {
-  padding-top: 50px;
   padding-left: 25px;
   padding-right: 25px;
 }
@@ -109,6 +114,25 @@ button:hover {
 
 .locations {
   margin-top: 25px;
+}
+
+.locationFormInput {
+  display: none;
+}
+
+.form-check-input:checked+label {
+  color: white;
+  background: black;
+  font-style: normal;
+  transition: all 0.2s;
+}
+
+.location-form-label {
+    width: 100%;
+    border: 1px solid;
+    padding: 10px;
+    padding-left: 30px;
+    border-color: rgba(41, 43, 44, 0.24);
 }
 
 .productItem a:hover {
@@ -216,10 +240,12 @@ footer {
 
   a {
     color: black;
-    font-size: 0.95em;
-    text-transform: uppercase;
   }
 
+}
+
+.top-nav a:hover {
+  text-decoration: none;
 }
 
 .logo {
@@ -232,13 +258,23 @@ footer {
 }
 
 .burger-menu {
+  width: 25%;
+  text-align: left;
+  padding-left: 25px;
   display: table-cell;
   vertical-align: middle;
 }
 
 .cart-link {
+  width: 25%;
+  text-align: right;
+  padding-right: 30px;
   display: table-cell;
   vertical-align: middle;
+}
+
+.back-button {
+  font-size: 40px;
 }
 
 .bot-nav {
@@ -272,6 +308,21 @@ footer {
   margin-bottom: 15px;
   height: 150px;
   background-position: center center;
+}
+
+.product-intro {
+  h4 {
+    font-weight: bold;
+  }
+}
+
+.product-text {
+  text-transform: lowercase;
+}
+
+.product-title {
+  font-weight: bold;
+  text-transform: capitalize;
 }
 
 .align-left {

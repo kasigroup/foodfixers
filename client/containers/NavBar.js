@@ -21,14 +21,23 @@ function AdminButton(props) {
 
 }
 
-const NavBar = ({ products, quantity, logOutUser }) => (
+function BurgerButton(props) {
+  if (props.url !== "/home" && sessionStorage.jwt) {
+    return <Link to="/home"><i className="fa fa-chevron-circle-left back-button" aria-hidden="true"></i></Link>;
+  }else {
+    return <span>BRG</span>;
+  }
+
+}
+
+const NavBar = ({ products, quantity, logOutUser, url }) => (
   <div>
     <div className="top-nav" >
-      <div className="burger-menu" >
-        <span>BRG</span>
+      <div className="burger-menu">
+        <BurgerButton url={url} />
       </div>
       <div className="logo" >
-        <h4>Foodfixers Express</h4>
+        <Link to="/home"><h4>Foodfixers Express</h4></Link>
       </div>
       <div className="cart-link" >
         <Link to="/cart"><i className="fa fa-shopping-basket shopping-icon" aria-hidden="true"></i> {quantity}</Link>
@@ -47,7 +56,8 @@ const NavBar = ({ products, quantity, logOutUser }) => (
 
 const mapStateToProps = (state) => ({
   products: getCartProducts(state),
-  quantity: getCartQuantity(state)
+  quantity: getCartQuantity(state),
+  url: state.url.urlParams
 })
 
 export default connect(

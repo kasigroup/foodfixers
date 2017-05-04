@@ -41,12 +41,12 @@ class ProductItem extends Component{
           </div>
           <Product
             title={product.name}
-          desc={product.description}
-          price={product.price} />
+            desc={product.description}
+            price={product.price} />
         </Link>
         <button
           className="btn main-btn"
-          onClick={onAddToCartClicked}>Add to cart
+          onClick={onAddToCartClicked}>Add to cart - {product.price}kr
         </button>
       </div>
     )

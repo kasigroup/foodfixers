@@ -7,9 +7,9 @@ const LocationFormFirstPage = (props) => {
   const required = value => value ? undefined : 'Required'
 
   const renderField = ({ input, label, type, meta: { touched, error } }) => (
-    <div className="form-check" ><label className="form-check-label">
-        <input {...input} className="form-check-input" placeholder={label} type={type}/>
-        {label}</label>
+    <div className="form-check" ><input {...input} className="form-check-input locationFormInput" id={label.id} placeholder={label} type={type}/>
+      <label className="form-check-label location-form-label" htmlFor={label.id} >
+        {label.name}</label>
         {touched && error && <p className="error-text">{error}</p>}
     </div>
   )
@@ -23,7 +23,7 @@ const LocationFormFirstPage = (props) => {
             <Field
               name="area"
               component={renderField}
-              label={item.name}
+              label={item}
               type="radio"
               value={`${item.id}`}
               validate={[ required ]}/>

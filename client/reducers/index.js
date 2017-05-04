@@ -3,6 +3,7 @@ import products, * as fromProducts from './products'
 import sideDishes, * as fromSidedishes from './sidedishes'
 import session, * as fromSession from './session'
 import cart, * as fromCart from './cart'
+import url, * as fromUrl from './url'
 import locations, * as fromLocations from './locations'
 import areas, * as fromAreas from './areas'
 import deliveries, * as fromDeliveries from './deliveries'
@@ -15,6 +16,7 @@ export default combineReducers({
   cart,
   session,
   areas,
+  url,
   deliveries,
   profile_data,
   products,

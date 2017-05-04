@@ -14,13 +14,14 @@ let LocationFormFirstPage = (props) => {
   function renderField({ input, label, type, meta: { touched, error } }) {
     if (locationValueInt === label.location.area_id) {
       return (
-        <div className="form-check" ><label className="form-check-label">
-          <input {...input} className="form-check-input" placeholder={label} type={type}/>
-          {label.location.street_address}, <br/> {<FormattedDate value={label.delivery_at}
-            year='numeric'
-            month='long'
-            day='numeric'
-            weekday='long' />}</label>
+        <div className="form-check" >
+          <input {...input} className="form-check-input locationFormInput" placeholder={label} id={label.id} type={type}/>
+          <label className="form-check-label location-form-label" htmlFor={label.id}>
+            {label.location.street_address}, <br/> {<FormattedDate value={label.delivery_at}
+              year='numeric'
+              month='long'
+              day='numeric'
+              weekday='long' />}</label>
           {touched && error && <p className="error-text">{error}</p>}
         </div>
       )
