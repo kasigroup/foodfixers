@@ -4,6 +4,8 @@ import { getCartProducts, getCartQuantity } from '../reducers'
 import { Link } from 'react-router'
 import { logOutUser } from '../actions/sessionActions'
 
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
+
 function SessionButton(props) {
   if (sessionStorage.jwt) {
     return <li className="nav-item"><a href="" className="nav-link" onClick={props.logOut}>Logout</a></li>;
@@ -39,8 +41,14 @@ const NavBar = ({ products, quantity, logOutUser, url }) => (
       <div className="logo" >
         <Link to="/home"><h4>Foodfixers Express</h4></Link>
       </div>
-      <div className="cart-link" >
-        <Link to="/cart"><i className="fa fa-shopping-basket shopping-icon" aria-hidden="true"></i> {quantity}</Link>
+      <div className="cart-link">
+        <Link to="/cart"><CSSTransitionGroup
+          component="i"
+          className="fa fa-shopping-basket shopping-icon"
+          id="cart-link"
+          transitionName="shopping-cart"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={500}></CSSTransitionGroup> {quantity}</Link>
       </div>
     </div>
     <div className="bot-nav">

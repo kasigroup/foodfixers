@@ -43,7 +43,7 @@ button:hover {
   padding: 5%;
   max-width: 600px;
   margin: 0 auto;
-  top: 10px;
+  top: 60px;
   left: 10px;
   right: 10px;
   bottom: 10px;
@@ -352,4 +352,29 @@ footer {
   text-align: left;
   letter-spacing: 0.06em;
   font-size: 14px;
+}
+
+/* Animations  */
+
+@keyframes cart-animate {
+    0% {
+    -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+    transform: rotate(0deg);}
+    25% {
+    -webkit-transform: rotate(-16deg); /* Chrome, Safari, Opera */
+    transform: rotate(-16deg);}
+    50% {
+    -webkit-transform: rotate(16deg); /* Chrome, Safari, Opera */
+    transform: rotate(16deg);}
+    100% {
+    -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+    transform: rotate(0deg);}
+}
+
+/* The element to apply the animation to */
+.cart-link-animation {
+    animation-name: cart-animate;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 2;
+    animation-duration: 0.5s;
 }

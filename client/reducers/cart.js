@@ -6,6 +6,8 @@ import {
   SUBMIT_LOCATION
 } from '../constants/ActionTypes'
 
+import AnimateButton from '../globalFunctions/helpers';
+
 const initialState = {
   addedIds: [],
   quantityById: {},
@@ -22,10 +24,12 @@ const addLocation = (state = initialState.choosenLocation, action) => {
   }
 }
 
+
 // Adds item to cart with id
 const addedIds = (state = initialState.addedIds, action) => {
   switch (action.type) {
     case ADD_TO_CART:
+      AnimateButton()
       if (state.indexOf(action.productId) !== -1) {
         return state
       }
