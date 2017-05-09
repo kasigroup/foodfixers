@@ -1,10 +1,11 @@
+@import './_*.styl'
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Oswald');
 
 #root {
   text-align: center;
   margin: 0 auto;
   width: 100%;
-  max-width: 600px;
   color: #1a1a1a;
   font-family: 'Open Sans', sans-serif;
 }
@@ -92,6 +93,9 @@ button:hover {
 #main {
   padding-left: 25px;
   padding-right: 25px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
 }
 
 .productItem {
@@ -234,12 +238,25 @@ footer {
   display: inline-block;
 }
 
+.nav {
+  flex-direction: column;
+  height: 100%;
+}
+
+.nav-link {
+  display: inline-block;
+}
+
 .top-nav {
   position: fixed;
   display: table;
+  max-width: 800px;
+  right: 0;
+  left: 0;
+  margin-right: auto;
+  margin-left: auto;
   background: white;
   width: 100%;
-  max-width: 600px;
   z-index: 999;
   box-shadow: 1px 1px 5px #7f7f7f;
 
@@ -336,6 +353,31 @@ footer {
   font-weight: bold;
   text-transform: capitalize;
 }
+
+.hamburger-menu {
+  display: none;
+  height: 100%;
+  margin-top: 49px;
+  background: rgba(0, 0, 0, 0.95);
+  width: 100%;
+  position: fixed;
+  color: white;
+  z-index: 9999;
+  transition: all 0.3s;
+
+  a {
+    color: white;
+    font-size: 50px;
+    text-transform: uppercase;
+  }
+
+  &.is-active {
+    display: block;
+  }
+
+}
+
+
 
 .align-left {
   text-align: left;

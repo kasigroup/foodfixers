@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { getCartProducts, getCartQuantity } from '../reducers'
 import { Link } from 'react-router'
 import { logOutUser } from '../actions/sessionActions'
+import Burger from '../components/Burger'
 
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 
@@ -24,13 +25,15 @@ function AdminButton(props) {
 }
 
 function BurgerButton(props) {
-  if (props.url !== "/home" && sessionStorage.jwt) {
-    return <Link to="/home"><i className="fa fa-chevron-circle-left back-button" aria-hidden="true"></i></Link>;
+  if (props.url !== "/" && sessionStorage.jwt) {
+    return <Link to="/"><i className="fa fa-chevron-circle-left back-button" aria-hidden="true"></i></Link>;
   }else {
-    return <span>BRG</span>;
+    return <Burger />;
   }
 
 }
+
+
 
 const NavBar = ({ products, quantity, logOutUser, url }) => (
   <div>
@@ -51,11 +54,11 @@ const NavBar = ({ products, quantity, logOutUser, url }) => (
           transitionLeaveTimeout={500}></CSSTransitionGroup> {quantity}</Link>
       </div>
     </div>
-    <div className="bot-nav">
+    <div className="hamburger-menu">
       <ul className="nav justify-content-center">
-        <SessionButton logOut={ logOutUser }/>
-        <li className="nav-item"><Link className="nav-link" to="/home">Home</Link></li>
+        <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
         <li className="nav-item"><Link className="nav-link" to="/profile">Profile</Link></li>
+        <SessionButton logOut={ logOutUser }/>
         <AdminButton />
       </ul>
     </div>

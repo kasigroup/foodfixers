@@ -39,7 +39,7 @@ export function logInUser(values) {
          throw new SubmissionError({ _error: 'User does not exist or Bad password' })
        }else {
         sessionStorage.setItem('jwt', response.jwt);
-        dispatch(push("/home"));
+        dispatch(push("/"));
         dispatch(loginSuccess());
       }
     }).catch(error => {
@@ -54,7 +54,7 @@ export function createProfile(values) {
   return function(dispatch) {
     return ApiCreateProfileRequest.create(url,values).then(response => {
       console.log(response)
-      dispatch(push("/home"));
+      dispatch(push("/"));
       dispatch(createProfileSuccess());
     }).catch(error => {
       throw(error);

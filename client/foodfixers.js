@@ -15,7 +15,7 @@ addLocaleData(svLocaleData);
 
 import reducer from './reducers'
 
-import { Router, Route, browserHistory } from 'react-router'
+import { Router, Route, browserHistory,IndexRoute } from 'react-router'
 import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux'
 
 // Import css
@@ -31,6 +31,7 @@ import ProductView from './containers/ProductView';
 import LoginContainer from './containers/LoginContainer';
 import RegisterContainer from './containers/RegisterContainer';
 import AdminContainer from './containers/AdminContainer';
+import NotFound from './containers/NotFound';
 import CreateProfileContainer from './containers/CreateProfileContainer';
 
 const enhancers = compose(
@@ -66,12 +67,13 @@ const Root = () => {
           <Route path="login" component={LoginContainer} />
           <Route path="register" component={RegisterContainer} />
           <Route path="createprofile" component={CreateProfileContainer} />
-          <Route path="home" component={HomeContainer} onEnter={requireAuth}/>
+          <IndexRoute component={HomeContainer} onEnter={requireAuth}/>
           <Route path="sidedishes" component={SideDishesContainer} onEnter={requireAuth}/>
           <Route path="profile" component={ProfileContainer} onEnter={requireAuth}/>
           <Route path="cart" component={CartContainer} onEnter={requireAuth}/>
           <Route path="admin" component={AdminContainer} onEnter={requireAuth}/>
           <Route path="product/:id" component={ProductView} onEnter={requireAuth}/>
+          <Route path='*' component={NotFound} />
         </Route>
        </Router>
      </Provider>
