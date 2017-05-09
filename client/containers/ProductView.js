@@ -1,50 +1,82 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
 import { getVisibleProducts } from '../reducers/products'
 import { addToCart } from '../actions/productActions'
 import ProductSingle from '../components/ProductSingle'
+import ModalContainer from './ModalContainer'
 
 
-const ProductView = ({ params, products, addToCart }) => {
+class ProductView extends Component {
 
+  constructor(props) {
+    super(props)
 
-  if (products.length > 0) {
-
-    // Get params id
-    const { id } = params;
-    // params id from string to int
-    const paramsId = parseInt(id)
-    // Find index in array and give back the one with the same id as params
-    const index = products.findIndex((product) => product.id === paramsId);
-    // Return the meal with the right id
-    const product = products[index];
-
-    const image = {
-          backgroundImage: `url('http://api.kasigroup.se${product.image_url}')`
+    this.state = {
+      showModal: false
     };
 
-    if (!product) {
-      return (
-        <p>No product here!</p>
-      )
-    }else {
-      return (
-        <div>
-          <ProductSingle
-            product={product}
-            image={image}
-            onAddToCartClicked={() => addToCart(product.id)}
-           />
-        </div>
-      )
-    }
-  }else {
-    return (
-      <p>Loading...</p>
-    )
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.addToTheCart = this.addToTheCart.bind(this);
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+
   }
 
+  handleOpenModal () {
+    this.setState({ showModal: true });
+  }
+
+  addToTheCart(id){
+    const { addToCart } = this.props
+    addToCart(id)
+    this.handleOpenModal()
+  }
+
+  handleCloseModal () {
+    this.setState({ showModal: false });
+  }
+
+  render() {
+    const { params, products, addToCart } = this.props
+      if (products.length > 0) {
+
+        // Get params id
+        const { id } = params;
+        // params id from string to int
+        const paramsId = parseInt(id)
+        // Find index in array and give back the one with the same id as params
+        const index = products.findIndex((product) => product.id === paramsId);
+        // Return the meal with the right id
+        const product = products[index];
+
+        const image = {
+              backgroundImage: `url('http://api.kasigroup.se${product.image_url}')`
+        };
+
+        if (!product) {
+          return (
+            <p>No product here!</p>
+          )
+        }else {
+          return (
+            <div>
+              <ProductSingle
+                product={product}
+                image={image}
+                onAddToCartClicked={() => this.addToTheCart(product.id)}
+              />
+              <ModalContainer isOpen={this.state.showModal} isClose={this.handleCloseModal}/>
+            </div>
+          )
+        }
+      }else {
+        return (
+          <p>Loading...</p>
+        )
+      }
+  }
 }
+
 
 const mapStateToProps = state => ({
   products: getVisibleProducts(state.products)

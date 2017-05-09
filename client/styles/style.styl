@@ -18,6 +18,10 @@ html {
   font-family: 'Oswald', sans-serif;
 }
 
+a:hover {
+  color: white;
+}
+
 button:hover {
   cursor: pointer;
 }
@@ -54,7 +58,6 @@ button:hover {
 
 
 
-
 .ModalOverlay {
   position: fixed;
   top: 0;
@@ -73,7 +76,7 @@ button:hover {
   }
 
   .ReactModal__Overlay {
-      z-index: 9999;
+      z-index: 669;
       transition: all 200ms ease-in-out;
       -webkit-transition-delay: 0.5s; /* Safari */
       transition-delay: 0.5s;
@@ -356,25 +359,32 @@ footer {
 
 /* Animations  */
 
-@keyframes cart-animate {
-    0% {
-    -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
-    transform: rotate(0deg);}
-    25% {
-    -webkit-transform: rotate(-16deg); /* Chrome, Safari, Opera */
-    transform: rotate(-16deg);}
-    50% {
-    -webkit-transform: rotate(16deg); /* Chrome, Safari, Opera */
-    transform: rotate(16deg);}
-    100% {
-    -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
-    transform: rotate(0deg);}
+@keyframes swing {
+  20% {
+    transform: rotate3d(0, 0, 1, 15deg);
+  }
+
+  40% {
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+
+  60% {
+    transform: rotate3d(0, 0, 1, 5deg);
+  }
+
+  80% {
+    transform: rotate3d(0, 0, 1, -5deg);
+  }
+
+  to {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
 }
 
-/* The element to apply the animation to */
 .cart-link-animation {
-    animation-name: cart-animate;
-    animation-timing-function: ease-in;
-    animation-iteration-count: 2;
+    transform-origin: top center;
+    animation-name: swing;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
     animation-duration: 0.5s;
 }
