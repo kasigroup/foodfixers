@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { getVisibleProducts } from '../reducers/products'
 import { addToCart } from '../actions/productActions'
+import { addNotification } from '../actions/notificationActions'
 import ProductItem from '../components/ProductItem'
 import ProductsList from '../components/ProductsList'
 
@@ -16,9 +17,10 @@ class ProductsContainer extends Component {
     this.addToTheCart = this.addToTheCart.bind(this);
   }
 
-  addToTheCart(id){
-    const { addToCart, openModal } = this.props
+  addToTheCart(id, name){
+    const { addToCart, openModal, addNotification } = this.props
     addToCart(id)
+    addNotification(`Added "${name}" to cart`,"success")
     openModal()
   }
 
@@ -38,7 +40,7 @@ class ProductsContainer extends Component {
               <ProductItem
                 key={product.id}
                 product={product}
-                onAddToCartClicked={() => this.addToTheCart(product.id)} />
+                onAddToCartClicked={() => this.addToTheCart(product.id, product.name)} />
             )}
           </ProductsList>
         </div>
@@ -54,7 +56,7 @@ const mapStateToProps = state => ({
 })
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ addToCart }, dispatch)
+  return bindActionCreators({ addToCart, addNotification }, dispatch)
 }
 
 export default connect(

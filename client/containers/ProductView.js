@@ -4,6 +4,7 @@ import { getVisibleProducts } from '../reducers/products'
 import { addToCart } from '../actions/productActions'
 import ProductSingle from '../components/ProductSingle'
 import ModalContainer from './ModalContainer'
+import { addNotification } from '../actions/notificationActions'
 
 
 class ProductView extends Component {
@@ -26,9 +27,10 @@ class ProductView extends Component {
     this.setState({ showModal: true });
   }
 
-  addToTheCart(id){
-    const { addToCart } = this.props
+  addToTheCart(id, name){
+    const { addToCart,addNotification } = this.props
     addToCart(id)
+    addNotification(`Added "${name}" to cart`,"success")
     this.handleOpenModal()
   }
 
@@ -63,7 +65,7 @@ class ProductView extends Component {
               <ProductSingle
                 product={product}
                 image={image}
-                onAddToCartClicked={() => this.addToTheCart(product.id)}
+                onAddToCartClicked={() => this.addToTheCart(product.id, product.name)}
               />
               <ModalContainer isOpen={this.state.showModal} isClose={this.handleCloseModal}/>
             </div>
@@ -84,5 +86,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addToCart }
+  { addToCart, addNotification }
 )(ProductView)
