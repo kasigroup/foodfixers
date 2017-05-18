@@ -4,6 +4,7 @@ import ApiCreateProfileRequest from '../api/CreateProfileRequest'
 import * as types from '../constants/ActionTypes'
 import { SubmissionError } from 'redux-form'
 import { push } from 'react-router-redux'
+import {addNotification} from './notificationActions'
 
 export function loginSuccess() {
   return {
@@ -35,8 +36,8 @@ export function logInUser(values) {
   return function(dispatch) {
     return ApiPostRequest.login(url,values).then(response => {
       if (response === undefined) {
-         console.log("sometinh wrong")
-         throw new SubmissionError({ _error: 'User does not exist or Bad password' })
+         dispatch(addNotification("User does not exist or Bad password","error"));
+        //  throw new SubmissionError({ _error: 'User does not exist or Bad password' })
        }else {
         sessionStorage.setItem('jwt', response.jwt);
         dispatch(push("/"));
@@ -55,6 +56,7 @@ export function createProfile(values) {
     return ApiCreateProfileRequest.create(url,values).then(response => {
       console.log(response)
       dispatch(push("/"));
+      dispatch(addNotification("Created Profile!","success"));
       dispatch(createProfileSuccess());
     }).catch(error => {
       throw(error);
@@ -79,6 +81,7 @@ export function registerUser(values) {
       if (response.created_at) {
         dispatch(push("/login"));
         dispatch(registerSuccess());
+        dispatch(addNotification("Register Success!","success"));
       }else {
         throw new SubmissionError({ email: "E-mail " + response.email, password: "Password " + response.password, _error: 'Register failed!' })
       }

@@ -42,7 +42,7 @@ const NavBar = ({ products, quantity, logOutUser, url }) => (
         <BurgerButton url={url} />
       </div>
       <div className="logo" >
-        <Link to="/home"><h4>Foodfixers Express</h4></Link>
+        <Link to="/"><h4>Foodfixers Express</h4></Link>
       </div>
       <div className="cart-link">
         <Link to="/cart"><CSSTransitionGroup

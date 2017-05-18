@@ -6,6 +6,7 @@ import cart, * as fromCart from './cart'
 import url, * as fromUrl from './url'
 import locations, * as fromLocations from './locations'
 import areas, * as fromAreas from './areas'
+import notifications from './notifications';
 import deliveries, * as fromDeliveries from './deliveries'
 import profile_data, * as fromProfile from './profile'
 import { routerReducer } from 'react-router-redux'
@@ -17,6 +18,7 @@ export default combineReducers({
   session,
   areas,
   url,
+  notifications,
   deliveries,
   profile_data,
   products,
