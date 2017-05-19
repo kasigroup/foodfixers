@@ -5,6 +5,7 @@ import { getVisibleDeliveries } from '../reducers/deliveries'
 import { getVisibleAreas } from '../reducers/areas'
 import Location from '../components/Location'
 import { saveLocation } from '../actions/cartActions'
+import { addNotification } from '../actions/notificationActions'
 
 
 
@@ -14,12 +15,18 @@ class LocationContainer extends Component {
   constructor(props) {
     super(props)
     this.show = this.show.bind(this);
+    this.notif = this.notif.bind(this);
   }
 
   show(values){
     const { saveLocation } = this.props
     console.log(values)
     saveLocation(values)
+  }
+
+  notif(){
+    const { addNotification } = this.props
+    addNotification("Saved location", "success")
   }
 
   render() {
@@ -29,6 +36,7 @@ class LocationContainer extends Component {
           deliveries={deliveries}
           areas={areas}
           showResults={this.show}
+          notif={this.notif}
           >
         </Location>
       )
@@ -44,7 +52,7 @@ const mapStateToProps = state => ({
 })
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ saveLocation }, dispatch)
+  return bindActionCreators({ saveLocation, addNotification }, dispatch)
 }
 
 export default connect(

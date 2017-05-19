@@ -67,8 +67,10 @@ LocationFormFirstPage = connect(
   state => {
     // can select values individually
     const areaValue = selector(state, 'area')
+    const dayValue = selector(state, 'day')
     return {
-      areaValue
+      areaValue,
+      dayValue
     }
   }
 )(LocationFormFirstPage)

@@ -3,25 +3,24 @@ import { connect } from 'react-redux'
 import { Field, reduxForm, formValueSelector } from 'redux-form'
 import {FormattedDate} from 'react-intl';
 
+
 let LocationFormFirstPage = (props) => {
-  const { handleSubmit, pristine, reset, submitting, previousPage, deliveries, areaValue, locationValue } = props
+  const { handleSubmit, pristine, reset, submitting, previousPage, deliveries, areaValue, locationValue, notif, dayValue } = props
 
   const required = value => value ? undefined : 'Required'
 
   console.log(areaValue)
-  let locationValueInt = parseInt(areaValue)
+  let dayValueInt = parseInt(dayValue)
 
   function renderField({ input, label, type, meta: { touched, error } }) {
-    if (locationValueInt === label.location.area_id) {
+    if (dayValueInt === label.id) {
       return (
         <div className="form-check" >
           <input {...input} className="form-check-input locationFormInput" placeholder={label} id={label.id} type={type}/>
           <label className="form-check-label location-form-label" htmlFor={label.id}>
-            {label.location.street_address}, <br/> {<FormattedDate value={label.delivery_at}
-              year='numeric'
-              month='long'
-              day='numeric'
-              weekday='long' />}</label>
+            {label.location.street_address},  {<FormattedDate value={label.delivery_at}
+              hour="numeric"
+              minute="numeric"/>}</label>
           {touched && error && <p className="error-text">{error}</p>}
         </div>
       )
@@ -56,7 +55,7 @@ let LocationFormFirstPage = (props) => {
         </div>
         <div>
           <button type="button" className="previous btn main-btn btn-45" onClick={previousPage}>Previous</button>
-          <button type="submit" className="btn main-btn btn-45" disabled={pristine || submitting || !locationValue}>Submit</button>
+          <button type="submit" className="btn main-btn btn-45" onClick={notif} disabled={pristine || submitting || !dayValue}>Submit</button>
         </div>
       </fieldset>
     </form>
@@ -75,10 +74,10 @@ LocationFormFirstPage = connect(
   state => {
     // can select values individually
     const areaValue = selector(state, 'area')
-    const locationValue = selector(state, 'location')
+    const dayValue = selector(state, 'day')
     return {
       areaValue,
-      locationValue
+      dayValue
     }
   }
 )(LocationFormFirstPage)

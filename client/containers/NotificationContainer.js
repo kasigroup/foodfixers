@@ -20,8 +20,8 @@ import NotificationSystem from 'react-notification-system';
         message,
         level,
         position:"bc",
-        dismissible:false,
-        autoDismiss:5
+        dismissible:true,
+        autoDismiss:3
       });
     }
 
@@ -31,16 +31,27 @@ import NotificationSystem from 'react-notification-system';
             DefaultStyle: { // Applied to every notification, regardless of the notification level
               margin: '10px 5px 2px 1px',
               backgroundColor: 'black',
-              borderTop: '2px solid white',
+              borderTop: '4px solid white',
+              paddingTop: '30px',
+              paddingBottom: '30px',
               color:'white',
               boxShadow: '0px 0px 0px'
             },
 
           error: { // Applied only to the success notification item
-            borderTop: '2px solid red',
+            borderTop: '4px solid red',
           },
           success: { // Applied only to the success notification item
-            borderTop: '2px solid green',
+            borderTop: '4px solid green',
+          }
+        },
+        Dismiss: {
+            DefaultStyle: {
+              backgroundColor: 'black'
+            }
+          },
+        Containers: {
+          DefaultStyle: {
           }
         }
       }

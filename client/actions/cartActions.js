@@ -1,5 +1,6 @@
 import ApiOrderRequest from '../api/OrderRequest';
 import * as types from '../constants/ActionTypes'
+import {addNotification} from './notificationActions'
 
 export function checkoutRequest(order) {
   return {
@@ -39,6 +40,7 @@ export function checkout(orderFormatted, total, token, choosenLocation) {
     return ApiOrderRequest.sendOrder(order, token).then(response => {
       if (response) {
         dispatch(checkoutRequest(order));
+        dispatch(addNotification("You just ordered!","success"))
       }else {
         console.log("no response on order")
       }

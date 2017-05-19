@@ -5,11 +5,11 @@ import { setOrderLocation } from '../actions/locationActions'
 
 
 
-const Location  = ({ deliveries , areas, showResults, setLocation}) => {
+const Location  = ({ deliveries , areas, showResults, setLocation, notif}) => {
   return (
     <div>
       <h3 className="title">Locations</h3>
-      <LocationForm deliveries={deliveries} areas={areas} onSubmit={showResults} />
+      <LocationForm deliveries={deliveries} notif={notif} areas={areas} onSubmit={showResults} />
     </div>
   )
 }
