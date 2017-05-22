@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { getVisibleCategories } from '../reducers/categories'
 import { loadCategories } from '../actions/productActions'
+import Category from '../components/Category'
 
 class CategoriesContainer extends Component {
 
@@ -16,11 +17,17 @@ class CategoriesContainer extends Component {
 
       return (
         <div>
-          <h3>Categories</h3>
-          {categories.map(cat =>
-            <p
-              key={cat.id}>{cat.name}</p>
-          )}
+          <div className="product-intro">
+            <h4>Categories</h4>
+            <p>Choose the category you want</p>
+          </div>
+          <div className="categories-container">
+            {categories.map(cat =>
+              <Category
+                key={cat.id}
+                category={cat}/>
+            )}
+          </div>
         </div>
 
       )

@@ -72,6 +72,7 @@ const Root = () => {
           <Route path="sidedishes" component={SideDishesContainer} onEnter={requireAuth}/>
           <Route path="profile" component={ProfileContainer} onEnter={requireAuth}/>
           <Route path="categories" component={CategoriesContainer} onEnter={requireAuth}/>
+          <Route path="category/:id" component={HomeContainer} onEnter={requireAuth}/>
           <Route path="cart" component={CartContainer} onEnter={requireAuth}/>
           <Route path="admin" component={AdminContainer} onEnter={requireAuth}/>
           <Route path="product/:id" component={ProductView} onEnter={requireAuth}/>

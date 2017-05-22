@@ -25,7 +25,7 @@ class ProductsContainer extends Component {
   }
 
   render() {
-    const { products, profile, addToCart, openModal } = this.props
+    const { products, profile, addToCart, openModal, category } = this.props
 
 
 
@@ -34,6 +34,7 @@ class ProductsContainer extends Component {
           <div className="product-intro">
             <h4>Meals</h4>
             <p>Our fresh dishes</p>
+            <p>{`Category ${category}`}</p>
           </div>
           <ProductsList title="Products">
             {products.map(product =>

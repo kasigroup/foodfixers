@@ -37,9 +37,10 @@ class HomeContainer extends Component {
 
 
   render() {
+    const {params} = this.props
       return (
         <div>
-          <ProductsContainer openModal={this.handleOpenModal} />
+          <ProductsContainer openModal={this.handleOpenModal} category={params.id}/>
           <ModalContainer isOpen={this.state.showModal} isClose={this.handleCloseModal}/>
         </div>
 
