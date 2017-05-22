@@ -16,6 +16,27 @@ export function loadSideDishesSuccess(sideDishes) {
   };
 }
 
+export function loadCategoriesSuccess(categories) {
+  return {
+    type: types.LOAD_CATEGORIES_SUCCESS,
+    categories: categories
+  };
+}
+
+
+
+export function loadCategories() {
+  const url = "product_categories";
+  // make async call to api, handle promise, dispatch action when promise is resolved
+  return function(dispatch) {
+    return ApiRequest.getAllItems(url).then(categories => {
+      dispatch(loadCategoriesSuccess(categories));
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}
+
 export function loadDishes() {
   const url = "dishes";
   // make async call to api, handle promise, dispatch action when promise is resolved

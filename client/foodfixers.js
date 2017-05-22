@@ -27,6 +27,7 @@ import HomeContainer from './containers/HomeContainer';
 import SideDishesContainer from './containers/SideDishesContainer';
 import CartContainer from './containers/CartContainer';
 import ProfileContainer from './containers/ProfileContainer';
+import CategoriesContainer from './containers/CategoriesContainer';
 import ProductView from './containers/ProductView';
 import LoginContainer from './containers/LoginContainer';
 import RegisterContainer from './containers/RegisterContainer';
@@ -70,6 +71,7 @@ const Root = () => {
           <IndexRoute component={HomeContainer} onEnter={requireAuth}/>
           <Route path="sidedishes" component={SideDishesContainer} onEnter={requireAuth}/>
           <Route path="profile" component={ProfileContainer} onEnter={requireAuth}/>
+          <Route path="categories" component={CategoriesContainer} onEnter={requireAuth}/>
           <Route path="cart" component={CartContainer} onEnter={requireAuth}/>
           <Route path="admin" component={AdminContainer} onEnter={requireAuth}/>
           <Route path="product/:id" component={ProductView} onEnter={requireAuth}/>
