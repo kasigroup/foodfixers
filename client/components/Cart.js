@@ -1,9 +1,9 @@
 import React from 'react'
 import CartItem from './CartItem'
 import { connect } from 'react-redux'
-import { removeFromCart } from '../actions/productActions'
 
-const Cart  = ({ products, total, removeFromCart, onCheckoutClicked, location}) => {
+
+const Cart  = ({ products, total, removingFromCart, onCheckoutClicked, location}) => {
   const hasProducts = products.length > 0
   const nodes = hasProducts ? (
     products.map(product =>
@@ -12,7 +12,7 @@ const Cart  = ({ products, total, removeFromCart, onCheckoutClicked, location}) 
         price={product.price}
         quantity={product.quantity}
         key={product.id}
-        removeFromCart={() => removeFromCart(product.id)}
+        removingFromCart={() => removingFromCart(product.id, product.name)}
       />
     )
   ) : (
@@ -34,5 +34,5 @@ const Cart  = ({ products, total, removeFromCart, onCheckoutClicked, location}) 
 
 export default connect(
   null,
-  { removeFromCart }
+  {  }
 )(Cart)

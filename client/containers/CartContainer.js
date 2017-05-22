@@ -4,8 +4,10 @@ import { connect } from 'react-redux'
 import { checkout } from '../actions/cartActions'
 import { getTotal, getTotalSide , getCartProducts, getOrder, getCartSideDishes } from '../reducers'
 import Cart from '../components/Cart'
+import { addNotification } from '../actions/notificationActions'
 import LocationContainer from './LocationContainer'
 import CheckoutContainer from './CheckoutContainer'
+import { removeFromCart } from '../actions/productActions'
 import { loadDishes } from '../actions/productActions'
 import { loadDeliveries } from '../actions/deliveriesActions'
 import { loadLocation, loadAreas } from '../actions/locationActions'
@@ -14,6 +16,7 @@ class CartContainer extends Component {
   constructor(props) {
     super(props)
 
+    this.removingFromCart = this.removingFromCart.bind(this);
   }
 
   componentDidMount() {
@@ -22,8 +25,12 @@ class CartContainer extends Component {
     loadDishes()
     loadDeliveries()
     loadAreas()
+  }
 
-
+  removingFromCart(id, name){
+    const { removeFromCart, addNotification } = this.props
+    removeFromCart(id)
+    addNotification(`Removed "${name}" from cart`, "success")
   }
 
   render() {
@@ -34,6 +41,7 @@ class CartContainer extends Component {
         <Cart
           products={products}
           total={total}
+          removingFromCart={this.removingFromCart}
         >
         </Cart>
         <CheckoutContainer products={products} orderFormatted={orderFormatted} location={location} total={total} />
@@ -62,7 +70,7 @@ const mapStateToProps = (state) => ({
 })
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ checkout, loadDishes, loadLocation, loadAreas, loadDeliveries }, dispatch)
+  return bindActionCreators({ checkout, loadDishes, loadLocation, loadAreas, loadDeliveries, removeFromCart, addNotification }, dispatch)
 }
 
 export default connect(
