@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form'
 
 const LocationFormFirstPage = (props) => {
   const { handleSubmit, pristine, reset, submitting, areas } = props
-
+  
   const required = value => value ? undefined : 'Required'
 
   const renderField = ({ input, label, type, meta: { touched, error } }) => (

@@ -26,6 +26,9 @@ function AdminButton(props) {
 
 function BurgerButton(props) {
   if (props.url !== "/" && sessionStorage.jwt) {
+    if (props.url.includes("product")) {
+      return <Link to={window.previousLocation.pathname}><i className="fa fa-chevron-circle-left back-button" aria-hidden="true"></i></Link>;
+    }
     return <Link to="/"><i className="fa fa-chevron-circle-left back-button" aria-hidden="true"></i></Link>;
   }else {
     return <Burger />;

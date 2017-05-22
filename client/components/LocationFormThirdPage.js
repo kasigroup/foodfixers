@@ -9,6 +9,12 @@ let LocationFormFirstPage = (props) => {
 
   const required = value => value ? undefined : 'Required'
 
+
+  // let filterDeliveries = deliveries.filter(function(delivery){
+  //   return delivery
+  // })
+
+
   console.log(areaValue)
   let dayValueInt = parseInt(dayValue)
 

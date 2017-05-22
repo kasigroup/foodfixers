@@ -4,7 +4,11 @@ import NotificationContainer from './NotificationContainer'
 
 
 
-class App extends Component{
+class App extends Component{  
+  componentWillReceiveProps() {
+    window.previousLocation = this.props.location
+  }
+
   render() {
 
     return (

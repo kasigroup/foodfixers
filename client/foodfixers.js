@@ -68,7 +68,7 @@ const Root = () => {
           <Route path="login" component={LoginContainer} />
           <Route path="register" component={RegisterContainer} />
           <Route path="createprofile" component={CreateProfileContainer} />
-          <IndexRoute component={HomeContainer} onEnter={requireAuth}/>
+          <IndexRoute component={CategoriesContainer} onEnter={requireAuth}/>
           <Route path="sidedishes" component={SideDishesContainer} onEnter={requireAuth}/>
           <Route path="profile" component={ProfileContainer} onEnter={requireAuth}/>
           <Route path="categories" component={CategoriesContainer} onEnter={requireAuth}/>
