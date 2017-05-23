@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { getVisibleProducts } from '../reducers/products'
 import { addToCart } from '../actions/productActions'
 import { addNotification } from '../actions/notificationActions'
+import { getVisibleCategories } from '../reducers/categories'
 import ProductItem from '../components/ProductItem'
 import ProductsList from '../components/ProductsList'
 
@@ -25,8 +26,19 @@ class ProductsContainer extends Component {
   }
 
   render() {
-    const { products, profile, addToCart, openModal, category } = this.props
+    const { products, profile, addToCart, openModal, category, categories } = this.props
 
+    let gettingCategory = categories.find(function(cat){
+      if (cat.id === parseInt(category)) {
+        return true
+      }else {
+        return false
+      }
+    })
+
+    let categoryArray = products.filter(function(product){
+      return product.category_id === parseInt(category);
+    })
 
 
       return (
@@ -34,10 +46,10 @@ class ProductsContainer extends Component {
           <div className="product-intro">
             <h4>Meals</h4>
             <p>Our fresh dishes</p>
-            <p>{`Category ${category}`}</p>
+            <p>{`${gettingCategory.name}`}</p>
           </div>
           <ProductsList title="Products">
-            {products.map(product =>
+            {categoryArray.map(product =>
               <ProductItem
                 key={product.id}
                 product={product}
@@ -53,7 +65,8 @@ class ProductsContainer extends Component {
 
 const mapStateToProps = state => ({
   products: getVisibleProducts(state.products),
-  profile: state.profile_data.profile
+  profile: state.profile_data.profile,
+  categories: getVisibleCategories(state.categories),
 })
 
 function mapDispatchToProps(dispatch) {
