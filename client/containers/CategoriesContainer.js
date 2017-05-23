@@ -3,13 +3,15 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { getVisibleCategories } from '../reducers/categories'
 import { loadCategories } from '../actions/productActions'
+import { loadProfile } from '../actions/profileActions'
 import Category from '../components/Category'
 
 class CategoriesContainer extends Component {
 
   componentWillMount() {
-    const { loadCategories } = this.props
+    const { loadCategories, loadProfile } = this.props
     loadCategories()
+    loadProfile()
   }
 
   render() {
@@ -40,7 +42,7 @@ const mapStateToProps = state => ({
 })
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({loadCategories}, dispatch)
+  return bindActionCreators({loadCategories, loadProfile}, dispatch)
 }
 
 export default connect(

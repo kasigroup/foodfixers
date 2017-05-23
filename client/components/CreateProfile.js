@@ -10,6 +10,7 @@ const CreateProfile  = ({props, createProfile}) => {
   return (
     <div>
       <h3>Create Profile</h3>
+      <p>You have to put in your name to order</p>
       <CreateProfileForm create={ createProfile }/>
     </div>
   )

@@ -90,12 +90,8 @@ function requireAuth(nextState, replace) {
       pathname: '/login',
       state: { nextPathname: nextState.location.pathname }
     })
-  }else if(profile_data.profile.created) {
-    replace({
-      pathname: '/createprofile',
-      state: { nextPathname: nextState.location.pathname }
-    })
   }
 }
+
 
 render(<IntlProvider locale="sv"><Root /></IntlProvider>, document.getElementById('root'));
