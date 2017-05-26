@@ -30,13 +30,14 @@ class LocationContainer extends Component {
   }
 
   render() {
-      const { deliveries, areas } = this.props
+      const { deliveries, areas,location } = this.props
       return (
         <Location
           deliveries={deliveries}
           areas={areas}
           showResults={this.show}
           notif={this.notif}
+          location={location}
           >
         </Location>
       )
@@ -48,7 +49,8 @@ class LocationContainer extends Component {
 const mapStateToProps = state => ({
   form: state.form.location,
   deliveries: getVisibleDeliveries(state.deliveries),
-  areas: getVisibleAreas(state.areas)
+  areas: getVisibleAreas(state.areas),
+  location: state.cart.choosenLocation
 })
 
 function mapDispatchToProps(dispatch) {

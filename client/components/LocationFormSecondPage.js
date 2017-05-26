@@ -35,7 +35,7 @@ let LocationFormFirstPage = (props) => {
     <form onSubmit={handleSubmit}>
       <fieldset className="form-group row">
         <div className="col-sm-6 margin-center align-left">
-          <p className="align-center">Choose date</p>
+          <p className="align-center">Please choose date</p>
           {deliveries.map((item, i) => <div key={i}>
             <Field
               name="day"

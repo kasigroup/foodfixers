@@ -23,19 +23,42 @@ class LocationForm extends Component {
     this.setState({ page: this.state.page - 1 })
   }
 
+  componentDidMount() {
+
+    const {deliveries, location} = this.props
+
+    let choosenDelivery = deliveries.find(function(cat){
+      if (cat.id === location) {
+        return true
+      }else {
+        return false
+      }
+    })
+
+  }
+
   render() {
-    const { onSubmit, notif } = this.props
-    const { deliveries } = this.props
-    // // Converting date to an date object and then back to string
-    // let convertedDates = deliveries.map(function(item) {
-    //   let newArray = {...item}
-    //   newArray.delivery_at = new Date(item.delivery_at)
-    //   newArray.delivery_at = newArray.delivery_at.toString()
-    //   return newArray
-    // });
-    const { areas } = this.props
+    const { onSubmit, notif, areas, deliveries, location } = this.props
     const { page } = this.state
+
+    // Getting choosen address
+    let address = null;
+    if (location === 0) {
+       address = <span>none</span>;
+    } else {
+      console.log(location)
+      let gettingDelivery = deliveries.find(function(del){
+        if (del.id === parseInt(location)) {
+          return true
+        }else {
+          return false
+        }
+      })
+      address = <span>{gettingDelivery.location.street_address}</span>
+    }
+
     return (<div>
+      <h5>Choosen Location: {address}</h5>
       {page === 1 && <LocationFormFirstPage areas={areas} onSubmit={this.nextPage}/>}
       {page === 2 && <LocationFormSecondPage deliveries={deliveries} previousPage={this.previousPage} onSubmit={this.nextPage}/>}
       {page === 3 && <LocationFormThirdPage deliveries={deliveries} previousPage={this.previousPage} notif={notif} onSubmit={onSubmit}/>}
@@ -45,3 +68,12 @@ class LocationForm extends Component {
 }
 
 export default LocationForm
+
+
+// // Converting date to an date object and then back to string
+// let convertedDates = deliveries.map(function(item) {
+//   let newArray = {...item}
+//   newArray.delivery_at = new Date(item.delivery_at)
+//   newArray.delivery_at = newArray.delivery_at.toString()
+//   return newArray
+// });

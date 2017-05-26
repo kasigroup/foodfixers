@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form'
 
 const LocationFormFirstPage = (props) => {
   const { handleSubmit, pristine, reset, submitting, areas } = props
-  
+
   const required = value => value ? undefined : 'Required'
 
   const renderField = ({ input, label, type, meta: { touched, error } }) => (
@@ -18,7 +18,7 @@ const LocationFormFirstPage = (props) => {
     <form onSubmit={handleSubmit}>
       <fieldset className="form-group row">
         <div className="col-sm-6 margin-center align-left">
-          <p className="align-center">Choose area</p>
+          <p className="align-center">Please choose area</p>
           {areas.map((item, i) => <div key={i}>
             <Field
               name="area"

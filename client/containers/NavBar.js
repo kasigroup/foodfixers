@@ -39,7 +39,7 @@ function BurgerButton(props) {
 
 
 const NavBar = ({ products, quantity, logOutUser, url }) => (
-  <div>
+  <div className="nav-container">
     <div className="top-nav" >
       <div className="burger-menu">
         <BurgerButton url={url} />
