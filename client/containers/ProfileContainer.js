@@ -3,10 +3,13 @@ import { connect } from 'react-redux'
 import { loadProfile,loadOrders } from '../actions/profileActions'
 import { getVisibleProducts } from '../reducers/products'
 import Loader from 'react-loader-advanced';
+import { loadDishes, loadSideDishes } from '../actions/productActions'
 
 class ProfileContainer extends Component {
   constructor(props) {
     super(props)
+
+    this.getOrderProduct = this.getOrderProduct.bind(this);
   }
 
   componentDidMount() {
@@ -14,10 +17,23 @@ class ProfileContainer extends Component {
     console.log("Loading Profile")
     dispatch(loadProfile())
     dispatch(loadOrders())
+    dispatch(loadDishes())
+    dispatch(loadSideDishes())
+  }
+
+  getOrderProduct(dish) {
+    const { orders, products } = this.props
+
+    const index = products.findIndex((product) => product.id === dish);
+    const product = products[index];
+
+    console.log(product)
   }
 
    render() {
      const { profile, orders, products } = this.props
+
+
 
      function Orders() {
        if (orders.length <= 0) {
@@ -34,6 +50,7 @@ class ProfileContainer extends Component {
          <p className="profile-name">{profile.first_name} <span/> {profile.last_name}</p>
          <h3>Orders</h3>
          <Orders />
+         {this.getOrderProduct(5)}
        </div>
      )
    }
