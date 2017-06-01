@@ -4,6 +4,7 @@ import { loadProfile,loadOrders } from '../actions/profileActions'
 import { getVisibleProducts } from '../reducers/products'
 import Loader from 'react-loader-advanced';
 import { loadDishes, loadSideDishes } from '../actions/productActions'
+import OrderItem from '../components/OrderItem'
 
 class ProfileContainer extends Component {
   constructor(props) {
@@ -30,6 +31,8 @@ class ProfileContainer extends Component {
     console.log(product)
   }
 
+  //<OrderItem item={item} products={products} />
+
    render() {
      const { profile, orders, products } = this.props
 
@@ -39,7 +42,10 @@ class ProfileContainer extends Component {
        if (orders.length <= 0) {
          return <p>Loading...</p>;
        }else {
-         return <div>{orders.map((item, i) =>  <div key={i}><p>id: {item.id} Price: {item.total}kr</p></div>)}</div>;
+         return (
+         <div>{orders.map((item, i) =>
+           <div className="order" key={i}><p>id: {item.id} Price: {item.total}kr</p></div>)}
+         </div>)
        }
 
      }
@@ -50,7 +56,6 @@ class ProfileContainer extends Component {
          <p className="profile-name">{profile.first_name} <span/> {profile.last_name}</p>
          <h3>Orders</h3>
          <Orders />
-         {this.getOrderProduct(5)}
        </div>
      )
    }
