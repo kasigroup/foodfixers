@@ -31,6 +31,8 @@ class LocationContainer extends Component {
 
   render() {
       const { deliveries, areas,location } = this.props
+
+
       return (
         <Location
           deliveries={deliveries}

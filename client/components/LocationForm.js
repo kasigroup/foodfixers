@@ -3,6 +3,8 @@ import { Field, reduxForm } from 'redux-form'
 import LocationFormFirstPage from './LocationFormFirstPage'
 import LocationFormSecondPage from './LocationFormSecondPage'
 import LocationFormThirdPage from './LocationFormThirdPage'
+import moment from 'moment';
+import dateArray from 'moment-array-dates';
 
 class LocationForm extends Component {
   constructor(props) {
@@ -40,6 +42,7 @@ class LocationForm extends Component {
   render() {
     const { onSubmit, notif, areas, deliveries, location } = this.props
     const { page } = this.state
+    moment.locale('sv')
 
     // Getting choosen address
     let address = null;
@@ -57,10 +60,14 @@ class LocationForm extends Component {
       address = <span>{gettingDelivery.location.street_address}</span>
     }
 
+
+    const days = dateArray.nextNDays(5, 'dddd', true)
+
+
     return (<div>
       <h5>Choosen Location: {address}</h5>
       {page === 1 && <LocationFormFirstPage areas={areas} onSubmit={this.nextPage}/>}
-      {page === 2 && <LocationFormSecondPage deliveries={deliveries} previousPage={this.previousPage} onSubmit={this.nextPage}/>}
+      {page === 2 && <LocationFormSecondPage days={days} deliveries={deliveries} previousPage={this.previousPage} onSubmit={this.nextPage}/>}
       {page === 3 && <LocationFormThirdPage deliveries={deliveries} previousPage={this.previousPage} notif={notif} onSubmit={onSubmit}/>}
       </div>
     )
