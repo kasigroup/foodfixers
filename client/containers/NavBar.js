@@ -15,8 +15,7 @@ function SessionButton(props) {
 }
 
 function AdminButton(props) {
-  const admin = false;
-  if (admin) {
+  if (props.admin) {
     return <li className="nav-item"><Link className="nav-link" to="/admin">Admin</Link></li>;
   }else {
     return null
@@ -38,7 +37,7 @@ function BurgerButton(props) {
 
 
 
-const NavBar = ({ products, quantity, logOutUser, url }) => (
+const NavBar = ({ products, quantity, logOutUser, url, admin }) => (
   <div className="nav-container">
     <div className="top-nav" >
       <div className="burger-menu">
@@ -62,7 +61,7 @@ const NavBar = ({ products, quantity, logOutUser, url }) => (
         <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
         <li className="nav-item"><Link className="nav-link" to="/profile">Profile</Link></li>
         <SessionButton logOut={ logOutUser }/>
-        <AdminButton />
+        <AdminButton admin={admin}/>
       </ul>
     </div>
   </div>
@@ -71,7 +70,8 @@ const NavBar = ({ products, quantity, logOutUser, url }) => (
 const mapStateToProps = (state) => ({
   products: getCartProducts(state),
   quantity: getCartQuantity(state),
-  url: state.url.urlParams
+  url: state.url.urlParams,
+  admin: state.account.admin
 })
 
 export default connect(

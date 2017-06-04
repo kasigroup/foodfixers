@@ -1,6 +1,7 @@
 import ApiPostRequest from '../api/PostRequest'
 import ApiRegisterRequest from '../api/RegisterRequest'
 import ApiCreateProfileRequest from '../api/CreateProfileRequest'
+import ApiRequest from '../api/Request';
 import * as types from '../constants/ActionTypes'
 import { SubmissionError } from 'redux-form'
 import { push } from 'react-router-redux'
@@ -22,6 +23,13 @@ export function registerSuccess() {
   return {
     type: types.REGISTER_SUCCESS
   }
+}
+
+export function loadAccountSuccess(account) {
+  return {
+    type: types.LOAD_ACCOUNT_SUCCESS,
+    account: account
+  };
 }
 
 export function createProfileSuccess() {
@@ -89,4 +97,16 @@ export function registerUser(values) {
       throw(error);
     });
   }
+}
+
+export function loadAccount(values) {
+  const url = "account";
+  // make async call to api, handle promise, dispatch action when promise is resolved
+  return function(dispatch) {
+    return ApiRequest.getAllItems(url).then(account => {
+      dispatch(loadAccountSuccess(account));
+    }).catch(error => {
+      throw(error);
+    });
+  };
 }

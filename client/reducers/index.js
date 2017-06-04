@@ -10,6 +10,7 @@ import notifications from './notifications';
 import categories from './categories';
 import deliveries, * as fromDeliveries from './deliveries'
 import profile_data, * as fromProfile from './profile'
+import account, * as fromAccount from './account'
 import { routerReducer } from 'react-router-redux'
 import { reducer as form } from 'redux-form'
 
@@ -23,6 +24,7 @@ export default combineReducers({
   notifications,
   deliveries,
   profile_data,
+  account,
   products,
   sideDishes,
   routing: routerReducer
