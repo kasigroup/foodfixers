@@ -4,30 +4,24 @@ import { Field, reduxForm, formValueSelector } from 'redux-form'
 import {FormattedDate} from 'react-intl';
 
 let LocationFormFirstPage = (props) => {
-  const { handleSubmit, pristine, reset, submitting, previousPage, deliveries, areaValue } = props
+  const { handleSubmit, pristine, reset, submitting, previousPage, deliveries, areaValue, days } = props
 
   const required = value => value ? undefined : 'Required'
+  let areaValueInt = parseInt(areaValue)
 
-  let locationValueInt = parseInt(areaValue)
-
-  function renderField({ input, label, type, meta: { touched, error } }) {
-    if (locationValueInt === label.location.area_id) {
+  function renderField({ input, label,id, type, meta: { touched, error } }) {
+    if (areaValueInt === label.area_id) {
       return (
-        <div className="form-check" >
-          <input {...input} className="form-check-input locationFormInput" id={label.id} placeholder={label} type={type}/>
-          <label className="form-check-label location-form-label" htmlFor={label.id}>
-          {<FormattedDate value={label.delivery_at}
-            year='numeric'
-            month='long'
-            day='numeric'
-            weekday='long' />}</label>
-          {touched && error && <p className="error-text">{error}</p>}
+        <div className="form-check" ><input {...input} className="form-check-input locationFormInput" id={id} placeholder={label} type={type}/>
+          <label className="form-check-label location-form-label" htmlFor={id} >
+            {label.date}</label>
+            {touched && error && <p className="error-text">{error}</p>}
         </div>
       )
-    }else {
+    }
+    else {
       return null
     }
-
   }
 
 
@@ -36,14 +30,15 @@ let LocationFormFirstPage = (props) => {
       <fieldset className="form-group row">
         <div className="col-sm-6 margin-center align-left">
           <p className="align-center">Please choose date</p>
-          {deliveries.map((item, i) => <div key={i}>
+          {days.map((item, i) => <div key={i}>
             <Field
               name="day"
-              component={renderField}
+              id={i}
               type="radio"
+              value={item.date}
+              component={renderField}
               label={item}
-              value={`${item.id}`}
-              validate={[ required ]}/>
+            />
           </div>)}
         </div>
         <div>

@@ -40,7 +40,7 @@ class LocationForm extends Component {
   }
 
   render() {
-    const { onSubmit, notif, areas, deliveries, location } = this.props
+    const { onSubmit, notif, areas, deliveries, location, days } = this.props
     const { page } = this.state
     moment.locale('sv')
 
@@ -49,7 +49,6 @@ class LocationForm extends Component {
     if (location === 0) {
        address = <span>none</span>;
     } else {
-      console.log(location)
       let gettingDelivery = deliveries.find(function(del){
         if (del.id === parseInt(location)) {
           return true
@@ -61,13 +60,11 @@ class LocationForm extends Component {
     }
 
 
-    const days = dateArray.nextNDays(5, 'dddd', true)
-
 
     return (<div>
       <h5>Choosen Location: {address}</h5>
       {page === 1 && <LocationFormFirstPage areas={areas} onSubmit={this.nextPage}/>}
-      {page === 2 && <LocationFormSecondPage days={days} deliveries={deliveries} previousPage={this.previousPage} onSubmit={this.nextPage}/>}
+      {page === 2 && <LocationFormSecondPage deliveries={deliveries} days={days} previousPage={this.previousPage} onSubmit={this.nextPage}/>}
       {page === 3 && <LocationFormThirdPage deliveries={deliveries} previousPage={this.previousPage} notif={notif} onSubmit={onSubmit}/>}
       </div>
     )

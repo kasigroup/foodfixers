@@ -6,6 +6,7 @@ import { getVisibleAreas } from '../reducers/areas'
 import Location from '../components/Location'
 import { saveLocation } from '../actions/cartActions'
 import { addNotification } from '../actions/notificationActions'
+import moment from "moment"
 
 
 
@@ -32,11 +33,25 @@ class LocationContainer extends Component {
   render() {
       const { deliveries, areas,location } = this.props
 
+      const dateArray = deliveries.map(function(item){
+         var date = new Date(item.delivery_at)
+         date = moment(date).format('MM/DD/YYYY dddd');
+         return {date: date, area_id: item.location.area_id};
+      });
+
+      // const uniqueDays = dateArray.filter(function(elem, index, self) {
+      //     return index == self.indexOf(elem);
+      // })
+
+      const uniqueDays = dateArray.filter((obj, pos, arr) => {
+       return arr.map(mapObj => mapObj.date).indexOf(obj.date) === pos;
+      });
 
       return (
         <Location
           deliveries={deliveries}
           areas={areas}
+          days={uniqueDays}
           showResults={this.show}
           notif={this.notif}
           location={location}

@@ -42,6 +42,7 @@
     "react-intl": "^2.2.3",
     "react-loader-advanced": "^1.6.0",
     "react-modal": "^1.7.7",
+    "react-notification-system": "^0.2.14",
     "react-overlays": "^0.7.0",
     "react-redux": "^4.4.5",
     "react-redux-form": "^1.8.0",

@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm, formValueSelector } from 'redux-form'
 import {FormattedDate} from 'react-intl';
+import moment from 'moment'
 
 
 let LocationFormFirstPage = (props) => {
@@ -9,31 +10,38 @@ let LocationFormFirstPage = (props) => {
 
   const required = value => value ? undefined : 'Required'
 
-
   // let filterDeliveries = deliveries.filter(function(delivery){
   //   return delivery
   // })
 
+  const timeArray = deliveries.map(function(item){
+     var date = new Date(item.delivery_at)
+     var day = moment(date).format('MM/DD/YYYY dddd');
+     var time = moment(date).format('HH:mm');
+     return {day: day, time: time, id: item.id, location: item.location};
+  });
 
-  console.log(areaValue)
+  console.log(timeArray)
+
+  console.log("The Day Value")
+  console.log(dayValue)
   let dayValueInt = parseInt(dayValue)
 
   function renderField({ input, label, type, meta: { touched, error } }) {
-    if (dayValueInt === label.id) {
+    if (dayValue === label.day) {
       return (
         <div className="form-check" >
           <input {...input} className="form-check-input locationFormInput" placeholder={label} id={label.id} type={type}/>
           <label className="form-check-label location-form-label" htmlFor={label.id}>
-            {label.location.street_address},  {<FormattedDate value={label.delivery_at}
-              hour="numeric"
-              minute="numeric"/>}</label>
+            {label.location.street_address} - {label.time}
+          </label>
           {touched && error && <p className="error-text">{error}</p>}
         </div>
       )
-    }else {
-      return null
-    }
-
+      }
+      else {
+        return null
+      }
   }
 
   // const renderField = ({ input, label, type, meta: { touched, error } }) => (
@@ -49,7 +57,7 @@ let LocationFormFirstPage = (props) => {
       <fieldset className="form-group row">
         <div className="col-sm-6 margin-center align-left">
           <p className="align-center">Please choose address</p>
-          {deliveries.map((item, i) => <div key={i}>
+          {timeArray.map((item, i) => <div key={i}>
             <Field
               name="location"
               component={renderField}
