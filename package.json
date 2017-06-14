@@ -53,6 +53,7 @@
     "react-router-transitions": "^2.2.1",
     "react-skylight": "^0.4.1",
     "react-stripe-checkout": "^2.2.5",
+    "react-table": "^6.3.0",
     "react-transform-catch-errors": "^1.0.2",
     "react-transform-hmr": "^1.0.4",
     "react-transition-group": "^1.1.3",
