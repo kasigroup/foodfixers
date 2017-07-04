@@ -13,8 +13,9 @@ class AdminContainer extends Component {
 
   componentDidMount() {
     const date = new Date();
-    const weekNum = moment(date, "MM-DD-YYYY").week();;
-    console.log(weekNum)
+    const weekNum = moment(date, "MM-DD-YYYY").week();
+    const momentTest = moment(date).month(Number|String);
+    console.log(momentTest)
     const { dispatch } = this.props
     var year = "year=2017";
     var week = `week=${weekNum}`;
@@ -36,7 +37,7 @@ class AdminContainer extends Component {
        <div>
          <h3>Admin</h3>
          <p>Choose week</p>
-         {/* <input type="text" onClick={(e) => this.getOrders("hejsan")}>Submit</input> */}
+         <button onClick={() => this.getOrders('hejsan')}>Submit</button>
          <div className="admin-orders">
            <div>{orders.map((item, i) =>
              <div className="admin-order" key={i}>
@@ -50,7 +51,7 @@ class AdminContainer extends Component {
    }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   orders: state.admin.orders
 })
 

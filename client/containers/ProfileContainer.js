@@ -44,7 +44,17 @@ class ProfileContainer extends Component {
        }else {
          return (
          <div>{orders.map((item, i) =>
-           <div className="order" key={i}><p>id: {item.id} Price: {item.total}kr</p></div>)}
+           <div className="order" key={i}>
+             <p><b>Produkter</b></p>
+             {item.items.map((dish,i) =>
+               <div key={i} className="profile-product">
+                 <span>{dish.product.name}</span>
+                 <span> {dish.quantity}st</span>
+                 <span> {dish.quantity * dish.product.price}kr</span>
+               </div>)}
+             <p><b>Summa</b></p>
+             <p>{item.total}kr</p>
+           </div>)}
          </div>)
        }
 
@@ -52,7 +62,7 @@ class ProfileContainer extends Component {
 
      return (
        <div>
-         <h3 className="title">Profile</h3>
+         <h3 className="title">Profil</h3>
          <p className="profile-name">{profile.first_name} <span/> {profile.last_name}</p>
          <h3>Orders</h3>
          <Orders />
@@ -61,7 +71,7 @@ class ProfileContainer extends Component {
    }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   products: getVisibleProducts(state.products),
   profile: state.profile_data.profile,
   orders: state.profile_data.orders
