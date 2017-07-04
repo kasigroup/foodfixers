@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import { Link } from 'react-router'
 
 class FrontPage extends Component {
   constructor(props) {
@@ -12,7 +13,8 @@ class FrontPage extends Component {
 
      return (
        <div>
-         <p>Frontpage</p>
+         <p>Välkommen till Foodfixers</p>
+         <Link className="btn main-btn" to="/categories">Börja här</Link>
        </div>
      )
    }

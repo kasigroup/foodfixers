@@ -2,7 +2,10 @@ import React, { PropTypes } from 'react'
 
 const Product = ({ price, title, quantity, desc }) => (
   <div>
-    <p className="product-text"><span className="product-title">{title}</span> {desc ? desc : "No description"} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et ultrices justo.</p>  {quantity ? ` x ${quantity}` : null}
+    <div className="product-text">
+      <span className="product-title">{title} </span>
+      <div dangerouslySetInnerHTML={{__html: desc}}></div>
+    </div>  {quantity ? ` x ${quantity}` : null}
   </div>
 )
 
