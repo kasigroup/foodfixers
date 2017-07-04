@@ -1,5 +1,9 @@
 import React, { Component, PropTypes } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import { loadProfile } from '../actions/profileActions'
+import { loadAccount } from '../actions/sessionActions'
 
 class FrontPage extends Component {
   constructor(props) {
@@ -7,6 +11,11 @@ class FrontPage extends Component {
   }
 
   componentDidMount() {
+    const { loadProfile, loadAccount } = this.props
+    if (sessionStorage.jwt) {
+      loadProfile()
+      loadAccount()
+    }  
   }
 
    render() {
@@ -20,5 +29,11 @@ class FrontPage extends Component {
    }
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({loadProfile, loadAccount}, dispatch)
+}
 
-export default FrontPage
+export default connect(
+  null,
+  mapDispatchToProps
+)(FrontPage)

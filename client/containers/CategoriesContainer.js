@@ -10,10 +10,8 @@ import Category from '../components/Category'
 class CategoriesContainer extends Component {
 
   componentWillMount() {
-    const { loadCategories, loadProfile, loadAccount } = this.props
+    const { loadCategories } = this.props
     loadCategories()
-    loadProfile()
-    loadAccount()
   }
 
   render() {
