@@ -12,7 +12,7 @@ class ProductItem extends Component{
     const { product, onAddToCartClicked } = this.props
 
     const image = {
-          backgroundImage: `url('http://api.kasigroup.se${product.image_url}')`
+          backgroundImage: `url('https://api.kasigroup.se${product.image_url}')`
     }
 
     return (
