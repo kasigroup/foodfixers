@@ -55,7 +55,6 @@ class AdminContainer extends Component {
   }
 
   setCooked(e){
-    console.log("cooked")
     var parentDiv = e.target.parentNode;
     parentDiv.classList.toggle("cooked");
     this.setState({
@@ -64,7 +63,6 @@ class AdminContainer extends Component {
   }
 
   setDevlivered(e){
-    console.log("delivered")
     var parentDiv = e.target.parentNode;
     parentDiv.classList.toggle("delivered");
     this.setState({
@@ -74,10 +72,21 @@ class AdminContainer extends Component {
 
    render() {
      const { orders } = this.props
+
+     orders.sort(function(a,b){
+       return a.delivery_id - b.delivery_id;
+     });
+
      return (
        <div>
          <h3>Admin</h3>
          <p>Week: {this.state.week}</p>
+         <div className="admin-colors">
+           <div className="admin-color-1"></div>
+           <span>= Lagad</span>
+           <div className="admin-color-2"></div>
+           <span>= Levererad</span>
+         </div>
 
          <button className="btn main-btn btn-normal" onClick={() => this.nextAndPrevWeek(-1)}>Bakåt</button>
          <button className="btn main-btn btn-normal" onClick={() => this.nextAndPrevWeek(1)}>Framåt</button>
@@ -95,7 +104,7 @@ class AdminContainer extends Component {
                  )}
                  </div>
                  <button className="btn main-btn btn-normal" onClick={(e) => this.setCooked(e)}>Lagad</button>
-                 <button className="btn main-btn btn-normal" onClick={(e) => this.setDevlivered(e)}>Utgiven</button>
+                 <button className="btn main-btn btn-normal" onClick={(e) => this.setDevlivered(e)}>Levererad</button>
              </div>)}
            </div>
          </div>
