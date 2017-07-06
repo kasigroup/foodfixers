@@ -52,7 +52,7 @@ class ProductView extends Component {
         const product = products[index];
 
         const image = {
-              backgroundImage: `url('http://api.iskall.io${product.image_url}')`
+              backgroundImage: `url('http://foodfixers-api.iskall.io${product.image_url}')`
         };
 
         if (!product) {

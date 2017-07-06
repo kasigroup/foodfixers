@@ -12,7 +12,7 @@ class ProductItem extends Component{
     const { product, onAddToCartClicked } = this.props
 
     const image = {
-          backgroundImage: `url('https://api.iskall.io${product.image_url}')`
+          backgroundImage: `url('https://foodfixers-api.iskall.io${product.image_url}')`
     }
 
     return (

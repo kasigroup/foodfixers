@@ -8,7 +8,7 @@ class ApiOrderRequest {
 
   static sendOrder(order, token) {
     const headers = this.requestHeaders();
-    const request = new Request('https://api.iskall.io/orders', {
+    const request = new Request('https://foodfixers-api.iskall.io/orders', {
       method: 'POST',
       headers: headers,
       body: JSON.stringify({order, stripe_token: token.id})

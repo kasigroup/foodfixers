@@ -9,7 +9,7 @@ class ApiCreateProfileRequest {
   static create(url,values) {
     console.log(values)
     const headers = this.requestHeaders();
-    const request = new Request(`https://api.iskall.io/${url}`, {
+    const request = new Request(`https://foodfixers-api.iskall.io/${url}`, {
       method: 'POST',
       headers: headers,
       body: JSON.stringify({profile: values})
