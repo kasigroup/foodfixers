@@ -3,7 +3,7 @@ import 'whatwg-fetch';
 class ApiPostRequest {
   static login(url,values) {
     console.log("hej")
-    const request = new Request(`https://api.kasigroup.se/${url}`, {
+    const request = new Request(`https://api.iskall.io/${url}`, {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json'

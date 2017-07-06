@@ -8,7 +8,7 @@ class ApiRequest {
 
   static getAllItems(url) {
     const headers = this.requestHeaders();
-    const request = new Request(`https://api.kasigroup.se/${url}`, {
+    const request = new Request(`https://api.iskall.io/${url}`, {
       method: 'GET',
       headers: headers
     });
