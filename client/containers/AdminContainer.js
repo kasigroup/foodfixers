@@ -4,6 +4,7 @@ import { loadAdminOrders } from '../actions/adminActions'
 import { getVisibleProducts } from '../reducers/products'
 import Loader from 'react-loader-advanced';
 import moment from 'moment';
+import AdminOrders from '../components/AdminOrders'
 
 class AdminContainer extends Component {
   constructor(props) {
@@ -12,10 +13,13 @@ class AdminContainer extends Component {
     this.nextAndPrevWeek = this.nextAndPrevWeek.bind(this);
     this.setCooked = this.setCooked.bind(this);
     this.setDevlivered = this.setDevlivered.bind(this);
+    this.setDay = this.setDay.bind(this);
+
 
     this.state = {
       week:0,
       year:0,
+      day:"undefined",
       orderState:"none"
     };
   }
@@ -24,9 +28,18 @@ class AdminContainer extends Component {
     const date = new Date();
     const weekNum = moment(date, "MM-DD-YYYY").week();
     const yearNum = moment(date, "MM-DD-YYYY").year();
+    const weekDates = moment().week(weekNum).days(1);
+
+
+    var weekdays = [];
+    for (var i = 1; i <= 7; i++) {
+      var theDate = moment().week(27).days(i).toDate();
+      weekdays.push(theDate);
+    }
+
     // Set week and year to state
     this.settingState(weekNum,yearNum)
-
+    console.log(weekdays)
     const { dispatch } = this.props
     var year = `year=${yearNum}`;
     var week = `week=${weekNum}`;
@@ -45,6 +58,10 @@ class AdminContainer extends Component {
       week: week,
       year: year
     });
+  }
+
+  setDay(event){
+    this.setState({day: event.target.value});
   }
 
   getOrders(){
@@ -72,10 +89,24 @@ class AdminContainer extends Component {
 
    render() {
      const { orders } = this.props
+     const theDay = this.state.day
+     const theDayInt = parseInt(theDay)
 
-     orders.sort(function(a,b){
-       return a.delivery_id - b.delivery_id;
-     });
+     var formattedOrders = orders.reduce((sum, item) => {
+          item.delivery.delivery_at = new Date(item.delivery.delivery_at);
+          item['weekday'] = item.delivery.delivery_at.getDay();
+          sum.push(item);
+          return sum;
+      }, []);
+
+      if (this.state.day != "undefined") {
+        console.log("fiilter")
+        formattedOrders = formattedOrders.filter(function(order){
+          return order.weekday === theDayInt;
+        })
+      }
+
+      console.log(formattedOrders)
 
      return (
        <div>
@@ -88,25 +119,24 @@ class AdminContainer extends Component {
            <span>= Levererad</span>
          </div>
 
-         <button className="btn main-btn btn-normal" onClick={() => this.nextAndPrevWeek(-1)}>Bakåt</button>
-         <button className="btn main-btn btn-normal" onClick={() => this.nextAndPrevWeek(1)}>Framåt</button>
+         <div className="admin-buttons">
+           <button className="btn main-btn btn-normal" onClick={() => this.nextAndPrevWeek(-1)}>Bakåt</button>
+           <button className="btn main-btn btn-normal" onClick={() => this.nextAndPrevWeek(1)}>Framåt</button>
+         </div>
+
+         <select className="adminDayPicker" value={this.state.day} onChange={this.setDay}>
+          <option defaultValue value="undefined">Alla</option>
+          <option value={1}>Måndag</option>
+          <option value={2}>Tisdag</option>
+          <option value={3}>Onsdag</option>
+          <option value={4}>Torsdag</option>
+          <option value={5}>Fredag</option>
+          <option value={6}>Lördag</option>
+          <option value={0}>Söndag</option>
+        </select>
 
          <div className="admin-orders">
-           <div>{orders.map((item, i) =>
-             <div className="admin-order" id="admin-order-id" key={i}>
-               <p>Name: {item.profile_full_name}</p>
-               <p>id: {item.id} Price: {item.total}kr</p>
-                 <div className="admin-order-dishes" >
-                 {item.items.map((dish, i) =>
-                   <div key={i} className="admin-order-dish">
-                     <p>{dish.product.name} {dish.quantity}st</p>
-                   </div>
-                 )}
-                 </div>
-                 <button className="btn main-btn btn-normal" onClick={(e) => this.setCooked(e)}>Lagad</button>
-                 <button className="btn main-btn btn-normal" onClick={(e) => this.setDevlivered(e)}>Levererad</button>
-             </div>)}
-           </div>
+           <AdminOrders orders={formattedOrders}/>
          </div>
        </div>
      )
