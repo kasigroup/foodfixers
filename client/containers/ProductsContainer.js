@@ -16,6 +16,13 @@ class ProductsContainer extends Component {
   constructor(props) {
     super(props)
     this.addToTheCart = this.addToTheCart.bind(this);
+    this.filterArray = this.filterArray.bind(this);
+
+    this.state = {search: ""};
+  }
+
+  filterArray(event){
+    this.setState({search: event.target.value});
   }
 
   addToTheCart(id, name){
@@ -36,9 +43,20 @@ class ProductsContainer extends Component {
       }
     })
 
-    let categoryArray = products.filter(function(product){
-      return product.category_id === parseInt(category);
-    })
+    let categoryArray = products;
+
+    if (this.state.search === "") {
+      categoryArray = products.filter(function(product){
+        return product.category_id === parseInt(category);
+      })
+    }else{
+      let searchState = this.state.search.toLowerCase();
+      categoryArray = products.filter(function(product){
+        if (product.description.toLowerCase().includes(searchState) || product.name.toLowerCase().includes(searchState)) {
+          return true;
+        }
+      })
+    }
 
 
       return (
@@ -47,6 +65,8 @@ class ProductsContainer extends Component {
             <h4>Meals</h4>
             <p>Our fresh dishes</p>
             <p>{`${gettingCategory.name}`}</p>
+            <p>{categoryArray.length} Rätter</p>
+            <input className="search-dishes-input" type="text" placeholder="Sök på maträtt tex: 'Vegansk'" onChange={this.filterArray}></input>    
           </div>
           <ProductsList title="Products">
             {categoryArray.map(product =>
