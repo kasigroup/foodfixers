@@ -5,8 +5,10 @@ import { getVisibleProducts } from '../reducers/products'
 import { addToCart } from '../actions/productActions'
 import { addNotification } from '../actions/notificationActions'
 import { getVisibleCategories } from '../reducers/categories'
+import { loadDishes, loadSideDishes, loadCategories } from '../actions/productActions'
 import ProductItem from '../components/ProductItem'
 import ProductsList from '../components/ProductsList'
+import CategoryName from '../components/CategoryName'
 
 
 
@@ -18,7 +20,22 @@ class ProductsContainer extends Component {
     this.addToTheCart = this.addToTheCart.bind(this);
     this.filterArray = this.filterArray.bind(this);
 
-    this.state = {search: ""};
+    this.state = {search: "", shouldLoad: false};
+  }
+
+  componentWillMount() {
+    const { shouldLoad, loadDishes, loadCategories, loadSideDishes, categories, category  } = this.props
+    // if (!shouldLoad) {
+    //   loadDishes()
+    //   loadSideDishes()
+    //   loadCategories()
+    //
+    // }
+
+  }
+
+  componentDidMount() {
+    this.setState({ shouldLoad: true });
   }
 
   filterArray(event){
@@ -33,15 +50,8 @@ class ProductsContainer extends Component {
   }
 
   render() {
-    const { products, profile, addToCart, openModal, category, categories } = this.props
+    const { products, profile, addToCart, openModal, category, categories, shouldLoad } = this.props
 
-    let gettingCategory = categories.find(function(cat){
-      if (cat.id === parseInt(category)) {
-        return true
-      }else {
-        return false
-      }
-    })
 
     let categoryArray = products;
 
@@ -64,9 +74,11 @@ class ProductsContainer extends Component {
           <div className="product-intro">
             <h4>Meals</h4>
             <p>Our fresh dishes</p>
-            <p>{`${gettingCategory.name}`}</p>
+            {categories.map(cat =>
+              <CategoryName key={cat.id} name={cat.name} catId={cat.id} catChoosen={parseInt(category)} />
+            )}
             <p>{categoryArray.length} Rätter</p>
-            <input className="search-dishes-input" type="text" placeholder="Sök på maträtt tex: 'Vegansk'" onChange={this.filterArray}></input>    
+            <input className="search-dishes-input" type="text" placeholder="Sök på maträtt tex: 'Vegansk'" onChange={this.filterArray}></input>
           </div>
           <ProductsList title="Products">
             {categoryArray.map(product =>
@@ -90,7 +102,7 @@ const mapStateToProps = state => ({
 })
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ addToCart, addNotification }, dispatch)
+  return bindActionCreators({ addToCart, addNotification, loadDishes, loadSideDishes, loadCategories }, dispatch)
 }
 
 export default connect(

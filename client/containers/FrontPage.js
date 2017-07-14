@@ -13,9 +13,8 @@ class FrontPage extends Component {
   componentDidMount() {
     const { loadProfile, loadAccount } = this.props
     if (sessionStorage.jwt) {
-      loadProfile()
       loadAccount()
-    }  
+    }
   }
 
    render() {

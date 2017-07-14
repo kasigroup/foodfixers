@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import ProductsContainer from './ProductsContainer'
 import SideDishesContainer from './SideDishesContainer'
-import { loadDishes, loadSideDishes } from '../actions/productActions'
+import { loadDishes, loadSideDishes, loadCategories } from '../actions/productActions'
 import { loadProfile } from '../actions/profileActions'
 import ModalContainer from './ModalContainer'
 
@@ -13,7 +13,8 @@ class HomeContainer extends Component {
     super(props)
 
     this.state = {
-      showModal: false
+      showModal: false,
+      loadedDishes: false
     };
 
     this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -29,10 +30,11 @@ class HomeContainer extends Component {
   }
 
   componentWillMount() {
-    const { loadDishes,loadProfile, loadSideDishes } = this.props
+    const { loadDishes,loadProfile,loadCategories, loadSideDishes } = this.props
     loadDishes()
     loadSideDishes()
-    loadProfile()
+    loadCategories()
+    this.setState({ loadedDishes: true });
   }
 
 
@@ -40,7 +42,7 @@ class HomeContainer extends Component {
     const {params} = this.props
       return (
         <div>
-          <ProductsContainer openModal={this.handleOpenModal} category={params.id}/>
+          <ProductsContainer openModal={this.handleOpenModal} category={params.id} shouldLoad={this.state.loadedDishes}/>
           <ModalContainer isOpen={this.state.showModal} isClose={this.handleCloseModal}/>
         </div>
 
@@ -51,7 +53,7 @@ class HomeContainer extends Component {
 
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ loadDishes,loadProfile, loadSideDishes }, dispatch)
+  return bindActionCreators({ loadDishes,loadProfile, loadSideDishes, loadCategories }, dispatch)
 }
 
 export default connect(
