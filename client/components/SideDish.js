@@ -7,8 +7,12 @@ const SideDish = ({ dish, onAddToCartClicked }) => (
     <Link>
       <SideProduct
         title={dish.name}
-        price={dish.price} />
+        price={dish.price}
+        desc={dish.description}/>
     </Link>
+    <div className="side-dish-image">
+      {dish.image_url != null ? <img href={dish.image_url}></img> : null}
+    </div>
     <button
       className="btn main-btn btn-modal"
       onClick={onAddToCartClicked}>Add to cart
