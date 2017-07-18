@@ -279,6 +279,7 @@ footer {
 .nav-container {
   width: 100%;
   position: fixed;
+  z-index: 9999;
   box-shadow: 1px 1px 5px #7f7f7f;
 }
 
@@ -454,16 +455,37 @@ select.adminDayPicker {
 }
 
 .category-box {
-  border: 1px solid black;
+  position: relative;
   padding: 70px 0px;
   margin-bottom: 15px;
   font-size: 22px;
   transition: all 0.15s;
+  background-position: center center;
+  background-size: cover;
+  color: white;
+
+  p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+  }
+
 }
 
 .category-box:hover {
-  background: black;
-  color: white;
+  opacity: 0.8;
+}
+
+.category-box:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(2, 2, 2, 0.57);
 }
 
 .search-dishes-input {

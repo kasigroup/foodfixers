@@ -27,7 +27,8 @@ class CategoriesContainer extends Component {
             {categories.map(cat =>
               <Category
                 key={cat.id}
-                category={cat}/>
+                category={cat}
+                image={cat.image_url}/>
             )}
           </div>
         </div>
