@@ -60,8 +60,12 @@ class ProductsContainer extends Component {
         return product.category_id === parseInt(category);
       })
     }else{
-      let searchState = this.state.search.toLowerCase();
       categoryArray = products.filter(function(product){
+        return product.category_id === parseInt(category);
+      })
+      let searchState = this.state.search.toLowerCase();
+      let searchArray = categoryArray;
+      categoryArray = categoryArray.filter(function(product){
         if (product.description.toLowerCase().includes(searchState) || product.name.toLowerCase().includes(searchState)) {
           return true;
         }
