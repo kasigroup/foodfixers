@@ -13,7 +13,7 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => (
 )
 
 const SubmitValidationForm = (props) => {
-  const { error, handleSubmit, pristine, reset, submitting, login } = props
+  const { error, handleSubmit, pristine, reset, submitting, login, email } = props
   return (
       <form className="ReduxForm" onSubmit={handleSubmit(login)}>
         <Field name="email" type="text" component={renderField} label="Email"/>

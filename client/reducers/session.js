@@ -7,7 +7,9 @@ export default function sessionReducer(state = {}, action ) {
       return !!sessionStorage.jwt
     case types.REGISTER_SUCCESS:
       console.log("registered")
-      return state;
+      return Object.assign({}, state, {
+        email: action.email
+      });
     case types.LOG_IN_SUCCESS:
       console.log("loggedin")
       return !!sessionStorage.jwt

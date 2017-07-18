@@ -19,9 +19,10 @@ export function logOutSuccess() {
   }
 }
 
-export function registerSuccess() {
+export function registerSuccess(email) {
   return {
-    type: types.REGISTER_SUCCESS
+    type: types.REGISTER_SUCCESS,
+    email: email
   }
 }
 
@@ -86,12 +87,26 @@ export function registerUser(values) {
   return function(dispatch) {
     return ApiRegisterRequest.register(url,values).then(response => {
       console.log(response)
-      if (response.created_at) {
+      var errorResponse;
+      if (response.password && response.email) {
+        errorResponse = "Fel på lösenord" + " & " + "Fel på E-mail"
+      }else if(response.password){
+        errorResponse = "Fel på lösenord"
+      }else if(response.email){
+        errorResponse = "Fel på E-mail"
+      }else {
+        errorResponse = "Fel på lösenord" + " & " + "Fel på E-mail"
+      }
+
+      if (response.admin === true || response.admin === false) {
         dispatch(push("/login"));
-        dispatch(registerSuccess());
+        dispatch(registerSuccess(response.email));
         dispatch(addNotification("Register Success!","success"));
       }else {
-        throw new SubmissionError({ email: "E-mail " + response.email, password: "Password " + response.password, _error: 'Register failed!' })
+        throw new SubmissionError({
+          email: "E-mail " + response.email ? response.email : "" ,
+          password: "Password " + response.password ? response.password : "",
+          _error: errorResponse })
       }
     }).catch(error => {
       throw(error);
