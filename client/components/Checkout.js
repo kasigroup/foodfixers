@@ -18,7 +18,7 @@ class Checkout extends Component {
   }
 
   render() {
-    const { total, choosenLocation } = this.props
+    const { total, choosenLocation, confirmCheck } = this.props
 
     const choosenLocationInt = parseInt(choosenLocation)
 
@@ -34,7 +34,7 @@ class Checkout extends Component {
         token={this.sendStripeData}
         stripeKey="pk_test_tuiIc9CcK7Rf8qBOJ3cFeYjT"
       >
-        <button className="btn main-btn" disabled={total <= 0 || choosenLocationInt <= 0}>
+        <button className="btn main-btn" disabled={total <= 0 || choosenLocationInt <= 0 || !confirmCheck}>
           Checkout
         </button>
       </StripeCheckout>

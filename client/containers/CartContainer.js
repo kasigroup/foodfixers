@@ -16,7 +16,12 @@ class CartContainer extends Component {
   constructor(props) {
     super(props)
 
+    this.state = {
+      confirmCheck: false
+    };
     this.removingFromCart = this.removingFromCart.bind(this);
+    this.acceptCheckout = this.acceptCheckout.bind(this);
+
   }
 
   componentDidMount() {
@@ -33,6 +38,22 @@ class CartContainer extends Component {
     addNotification(`Removed "${name}" from cart`, "success")
   }
 
+  acceptCheckout(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    if (value) {
+      this.setState({
+        confirmCheck: true
+      });
+    }else {
+      this.setState({
+        confirmCheck: false
+      });
+    }
+
+  }
+
   render() {
     const { products, total, checkout, location, areas, orderFormatted } = this.props
     return (
@@ -44,7 +65,16 @@ class CartContainer extends Component {
           removingFromCart={this.removingFromCart}
         >
         </Cart>
-        <CheckoutContainer products={products} orderFormatted={orderFormatted} location={location} total={total} />
+        <label>
+          Jag godkänner avtalet:
+          <input
+            className="confirm-check"
+            name="confirmCheck"
+            checked={this.state.confirmCheck}
+            type="checkbox"
+            onChange={this.acceptCheckout} />
+        </label>
+        <CheckoutContainer products={products} orderFormatted={orderFormatted} confirmCheck={this.state.confirmCheck} location={location} total={total} />
       </div>
     )
   }

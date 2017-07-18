@@ -10,10 +10,10 @@ class CheckoutContainer extends Component {
 
 
   render() {
-      const { total, products, orderFormatted, onCheckoutClicked, location } = this.props
+      const { total, products, orderFormatted, onCheckoutClicked, location, confirmCheck } = this.props
       return (
         <div>
-          <Checkout total={total} products={products} choosenLocation={location} orderFormatted={orderFormatted} />
+          <Checkout total={total} products={products} confirmCheck={confirmCheck} choosenLocation={location} orderFormatted={orderFormatted} />
         </div>
 
       )
