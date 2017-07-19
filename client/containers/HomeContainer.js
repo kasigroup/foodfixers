@@ -34,6 +34,7 @@ class HomeContainer extends Component {
     loadDishes()
     loadSideDishes()
     loadCategories()
+    loadProfile()
     this.setState({ loadedDishes: true });
   }
 
