@@ -14,6 +14,7 @@ class FrontPage extends Component {
     const { loadProfile, loadAccount } = this.props
     if (sessionStorage.jwt) {
       loadAccount()
+      loadProfile()
     }
   }
 
