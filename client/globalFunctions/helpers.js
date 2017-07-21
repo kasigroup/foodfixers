@@ -15,6 +15,6 @@ function AnimateButton() {
 const api = "https://foodfixers-api.iskall.io/"
 
 // Stripe key
-const stripeKey = "dwawudihwaih123123"
+const stripeKey = "pk_test_tuiIc9CcK7Rf8qBOJ3cFeYjT"
 
 export { AnimateButton, api, stripeKey };

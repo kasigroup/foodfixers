@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import StripeCheckout from 'react-stripe-checkout';
 import { checkout } from '../actions/cartActions'
+import { stripeKey } from '../globalFunctions/helpers';
 
 class Checkout extends Component {
 
@@ -32,7 +33,7 @@ class Checkout extends Component {
         currency="SEK"
         amount={totalOre}
         token={this.sendStripeData}
-        stripeKey="pk_test_tuiIc9CcK7Rf8qBOJ3cFeYjT"
+        stripeKey={stripeKey}
       >
         <button className="btn main-btn" disabled={total <= 0 || choosenLocationInt <= 0 || !confirmCheck}>
           Checkout
