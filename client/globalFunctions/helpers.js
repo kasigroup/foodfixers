@@ -1,5 +1,5 @@
 // Animate button
-export default function AnimateButton() {
+function AnimateButton() {
 
   function myEndFunction() {
    this.classList.remove("cart-link-animation");
@@ -10,3 +10,5 @@ export default function AnimateButton() {
    item.addEventListener("animationend", myEndFunction);
 
 }
+
+export { AnimateButton };
