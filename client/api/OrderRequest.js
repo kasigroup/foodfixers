@@ -9,7 +9,7 @@ class ApiOrderRequest {
 
   static sendOrder(order, token) {
     const headers = this.requestHeaders();
-    const request = new Request(api, {
+    const request = new Request(`${api}orders`, {
       method: 'POST',
       headers: headers,
       body: JSON.stringify({order, stripe_token: token.id})
