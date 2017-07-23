@@ -1,4 +1,5 @@
 import 'whatwg-fetch';
+import { api } from '../globalFunctions/helpers';
 
 class ApiCreateProfileRequest {
 
@@ -9,7 +10,7 @@ class ApiCreateProfileRequest {
   static create(url,values) {
     console.log(values)
     const headers = this.requestHeaders();
-    const request = new Request(`https://foodfixers-api.iskall.io/${url}`, {
+    const request = new Request(`${api}${url}`, {
       method: 'POST',
       headers: headers,
       body: JSON.stringify({profile: values})

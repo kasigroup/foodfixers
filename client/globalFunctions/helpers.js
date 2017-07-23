@@ -1,5 +1,5 @@
 // Animate button
-export default function AnimateButton() {
+function AnimateButton() {
 
   function myEndFunction() {
    this.classList.remove("cart-link-animation");
@@ -10,3 +10,11 @@ export default function AnimateButton() {
    item.addEventListener("animationend", myEndFunction);
 
 }
+
+// Addres for the api
+const api = "https://foodfixers-api.iskall.io/"
+
+// Stripe key
+const stripeKey = "pk_test_tuiIc9CcK7Rf8qBOJ3cFeYjT"
+
+export { AnimateButton, api, stripeKey };

@@ -8,6 +8,7 @@ let LocationFormFirstPage = (props) => {
 
   const required = value => value ? undefined : 'Required'
   let areaValueInt = parseInt(areaValue)
+  console.log(areaValueInt)
 
   function renderField({ input, label,id, type, meta: { touched, error } }) {
     if (areaValueInt === label.area_id) {

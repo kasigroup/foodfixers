@@ -1,4 +1,5 @@
 import 'whatwg-fetch';
+import { api } from '../globalFunctions/helpers';
 
 class ApiOrderRequest {
 
@@ -8,7 +9,7 @@ class ApiOrderRequest {
 
   static sendOrder(order, token) {
     const headers = this.requestHeaders();
-    const request = new Request('https://foodfixers-api.iskall.io/orders', {
+    const request = new Request(api, {
       method: 'POST',
       headers: headers,
       body: JSON.stringify({order, stripe_token: token.id})

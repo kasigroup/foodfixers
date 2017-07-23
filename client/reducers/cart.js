@@ -6,7 +6,9 @@ import {
   SUBMIT_LOCATION
 } from '../constants/ActionTypes'
 
-import AnimateButton from '../globalFunctions/helpers';
+import { AnimateButton } from '../globalFunctions/helpers';
+
+
 
 const initialState = {
   addedIds: [],

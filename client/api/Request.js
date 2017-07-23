@@ -1,4 +1,5 @@
 import 'whatwg-fetch';
+import { api } from '../globalFunctions/helpers';
 
 class ApiRequest {
 
@@ -8,7 +9,7 @@ class ApiRequest {
 
   static getAllItems(url) {
     const headers = this.requestHeaders();
-    const request = new Request(`https://foodfixers-api.iskall.io/${url}`, {
+    const request = new Request(`${api}${url}`, {
       method: 'GET',
       headers: headers
     });
