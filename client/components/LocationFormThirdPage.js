@@ -21,14 +21,14 @@ let LocationFormFirstPage = (props) => {
      return {day: day, time: time, id: item.id, location: item.location};
   });
 
-  console.log(timeArray)
-
   console.log("The Day Value")
   console.log(dayValue)
+  console.log(areaValue)
   let dayValueInt = parseInt(dayValue)
+  let areaValueInt = parseInt(areaValue)
 
   function renderField({ input, label, type, meta: { touched, error } }) {
-    if (dayValue === label.day) {
+    if (dayValue === label.day && areaValueInt === label.location.area_id) {
       return (
         <div className="form-check" >
           <input {...input} className="form-check-input locationFormInput" placeholder={label} id={label.id} type={type}/>

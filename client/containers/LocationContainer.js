@@ -39,13 +39,19 @@ class LocationContainer extends Component {
          return {date: date, area_id: item.location.area_id};
       });
 
-      // const uniqueDays = dateArray.filter(function(elem, index, self) {
-      //     return index == self.indexOf(elem);
-      // })
+      // const uniqueDays = dateArray.filter((obj, pos, arr) => {
+      //  return arr.map(mapObj => mapObj.date).indexOf(obj.date) === pos;
+      // });
 
-      const uniqueDays = dateArray.filter((obj, pos, arr) => {
-       return arr.map(mapObj => mapObj.date).indexOf(obj.date) === pos;
-      });
+      function uniqBy(a, key) {
+          var seen = {};
+          return a.filter(function(item) {
+              var k = key(item);
+              return seen.hasOwnProperty(k) ? false : (seen[k] = true);
+          })
+      }
+
+      var uniqueDays = uniqBy(dateArray, JSON.stringify)
 
       return (
         <Location
