@@ -21,14 +21,14 @@ class ProductsContainer extends Component {
   addToTheCart(id, name) {
     const { addToCart, addNotification } = this.props
     addToCart(id)
-    addNotification(`Added "${name}" to cart`,"success")
+    addNotification(`Flyttade "${name}" till kundvagnen`,"success")
   }
 
   render() {
       const { sidedishes } = this.props
       return (
         <div>
-          <p className="align-center">Do you want a side to that?</p>
+          <p className="align-center">Vil du ha något tillbehör?</p>
           {sidedishes.map(dish =>
             <SideDish
               key={dish.id}

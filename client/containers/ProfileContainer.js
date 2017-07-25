@@ -64,7 +64,7 @@ class ProfileContainer extends Component {
        <div>
          <h3 className="title">Profil</h3>
          <p className="profile-name">{profile.first_name} <span/> {profile.last_name}</p>
-         <h3>Orders</h3>
+         <h3>Ordrar</h3>
          <Orders />
        </div>
      )

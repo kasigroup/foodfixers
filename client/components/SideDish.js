@@ -15,7 +15,7 @@ const SideDish = ({ dish, onAddToCartClicked }) => (
     </div>
     <button
       className="btn main-btn btn-modal"
-      onClick={onAddToCartClicked}>Add to cart
+      onClick={onAddToCartClicked}>Lägg till
     </button>
   </div>
 )

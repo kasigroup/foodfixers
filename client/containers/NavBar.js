@@ -10,9 +10,9 @@ import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 
 function SessionButton(props) {
   if (sessionStorage.jwt) {
-    return <li className="nav-item"><a href="" className="nav-link" onClick={props.logOut}>Logout</a></li>;
+    return <li className="nav-item"><a href="" className="nav-link" onClick={props.logOut}>Logga ut</a></li>;
   }
-  return <li className="nav-item"><Link className="nav-link" to="/login">Login</Link></li>;
+  return <li className="nav-item"><Link className="nav-link" to="/login">Logga in</Link></li>;
 }
 
 function AdminButton(props) {
@@ -61,8 +61,8 @@ const NavBar = ({ products, quantity, logOutUser, url, admin }) => (
     </div>
     <div className="hamburger-menu">
       <ul className="nav justify-content-center">
-        <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
-        <li className="nav-item"><Link className="nav-link" to="/profile">Profile</Link></li>
+        <li className="nav-item"><Link className="nav-link" to="/">Hem</Link></li>
+        <li className="nav-item"><Link className="nav-link" to="/profile">Profil</Link></li>
         <SessionButton logOut={ logOutUser }/>
         <AdminButton admin={admin}/>
       </ul>

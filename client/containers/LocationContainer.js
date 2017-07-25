@@ -27,7 +27,7 @@ class LocationContainer extends Component {
 
   notif(){
     const { addNotification } = this.props
-    addNotification("Saved location", "success")
+    addNotification("Valde plats", "success")
   }
 
   render() {

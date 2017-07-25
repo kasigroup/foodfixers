@@ -16,14 +16,14 @@ const Cart  = ({ products, total, removingFromCart, onCheckoutClicked, location}
       />
     )
   ) : (
-    <em>Please add some products to cart.</em>
+    <em>Lägg till maträtter i kundvagnen.</em>
   )
 
   return (
     <div>
-      <h3 className="title">Your Cart</h3>
+      <h3 className="title">Din kundvagn</h3>
       <div>{nodes}</div>
-      <p>Total: {total}kr</p>
+      <p>Summa: {total}kr</p>
       {/* <button className="btn main-btn" onClick={onCheckoutClicked}
         disabled={hasProducts ? '' : 'disabled'}>
         Checkout

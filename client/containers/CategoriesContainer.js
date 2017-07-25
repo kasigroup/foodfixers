@@ -20,8 +20,8 @@ class CategoriesContainer extends Component {
       return (
         <div>
           <div className="product-intro">
-            <h4>Categories</h4>
-            <p>Choose the category you want</p>
+            <h4>Kategorier</h4>
+            <p>Välj kategorin du är intresserad av</p>
           </div>
           <div className="categories-container">
             {categories.map(cat =>

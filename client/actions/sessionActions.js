@@ -45,7 +45,7 @@ export function logInUser(values) {
   return function(dispatch) {
     return ApiPostRequest.login(url,values).then(response => {
       if (response === undefined) {
-         dispatch(addNotification("User does not exist or Bad password","error"));
+         dispatch(addNotification("Användare finns inte eller fel lösenord","error"));
         //  throw new SubmissionError({ _error: 'User does not exist or Bad password' })
        }else {
         sessionStorage.setItem('jwt', response.jwt);
@@ -65,7 +65,7 @@ export function createProfile(values) {
     return ApiCreateProfileRequest.create(url,values).then(response => {
       console.log(response)
       dispatch(push("/"));
-      dispatch(addNotification("Created Profile!","success"));
+      dispatch(addNotification("Skapade Profil!","success"));
       dispatch(createProfileSuccess());
     }).catch(error => {
       throw(error);
@@ -101,7 +101,7 @@ export function registerUser(values) {
       if (response.admin === true || response.admin === false) {
         dispatch(push("/login"));
         dispatch(registerSuccess(response.email));
-        dispatch(addNotification("Register Success!","success"));
+        dispatch(addNotification("Registrering genomförd!","success"));
       }else {
         throw new SubmissionError({
           email: "E-mail " + response.email ? response.email : "" ,
