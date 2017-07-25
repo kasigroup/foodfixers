@@ -5,6 +5,7 @@ import { addToCart } from '../actions/productActions'
 import ProductSingle from '../components/ProductSingle'
 import ModalContainer from './ModalContainer'
 import { addNotification } from '../actions/notificationActions'
+import { baseUrl } from '../globalFunctions/helpers';
 
 
 class ProductView extends Component {
@@ -52,7 +53,7 @@ class ProductView extends Component {
         const product = products[index];
 
         const image = {
-              backgroundImage: `url('https://foodfixers-api.iskall.io${product.image_url}')`
+              backgroundImage: `url('${baseUrl}${product.image_url}')`
         };
 
         if (!product) {

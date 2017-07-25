@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react'
 import Product from './Product'
 import { Link } from 'react-router'
+import { baseUrl } from '../globalFunctions/helpers';
 
 class ProductItem extends Component{
   constructor(props) {
@@ -12,7 +13,7 @@ class ProductItem extends Component{
     const { product, onAddToCartClicked } = this.props
 
     const image = {
-          backgroundImage: `url('https://foodfixers-api.iskall.io${product.image_url}')`
+          backgroundImage: `url('${baseUrl}${product.image_url}')`
     }
 
     return (
