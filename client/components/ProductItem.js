@@ -29,7 +29,7 @@ class ProductItem extends Component{
         </Link>
         <button
           className="btn main-btn"
-          onClick={onAddToCartClicked}>Add to cart - {product.price}kr
+          onClick={onAddToCartClicked}>Lägg till - {product.price}kr
         </button>
       </div>
     )

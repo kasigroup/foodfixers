@@ -45,7 +45,7 @@ class ProductsContainer extends Component {
   addToTheCart(id, name){
     const { addToCart, openModal, addNotification } = this.props
     addToCart(id)
-    addNotification(`Added "${name}" to cart`,"success")
+    addNotification(`Flyttade "${name}" till kundvagnen`,"success")
     openModal()
   }
 
@@ -76,8 +76,7 @@ class ProductsContainer extends Component {
       return (
         <div>
           <div className="product-intro">
-            <h4>Meals</h4>
-            <p>Our fresh dishes</p>
+            <h4>Rätter</h4>
             {categories.map(cat =>
               <CategoryName key={cat.id} name={cat.name} catId={cat.id} catChoosen={parseInt(category)} />
             )}

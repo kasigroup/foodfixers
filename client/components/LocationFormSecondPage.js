@@ -30,7 +30,7 @@ let LocationFormFirstPage = (props) => {
     <form onSubmit={handleSubmit}>
       <fieldset className="form-group row">
         <div className="col-sm-6 margin-center align-left">
-          <p className="align-center">Please choose date</p>
+          <p className="align-center">Välj datum</p>
           {days.map((item, i) => <div key={i}>
             <Field
               name="day"
@@ -43,8 +43,8 @@ let LocationFormFirstPage = (props) => {
           </div>)}
         </div>
         <div>
-          <button type="button" className="previous btn main-btn btn-45" onClick={previousPage}>Previous</button>
-          <button type="submit" disabled={pristine || submitting } className="next btn main-btn btn-45">Next</button>
+          <button type="button" className="previous btn main-btn btn-45" onClick={previousPage}>Bakåt</button>
+          <button type="submit" disabled={pristine || submitting } className="next btn main-btn btn-45">Nästa</button>
         </div>
       </fieldset>
     </form>

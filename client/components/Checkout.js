@@ -36,7 +36,7 @@ class Checkout extends Component {
         stripeKey={stripeKey}
       >
         <button className="btn main-btn" disabled={total <= 0 || choosenLocationInt <= 0 || !confirmCheck}>
-          Checkout
+          Betala
         </button>
       </StripeCheckout>
     )

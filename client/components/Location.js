@@ -6,7 +6,7 @@ import { setOrderLocation } from '../actions/locationActions'
 const Location  = ({ deliveries , areas, showResults, setLocation, notif, location, days}) => {
   return (
     <div>
-      <h3 className="title">Locations</h3>
+      <h3 className="title">Platser</h3>
       <LocationForm deliveries={deliveries} days={days} notif={notif} areas={areas} onSubmit={showResults} location={location} />
     </div>
   )

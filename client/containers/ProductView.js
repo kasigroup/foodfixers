@@ -31,7 +31,7 @@ class ProductView extends Component {
   addToTheCart(id, name){
     const { addToCart,addNotification } = this.props
     addToCart(id)
-    addNotification(`Added "${name}" to cart`,"success")
+    addNotification(`Flyttade "${name}" till kundvagnen`,"success")
     this.handleOpenModal()
   }
 
@@ -58,7 +58,7 @@ class ProductView extends Component {
 
         if (!product) {
           return (
-            <p>No product here!</p>
+            <p>Ingen produkt här!</p>
           )
         }else {
           return (
@@ -74,7 +74,7 @@ class ProductView extends Component {
         }
       }else {
         return (
-          <p>Loading...</p>
+          <p>Laddar...</p>
         )
       }
   }

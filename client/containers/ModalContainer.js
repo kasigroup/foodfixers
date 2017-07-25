@@ -24,8 +24,8 @@ class ModalContainer extends Component {
         >
           <span className="modal-close-icon float-right" onClick={isClose}><i className="fa fa-times-circle-o" aria-hidden="true"></i></span>
           <SideDishesContainer />
-          <button className="btn main-btn btn-45" onClick={isClose}>Order more</button>
-          <Link className="btn main-btn btn-45 float-right" to="/cart">Cart</Link>
+          <button className="btn main-btn btn-45" onClick={isClose}>Fortsätt</button>
+          <Link className="btn main-btn btn-45 float-right" to="/cart">Kundvagn</Link>
         </ReactModal>
       </div>
     );

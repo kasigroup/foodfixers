@@ -40,7 +40,7 @@ class CartContainer extends Component {
   removingFromCart(id, name){
     const { removeFromCart, addNotification } = this.props
     removeFromCart(id)
-    addNotification(`Removed "${name}" from cart`, "success")
+    addNotification(`Tog bort "${name}" från kundvagnen`, "success")
   }
 
   handleOpenModal () {

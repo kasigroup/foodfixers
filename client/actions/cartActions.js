@@ -40,7 +40,7 @@ export function checkout(orderFormatted, total, token, choosenLocation) {
     return ApiOrderRequest.sendOrder(order, token).then(response => {
       if (response) {
         dispatch(checkoutRequest(order));
-        dispatch(addNotification("You just ordered!","success"))
+        dispatch(addNotification("Beställning genomförd!","success"))
       }else {
         console.log("no response on order")
       }
