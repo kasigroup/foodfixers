@@ -1,3 +1,6 @@
+// Disable console in production
+console.log = function() {}
+
 import React from 'react';
 import { render } from 'react-dom';
 import { createStore, compose, applyMiddleware } from 'redux'
