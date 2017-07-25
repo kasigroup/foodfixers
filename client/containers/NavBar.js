@@ -62,9 +62,12 @@ const NavBar = ({ products, quantity, logOutUser, url, admin }) => (
     <div className="hamburger-menu">
       <ul className="nav justify-content-center">
         <li className="nav-item"><Link className="nav-link" to="/">Hem</Link></li>
+        <li className="nav-item"><Link className="nav-link" to="/about">Om oss</Link></li>
         <li className="nav-item"><Link className="nav-link" to="/profile">Profil</Link></li>
+        <li className="nav-item"><Link className="nav-link" to="/allergies">Allergier</Link></li>
         <SessionButton logOut={ logOutUser }/>
         <AdminButton admin={admin}/>
+        {/* <li className="nav-item"><a href="tel:+46103302077">Tel: 010-330 20 77</a></li> */}
       </ul>
     </div>
   </div>

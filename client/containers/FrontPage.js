@@ -44,6 +44,10 @@ class FrontPage extends Component {
          <img className="img-fluid front-icon" style={{maxWidth: "60%"}} src={foodIcon}></img>
          <h5>Din mat levereras till plats.</h5>
          <Link className="btn main-btn" to="/categories">Börja här</Link>
+         <div className="contact">
+           Email: <a href="#">foodfixersexpress@gmail.com</a><br></br>
+           Tel: <a href="tel:+46103302077">010-330 20 77</a>
+         </div>
        </div>
      )
    }
