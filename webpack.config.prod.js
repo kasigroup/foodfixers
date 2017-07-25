@@ -10,7 +10,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/dist/'
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -45,7 +45,8 @@ module.exports = {
       loader: "url-loader",
       query: {
         limit: 10000,
-        mimetype: "image/png"
+        mimetype: "image/png",
+        name: "[path][name].[ext]"
       }
     }
     ]

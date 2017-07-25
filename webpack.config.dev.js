@@ -36,7 +36,8 @@ module.exports = {
       loader: "url-loader",
       query: {
         limit: 10000,
-        mimetype: "image/png"
+        mimetype: "image/png",
+        name: "[path][name].[ext]"
       }
     }
     ]
