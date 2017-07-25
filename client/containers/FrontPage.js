@@ -33,15 +33,15 @@ class FrontPage extends Component {
          <p>Vi gör utkörningar runtomkring Jönköping. Vi stannar på fasta tider och platser
          både till lumch och middag. Skapa ditt konto nu och beställ något gott!</p>
          <Link className="btn main-btn" to="/categories">Börja här</Link>
-         <img className="img-fluid" style={{maxWidth: "60%"}} src={createIcon}></img>
+         <img className="img-fluid front-icon" style={{maxWidth: "60%"}} src={createIcon}></img>
          <h5>Skapa ett konto.</h5>
-         <img className="img-fluid" style={{maxWidth: "60%"}} src={cart}></img>
+         <img className="img-fluid front-icon" style={{maxWidth: "60%"}} src={cart}></img>
          <h5>Lägg till mat i varukorgen.</h5>
-         <img className="img-fluid" style={{maxWidth: "60%"}} src={stopIcon}></img>
+         <img className="img-fluid front-icon" style={{maxWidth: "60%"}} src={stopIcon}></img>
          <h5>Välj en plats och tid.</h5>
-         <img className="img-fluid" style={{maxWidth: "60%"}} src={stopIcon}></img>
+         <img className="img-fluid front-icon" style={{maxWidth: "60%"}} src={payIcon}></img>
          <h5>Betala säkert med kort.</h5>
-         <img className="img-fluid" style={{maxWidth: "60%"}} src={foodIcon}></img>
+         <img className="img-fluid front-icon" style={{maxWidth: "60%"}} src={foodIcon}></img>
          <h5>Din mat levereras till plats.</h5>
          <Link className="btn main-btn" to="/categories">Börja här</Link>
        </div>
