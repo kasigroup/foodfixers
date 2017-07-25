@@ -4,6 +4,7 @@ import { getCartProducts, getCartQuantity } from '../reducers'
 import { Link } from 'react-router'
 import { logOutUser } from '../actions/sessionActions'
 import Burger from '../components/Burger'
+import logga from "../images/logga.png";
 
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 
@@ -46,7 +47,7 @@ const NavBar = ({ products, quantity, logOutUser, url, admin }) => (
         <BurgerButton url={url} />
       </div>
       <div className="logo" >
-        <Link to="/"><h4>Foodfixers Express</h4></Link>
+        <Link to="/"><img src={logga}></img></Link>
       </div>
       <div className="cart-link">
         <Link to="/cart"><CSSTransitionGroup
