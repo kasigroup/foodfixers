@@ -4,6 +4,10 @@ import { connect } from 'react-redux'
 
 
 const Cart  = ({ products, total, removingFromCart, onCheckoutClicked, location}) => {
+  console.log(total)
+  var totalInt = parseInt(total);
+  var moms = totalInt*0.25
+  console.log(moms)
   const hasProducts = products.length > 0
   const nodes = hasProducts ? (
     products.map(product =>
@@ -24,6 +28,7 @@ const Cart  = ({ products, total, removingFromCart, onCheckoutClicked, location}
       <h3 className="title">Din kundvagn</h3>
       <div>{nodes}</div>
       <p>Summa: {total}kr</p>
+      <p>Moms 25%: {moms}kr</p>
       {/* <button className="btn main-btn" onClick={onCheckoutClicked}
         disabled={hasProducts ? '' : 'disabled'}>
         Checkout

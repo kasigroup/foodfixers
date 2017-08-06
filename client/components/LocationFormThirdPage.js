@@ -33,7 +33,9 @@ let LocationFormFirstPage = (props) => {
         <div className="form-check" >
           <input {...input} className="form-check-input locationFormInput" placeholder={label} id={label.id} type={type}/>
           <label className="form-check-label location-form-label" htmlFor={label.id}>
+            <p className="margin-null"><b>{label.location.name}</b></p>
             {label.location.street_address} - {label.time}
+            <p className="margin-null">{label.location.description}</p>
           </label>
           {touched && error && <p className="error-text">{error}</p>}
         </div>

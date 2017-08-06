@@ -31,8 +31,10 @@ class FrontPage extends Component {
          <p>Välkommen till foodfixers.se, din sushi- och salladsbar online!</p>
          <img className="img-fluid" style={{maxWidth: "70%"}} src={food}></img>
          <p>Vi gör utkörningar runtomkring Jönköping. Vi stannar på fasta tider och platser
-         både till lumch och middag. Skapa ditt konto nu och beställ något gott!</p>
+         både till lunch och middag. Skapa ditt konto nu och beställ något gott!</p>
          <Link className="btn main-btn" to="/categories">Börja här</Link>
+         <br></br><br></br>
+         <p>Alla beställningar via appen måste göras senast dagen innan. Beställningar senare tas emot via telefon på Tel: 010-330 20 77.</p>
          <img className="img-fluid front-icon" style={{maxWidth: "60%"}} src={createIcon}></img>
          <h5>Skapa ett konto.</h5>
          <img className="img-fluid front-icon" style={{maxWidth: "60%"}} src={cart}></img>
@@ -45,6 +47,7 @@ class FrontPage extends Component {
          <h5>Din mat levereras till plats.</h5>
          <Link className="btn main-btn" to="/categories">Börja här</Link>
          <div className="contact">
+           <p>Följ oss på facebook för nyheter och information.   <a className="social-logo" href="https://www.facebook.com/foodfixers.se/" target="_blank"><i className="fa fa-facebook-official fa-3x" aria-hidden="true"></i></a></p>
            Email: <a href="#">foodfixersexpress@gmail.com</a><br></br>
            Tel: <a href="tel:+46103302077">010-330 20 77</a>
          </div>

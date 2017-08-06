@@ -1,6 +1,3 @@
-// Disable console in production
-console.log = function() {}
-
 import React from 'react';
 import { render } from 'react-dom';
 import { createStore, compose, applyMiddleware } from 'redux'
@@ -79,7 +76,7 @@ const Root = () => {
           <Route path="register" component={RegisterContainer} />
           <Route path="createprofile" component={CreateProfileContainer} />
           <Route path="about" component={AboutContainer} />
-          <Route path="allergies" component={AllergiesContainer} />        
+          <Route path="allergies" component={AllergiesContainer} />
           <IndexRoute component={FrontPage} />
           <Route path="categories" component={CategoriesContainer} onEnter={requireAuth}/>
           <Route path="sidedishes" component={SideDishesContainer} onEnter={requireAuth}/>
