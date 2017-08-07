@@ -12,11 +12,11 @@ function AnimateButton() {
 }
 
 // Addres for the api
-const baseUrl = "https://foodfixers-api.iskall.io"
+const baseUrl = "https://api.foodfixers.se"
 const api = baseUrl + "/"
 
 
 // Stripe key
-const stripeKey = "pk_test_tuiIc9CcK7Rf8qBOJ3cFeYjT"
+const stripeKey = "pk_live_8S0wdc4BNw1WDJnE2Xwo1mpp"
 
 export { AnimateButton, api, stripeKey, baseUrl };
