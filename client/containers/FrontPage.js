@@ -1,6 +1,3 @@
-// Disable console in production
-console.log = function() {}
- 
 import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
