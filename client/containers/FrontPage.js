@@ -34,18 +34,18 @@ class FrontPage extends Component {
          både till lunch och middag. Skapa ditt konto nu och beställ något gott!</p>
          <Link className="btn main-btn" to="/categories">Beställ här</Link>
          <br></br><br></br>
-         <p>Alla beställningar via appen måste göras senast dagen innan. Beställningar senare tas emot via telefon på Tel: 010-330 20 77.</p>
+         <p>Alla beställningar via appen måste göras senast dagen innan. Detta är en testversion så beställningar samma dag, information och feedback tar vi gärna emot via telefon på Tel: 010-330 20 77. Vi tackar för ert tålamod!</p>
          <img className="img-fluid front-icon" style={{maxWidth: "60%"}} src={createIcon}></img>
          <h5>Skapa ett konto.</h5>
          <img className="img-fluid front-icon" style={{maxWidth: "60%"}} src={cart}></img>
          <h5>Lägg till mat i varukorgen.</h5>
          <img className="img-fluid front-icon" style={{maxWidth: "60%"}} src={stopIcon}></img>
-         <h5>Välj en plats och tid.</h5>
+         <h5>Välj ett område, ett datum och sedan tid.</h5>
          <img className="img-fluid front-icon" style={{maxWidth: "60%"}} src={payIcon}></img>
-         <h5>Betala säkert med kort.</h5>
+         <h5>Betala säkert med VISA eller Mastercard.</h5>
          <img className="img-fluid front-icon" style={{maxWidth: "60%"}} src={foodIcon}></img>
-         <h5>Din mat levereras till plats.</h5>
-         <Link className="btn main-btn" to="/categories">Börja här</Link>
+         <h5>På den beställda tiden och platsen levererar vi maten.</h5>
+         <Link className="btn main-btn" to="/categories">Beställ här</Link>
          <div className="contact">
            <p>Följ oss på facebook för nyheter och information.   <a className="social-logo" href="https://www.facebook.com/foodfixers.se/" target="_blank"><i className="fa fa-facebook-official fa-3x" aria-hidden="true"></i></a></p>
            Email: <a href="#">foodfixersexpress@gmail.com</a><br></br>
