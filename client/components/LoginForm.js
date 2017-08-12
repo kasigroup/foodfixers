@@ -17,12 +17,12 @@ const SubmitValidationForm = (props) => {
   return (
       <form className="ReduxForm" onSubmit={handleSubmit(login)}>
         <Field name="email" type="text" component={renderField} label="Email"/>
-        <Field name="password" type="password" component={renderField} label="Password"/>
+        <Field name="password" type="password" component={renderField} label="Lösenord"/>
         {error && <strong>{error}</strong>}
         <div>
-          <button className="btn main-btn" type="submit" disabled={submitting}>Log In</button>
+          <button className="btn main-btn" type="submit" disabled={submitting}>Logga in</button>
         </div>
-        <Link className="loginToRegBtn" to="/register">Register new account?</Link>
+        <Link className="loginToRegBtn" to="/register">Registrera nytt konto</Link>
       </form>
   )
 }
