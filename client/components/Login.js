@@ -10,8 +10,8 @@ const Login  = ({props, logInUser, email}) => {
   return (
     <div>
       <div className="form-head">
-        <h3>SIGN IN</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum.</p>
+        <h3>Logga in</h3>
+        <p>Logga in eller skapa ett nytt användarkonto genom länken nedanför.</p>
       </div>
       {email ? <p>Registrerade med {email}</p> : null}
       <LoginForm login={logInUser}/>

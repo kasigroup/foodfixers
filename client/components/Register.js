@@ -10,8 +10,8 @@ const Register  = ({props, registerUser}) => {
   return (
     <div>
       <div className="form-head">
-        <h3>Logga in</h3>
-        <p>Skapa ett nytt konto genom länken under.</p>
+        <h3>Registrera dig</h3>
+        <p>Ange email och lösenord.</p>
       </div>
       <RegisterForm register={registerUser} />
     </div>
