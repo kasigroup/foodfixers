@@ -1,6 +1,3 @@
-// Disable console in production
-console.log = function() {}
- 
 import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -35,7 +32,7 @@ class FrontPage extends Component {
          <img className="img-fluid" style={{maxWidth: "70%"}} src={food}></img>
          <p>Vi gör utkörningar runtomkring Jönköping. Vi stannar på fasta tider och platser
          både till lunch och middag. Skapa ditt konto nu och beställ något gott!</p>
-         <Link className="btn main-btn" to="/categories">Börja här</Link>
+         <Link className="btn main-btn" to="/categories">Beställ här</Link>
          <br></br><br></br>
          <p>Alla beställningar via appen måste göras senast dagen innan. Beställningar senare tas emot via telefon på Tel: 010-330 20 77.</p>
          <img className="img-fluid front-icon" style={{maxWidth: "60%"}} src={createIcon}></img>

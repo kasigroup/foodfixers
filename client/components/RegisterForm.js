@@ -21,9 +21,9 @@ const SubmitRegisterForm = (props) => {
       <Field name="password" type="password" component={renderField} label="Password"/>
       {error && <strong>{error}</strong>}
       <div>
-        <button className="btn main-btn" type="submit" disabled={submitting}>Register</button>
+        <button className="btn main-btn" type="submit" disabled={submitting}>Registrera</button>
       </div>
-      <Link className="loginToRegBtn" to="/login">Already registered?</Link>
+      <Link className="loginToRegBtn" to="/login">Redan registrerad?</Link>
     </form>
   )
 }
