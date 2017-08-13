@@ -18,7 +18,7 @@ const LocationFormFirstPage = (props) => {
     <form onSubmit={handleSubmit}>
       <fieldset className="form-group row">
         <div className="col-sm-6 margin-center align-left">
-          <p className="align-center">Välj område</p>
+          <p className="align-center">Välj ett område nära dig och klicka nästa</p>
           {areas.map((item, i) => <div key={i}>
             <Field
               name="area"
