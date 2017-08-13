@@ -30,7 +30,8 @@ let LocationFormFirstPage = (props) => {
     <form onSubmit={handleSubmit}>
       <fieldset className="form-group row">
         <div className="col-sm-6 margin-center align-left">
-          <p className="align-center">Välj datum</p>
+          <p className="align-center">Välj datum som maten ska köras ut på och klicka på nästa</p>
+          <p className="align-center">Här visas datum vi kör till inom 5 dagar </p>
           {days.map((item, i) => <div key={i}>
             <Field
               name="day"

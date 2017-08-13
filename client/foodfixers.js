@@ -38,6 +38,7 @@ import LoginContainer from './containers/LoginContainer';
 import RegisterContainer from './containers/RegisterContainer';
 import AllergiesContainer from './containers/AllergiesContainer';
 import AboutContainer from './containers/AboutContainer';
+import StopsContainer from './containers/StopsContainer';
 import AdminContainer from './containers/AdminContainer';
 import NotFound from './containers/NotFound';
 import CreateProfileContainer from './containers/CreateProfileContainer';
@@ -76,6 +77,7 @@ const Root = () => {
           <Route path="register" component={RegisterContainer} />
           <Route path="createprofile" component={CreateProfileContainer} />
           <Route path="about" component={AboutContainer} />
+          <Route path="stops" component={StopsContainer} />
           <Route path="allergies" component={AllergiesContainer} />
           <IndexRoute component={FrontPage} />
           <Route path="categories" component={CategoriesContainer} onEnter={requireAuth}/>
