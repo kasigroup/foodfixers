@@ -34,6 +34,7 @@ class FrontPage extends Component {
          både till lunch och middag. Skapa ditt konto nu och beställ något gott!</p>
          <Link className="btn main-btn" to="/categories">Beställ här</Link>
          <br></br><br></br>
+         <p>Om du är ny till tjänsten, läs följande nedan för mer information!</p>
          <p>Alla beställningar via appen måste göras senast dagen innan. Detta är en testversion så beställningar samma dag, information och feedback tar vi gärna emot via telefon på Tel: 010-330 20 77. Vi tackar för ert tålamod!</p>
          <img className="img-fluid front-icon" style={{maxWidth: "60%"}} src={createIcon}></img>
          <h5>Skapa ett konto.</h5>

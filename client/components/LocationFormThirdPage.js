@@ -58,7 +58,7 @@ let LocationFormFirstPage = (props) => {
     <form onSubmit={handleSubmit}>
       <fieldset className="form-group row">
         <div className="col-sm-6 margin-center align-left">
-          <p className="align-center">Välj adress och tid</p>
+          <p className="align-center">Välj adress och tid och tryck på spara</p>
           {timeArray.map((item, i) => <div key={i}>
             <Field
               name="location"
