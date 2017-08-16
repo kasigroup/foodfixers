@@ -47,7 +47,7 @@ class LocationForm extends Component {
     // Getting choosen address
     let address = null;
     if (location === 0) {
-       address = <span>ingen</span>;
+       address = <span> </span>;
     } else {
       let gettingDelivery = deliveries.find(function(del){
         if (del.id === parseInt(location)) {
@@ -62,7 +62,6 @@ class LocationForm extends Component {
 
 
     return (<div>
-      <h5>Vald plats: {address}</h5>
       {page === 1 && <LocationFormFirstPage areas={areas} onSubmit={this.nextPage}/>}
       {page === 2 && <LocationFormSecondPage deliveries={deliveries} days={days} previousPage={this.previousPage} onSubmit={this.nextPage}/>}
       {page === 3 && <LocationFormThirdPage deliveries={deliveries} previousPage={this.previousPage} notif={notif} onSubmit={onSubmit}/>}
