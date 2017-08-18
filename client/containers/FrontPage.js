@@ -33,11 +33,11 @@ class FrontPage extends Component {
          <p>I den här appen kan du beställa sushi och välja att
             få den levererad till en av tjugosex platser runt omkring
             i Jönköping, Huskvarna och Torsvik!</p>
-         <Link className="btn main-btn-red" to="/categories">LÄS MER OM OSS</Link>
-         <Link className="btn main-btn-red" to="/categories">SE ALLA VÅRA STOPP</Link>
+         <Link className="btn main-btn-red" to="/about">LÄS MER OM OSS</Link>
+         <Link className="btn main-btn-red" to="/stops">SE ALLA VÅRA STOPP</Link>
          <Link className="btn main-btn-red" to="/categories">KOLLA IN VÅR MENY</Link>
-         <Link className="btn main-btn-red" to="/categories">REGISTRERA KONTO/LOGGA IN</Link>
-         <Link className="btn main-btn-red" to="/categories">RING OSS</Link>
+         <Link className="btn main-btn-red" to="/login">REGISTRERA KONTO/LOGGA IN</Link>
+         <Link className="btn main-btn-red" to="/allergies">ALLERGIER</Link>
          <Link className="btn main-btn-red" to="/categories">SE HUR APPEN FUNGERAR</Link>
 
          <div className="contact">
