@@ -47,8 +47,8 @@ class FrontPage extends Component {
           <a className="social-logo" href="https://www.facebook.com/foodfixers.se/" target="_blank"><i className="fa fa-facebook-official fa-3x" aria-hidden="true"></i></a>
           <a className="social-logo" href="https://www.instagram.com/foodfixers.se"><i className="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
           <p className="social-media">@foodfixers.se</p>
-          <br></br><br></br>
-           <a className="email-logo" href="#">
+          <br></br>
+           <a className="email-logo"  href="mailto:someone@example.com">
            <i className="fa fa-envelope fa-3x " aria-hidden="true"></i><p className="social-media email">foodfixersexpress@gmail.com</p></a>
            </div>
          </div>
