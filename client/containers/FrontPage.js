@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { loadProfile } from '../actions/profileActions'
 import { loadAccount } from '../actions/sessionActions'
-import food from "../images/mat-front.png";
+import billy from "../images/billy.png"
 import createIcon from "../images/create-account.png";
 import cart from "../images/varukorg.png";
 import stopIcon from "../images/choose-stop.png";
@@ -28,8 +28,10 @@ class FrontPage extends Component {
 
      return (
        <div>
-         <p>Hej, jag är din sushikock i mobilen!</p>
-         <img className="img-fluid" style={{maxWidth: "70%"}} src={food}></img>
+         <p className="headline" >Hej, jag är din sushikock i mobilen!</p>
+         <div className="img-container">
+         <img className="img-fluid" style={{maxWidth: "100%"}} src={billy}></img>
+         </div>
          <p>I den här appen kan du beställa sushi och välja att
             få den levererad till en av tjugosex platser runt omkring
             i Jönköping, Huskvarna och Torsvik!</p>
@@ -41,9 +43,14 @@ class FrontPage extends Component {
          <Link className="btn main-btn-red" to="/categories">SE HUR APPEN FUNGERAR</Link>
 
          <div className="contact">
-           <p>@foodfixers.se<a className="social-logo" href="https://www.facebook.com/foodfixers.se/" target="_blank"><i className="fa fa-facebook-official fa-3x" aria-hidden="true"></i></a></p>
-           <a className="email" href="#">foodfixersexpress@gmail.com</a><br></br>
-
+          <div className="inner-contact">
+          <a className="social-logo" href="https://www.facebook.com/foodfixers.se/" target="_blank"><i className="fa fa-facebook-official fa-3x" aria-hidden="true"></i></a>
+          <a className="social-logo" href="https://www.instagram.com/foodfixers.se"><i className="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
+          <p className="social-media">@foodfixers.se</p>
+          <br></br><br></br>
+           <a className="email-logo" href="#">
+           <i className="fa fa-envelope fa-3x " aria-hidden="true"></i><p className="social-media email">foodfixersexpress@gmail.com</p></a>
+           </div>
          </div>
        </div>
      )
