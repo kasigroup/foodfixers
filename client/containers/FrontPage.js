@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { loadProfile } from '../actions/profileActions'
 import { loadAccount } from '../actions/sessionActions'
-import food from "../images/mat-front.png";
+import billy from "../images/billy.png"
 import createIcon from "../images/create-account.png";
 import cart from "../images/varukorg.png";
 import stopIcon from "../images/choose-stop.png";
@@ -28,29 +28,29 @@ class FrontPage extends Component {
 
      return (
        <div>
-         <p>Välkommen till foodfixers.se, din sushi- och salladsbar online!</p>
-         <img className="img-fluid" style={{maxWidth: "70%"}} src={food}></img>
-         <p>Vi gör utkörningar runtomkring Jönköping. Vi stannar på fasta tider och platser
-         både till lunch och middag. Skapa ditt konto nu och beställ något gott!</p>
-         <Link className="btn main-btn" to="/categories">Beställ här</Link>
-         <br></br><br></br>
-         <p>Om du är ny till tjänsten, läs följande nedan för mer information!</p>
-         <p>Alla beställningar via appen måste göras senast dagen innan. Detta är en testversion så beställningar samma dag, information och feedback tar vi gärna emot via telefon på Tel: 010-330 20 77. Vi tackar för ert tålamod!</p>
-         <img className="img-fluid front-icon" style={{maxWidth: "60%"}} src={createIcon}></img>
-         <h5>Skapa ett konto.</h5>
-         <img className="img-fluid front-icon" style={{maxWidth: "60%"}} src={cart}></img>
-         <h5>Lägg till mat i varukorgen.</h5>
-         <img className="img-fluid front-icon" style={{maxWidth: "60%"}} src={stopIcon}></img>
-         <h5>Välj ett område, ett datum och sedan tid.</h5>
-         <img className="img-fluid front-icon" style={{maxWidth: "60%"}} src={payIcon}></img>
-         <h5>Betala säkert med VISA eller Mastercard.</h5>
-         <img className="img-fluid front-icon" style={{maxWidth: "60%"}} src={foodIcon}></img>
-         <h5>På den beställda tiden och platsen levererar vi maten.</h5>
-         <Link className="btn main-btn" to="/categories">Beställ här</Link>
+         <p className="headline" >Hej, jag är din sushikock i mobilen!</p>
+         <div className="img-container">
+         <img className="img-fluid" style={{maxWidth: "100%"}} src={billy}></img>
+         </div>
+         <p>I den här appen kan du beställa sushi och välja att
+            få den levererad till en av tjugosex platser runt omkring
+            i Jönköping, Huskvarna och Torsvik!</p>
+         <Link className="btn main-btn-red" to="/about">LÄS MER OM OSS</Link>
+         <Link className="btn main-btn-red" to="/stops">SE ALLA VÅRA STOPP</Link>
+         <Link className="btn main-btn-red" to="/categories">KOLLA IN VÅR MENY</Link>
+         <Link className="btn main-btn-red" to="/login">REGISTRERA KONTO/LOGGA IN</Link>
+         <Link className="btn main-btn-red" to="/allergies">ALLERGIER</Link>
+         <Link className="btn main-btn-red" to="/categories">SE HUR APPEN FUNGERAR</Link>
+
          <div className="contact">
-           <p>Följ oss på facebook för nyheter och information.   <a className="social-logo" href="https://www.facebook.com/foodfixers.se/" target="_blank"><i className="fa fa-facebook-official fa-3x" aria-hidden="true"></i></a></p>
-           Email: <a href="#">foodfixersexpress@gmail.com</a><br></br>
-           Tel: <a href="tel:+46103302077">010-330 20 77</a>
+          <div className="inner-contact">
+          <a className="social-logo" href="https://www.facebook.com/foodfixers.se/" target="_blank"><i className="fa fa-facebook-official fa-3x" aria-hidden="true"></i></a>
+          <a className="social-logo" href="https://www.instagram.com/foodfixers.se"><i className="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
+          <p className="social-media">@foodfixers.se</p>
+          <br></br>
+           <a className="email-logo" href="mailto:foodfixersexpress@gmail.com" target="_blank">
+           <i className="fa fa-envelope fa-3x " aria-hidden="true"></i><p className="social-media email">foodfixersexpress@gmail.com</p></a>
+           </div>
          </div>
        </div>
      )
