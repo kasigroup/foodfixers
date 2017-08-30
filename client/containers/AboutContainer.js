@@ -14,7 +14,7 @@ class AboutContainer extends Component {
        <div>
          <h3 className="title">Om oss</h3>
          <div className="contact">
-           Email: <a href="#">foodfixersexpress@gmail.com</a><br></br>
+           Email: <a href="mailto:foodfixersexpress@gmail.com" target="_blank">foodfixersexpress@gmail.com</a><br></br>
            Tel: <a href="tel:+46103302077">010-330 20 77</a>
          </div>
          <p>Vi vill att du ska bli mätt och belåten. Vi vill att du ska må bra. Vi vill att du blir så mätt, så belåten och må så bra att du fortsätter att beställa mat från oss under många, många år.
