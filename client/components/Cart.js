@@ -7,6 +7,7 @@ const Cart  = ({ products, total, removingFromCart, onCheckoutClicked, location}
   console.log(total)
   var totalInt = parseInt(total);
   var moms = totalInt*0.12
+  var fixMoms = moms.toFixed(2);
   console.log(moms)
   const hasProducts = products.length > 0
   const nodes = hasProducts ? (
@@ -28,7 +29,7 @@ const Cart  = ({ products, total, removingFromCart, onCheckoutClicked, location}
       <h3 className="title">Din kundvagn</h3>
       <div>{nodes}</div>
       <p>Summa: {total}kr</p>
-      <p>Moms 12%: {moms}kr</p>
+      <p>Moms 12%: {fixMoms}kr</p>
       {/* <button className="btn main-btn" onClick={onCheckoutClicked}
         disabled={hasProducts ? '' : 'disabled'}>
         Checkout

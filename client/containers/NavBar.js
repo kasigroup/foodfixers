@@ -64,6 +64,7 @@ const NavBar = ({ products, quantity, logOutUser, url, admin }) => (
         <li className="nav-item"><Link className="nav-link" to="/">Hem</Link></li>
         <li className="nav-item"><Link className="nav-link" to="/stops">Här stannar vi</Link></li>
         <li className="nav-item"><Link className="nav-link" to="/about">Om oss</Link></li>
+        <li className="nav-item"><Link className="nav-link" to="/categories">Vår Meny</Link></li>
         <li className="nav-item"><Link className="nav-link" to="/profile">Profil</Link></li>
         <li className="nav-item"><Link className="nav-link" to="/allergies">Allergier</Link></li>
         <SessionButton logOut={ logOutUser }/>
