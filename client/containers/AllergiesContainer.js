@@ -13,7 +13,7 @@ class AllergiesContainer extends Component {
        <div>
          <h3 className="title">Allergier</h3>
          <div className="contact">
-           Email: <a href="#">foodfixersexpress@gmail.com</a><br></br>
+           Email: <a href="mailto:foodfixersexpress@gmail.com" target="_blank">foodfixersexpress@gmail.com</a><br></br>
            Tel: <a href="tel:+46103302077">010-330 20 77</a>
          </div>
          <p>Om du har någon livsmedelsallergi måste du läsa igenom det här stycket:</p>
