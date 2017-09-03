@@ -28,7 +28,7 @@ class ProductsContainer extends Component {
       const { sidedishes } = this.props
       return (
         <div>
-          <p className="align-center">Vil du ha något tillbehör?</p>
+          <p className="align-center">Vill du ha något tillbehör?</p>
           {sidedishes.map(dish =>
             <SideDish
               key={dish.id}
