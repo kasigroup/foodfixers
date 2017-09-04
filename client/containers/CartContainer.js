@@ -132,7 +132,7 @@ class CartContainer extends Component {
           <p>&nbsp;</p>
           <p><b><span>&Aring;ngerr&auml;tt</span></b></p>
           <p>&nbsp;</p>
-          <p><span>Om du vill avbest&auml;lla meddelar du oss f&ouml;re klockan 10:00 p&aring; telefon 010-3302077 eller e-post </span><a href="mailto:foodfixersexpress@gmail.com"><span>foodfixersexpress@gmail.com</span></a><span>. Kom ih&aring;g att uppge ditt namn och till vilken dag du har best&auml;llt. D&aring; f&aring;r du dina pengar tillbaka. &nbsp;</span></p>
+          <p><span>Om du vill avbest&auml;lla meddelar du oss f&ouml;re klockan 10:00 p&aring; telefon 010-3302077 eller e-post </span><a href="mailto:hello@foodfixers.se"><span>hello@foodfixers.se</span></a><span>. Kom ih&aring;g att uppge ditt namn och till vilken dag du har best&auml;llt. D&aring; f&aring;r du dina pengar tillbaka. &nbsp;</span></p>
           <p><span>Om du inte meddelar oss innan 10:00 samma dag ger vi ingen &aring;terbetalning. Du kan alltid be n&aring;gon annan h&auml;mta din best&auml;llning om du sj&auml;lv inte har m&ouml;jlighet.</span></p>
           <p>&nbsp;</p>
           <p><span>F&ouml;rs&auml;ljningen genom v&aring;r app omfattas inte av &aring;ngerr&auml;tt enligt distansavtalslagen (lag (2005:59) om distansavtal och avtal utanf&ouml;r aff&auml;rslokaler). Du kan l&auml;sa mer om &aring;ngerr&auml;tt och vilka varor och tj&auml;nster som &auml;r undantagna fr&aring;n &aring;ngerr&auml;tt </span><a href="http://www.hallakonsument.se/klaga-angra-eller-anmala/vad-lagen-sager/lagen-om-distansavtal-och-avtal-utanfor-affarslokaler/"><span>h&auml;r</span></a><span>.</span></p>

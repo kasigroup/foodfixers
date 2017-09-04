@@ -60,7 +60,7 @@ class ExampleDishesContainer extends Component {
            <h5>För att hitta hela vårt utbud, skapa ett konto och logga in!</h5>
            <h5>Eller kontakt oss på:</h5>
            <div className="contact">
-             Email: <a href="mailto:foodfixersexpress@gmail.com" target="_blank">foodfixersexpress@gmail.com</a><br></br>
+             Email: <a href="mailto:hello@foodfixers.se" target="_blank">hello@foodfixers.se</a><br></br>
              Tel: <a href="tel:+46103302077">010-330 20 77</a>
            </div>
          </div>

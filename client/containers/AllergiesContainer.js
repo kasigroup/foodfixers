@@ -13,14 +13,18 @@ class AllergiesContainer extends Component {
        <div>
          <h3 className="title">Allergier</h3>
          <div className="contact">
-           Email: <a href="mailto:foodfixersexpress@gmail.com" target="_blank">foodfixersexpress@gmail.com</a><br></br>
+           Email: <a href="mailto:hello@foodfixers.se" target="_blank">hello@foodfixers.se</a><br></br>
            Tel: <a href="tel:+46103302077">010-330 20 77</a>
          </div>
-         <p>Om du har någon livsmedelsallergi måste du läsa igenom det här stycket:</p>
-         <p>Det är jobbigt med allergier! Vissa är känsligare än andra och bara du vet hur känslig du är. Det finns möjlighet att klicka i dom vanligaste överkänsligheterna och gör du det så gör vi allt för att din allergen inte kommer med i din mat. Vi har bra rutiner för detta och använder separata redskap och ytor, MEN som alltid i ett kök så finns det en liten risk för att spår av det ena ska hamna i det andra och är du allvarligt allergisk mot något så vågar vi helt enkelt inte garantera att din mat är 100% fri från din allergen. Då är det säkrast att bara äta hemmalagat.
+         <p><b>Om du har någon livsmedelsallergi måste du läsa igenom det här stycket:</b></p>
+         <p>Det är jobbigt med allergier! Vissa är känsligare än andra och bara du vet hur känslig du är.
+         Det finns möjlighet att meddela oss om dina allergier. Skicka ett mejl till hello@foodfixers.se.</p>
+         <p>Beskriv dina allergier, uppge ditt namn och till vilken dag och plats du har beställt.
+         Om du har beställt fler än en portion, specificera gärna vilken av portionerna som ska allergianpassas
          </p>
          <p>
-           Om du har några andra livsmedelsallergier vill vi alltid att du klickar i ”andra allergier” och specifierar vilka. Det har hänt förut att vi varit lite wild and crazy en midsommar och nästan haft ihjäl någon med en jordgubbe…Så det är viktigt att du meddelar oss!
+           Då gör vi allt för att din allergen inte kommer med i din mat.
+           Vi har bra rutiner för detta och använder separata redskap och ytor, men som alltid i ett kök så finns det en liten risk för att spår av det ena kan hamna i det andra och är du allvarligt allergisk mot något så vågar vi helt enkelt inte garantera att din mat är 100% fri från din allergen.
          </p>
          <p><b>Till dig som är glutenintolerant:</b></p>
          <p>Vi gillar inte heller gluten och använder bara glutenfria produkter i vårt kök.</p>
