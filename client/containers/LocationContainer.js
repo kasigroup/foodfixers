@@ -35,7 +35,7 @@ class LocationContainer extends Component {
 
       const dateArray = deliveries.map(function(item){
          var date = new Date(item.delivery_at)
-         date = moment(date).format('MM/DD/YYYY dddd');
+         date = moment(date).format('DD/MM/YYYY dddd');
          return {date: date, area_id: item.location.area_id};
       });
 
