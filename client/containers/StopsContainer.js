@@ -311,30 +311,7 @@ class StopsContainer extends Component {
         <p>18:00-18:30</p>
         <p>&nbsp;</p>
         <h4>Lördagar</h4>
-        <p>-lunch, eftermiddag, kv&auml;ll</p>
-        <p>&nbsp;</p>
-        <p>A6</p>
-        <p>&Aring;tervinningssatationen</p>
-        <p>Parkeringen bortom IKEAs utg&aring;ng</p>
-        <p>Kompanigatan/Bataljonsgatan</p>
-        <p>12:15-12:45</p>
-        <p>A6</p>
-        <p>&Aring;tervinningssatationen</p>
-        <p>Parkeringen bortom IKEAs utg&aring;ng</p>
-        <p>Kompanigatan/Bataljonsgatan</p>
-        <p>14:00-14:30</p>
-        <p>&nbsp;</p>
-        <p>A6</p>
-        <p>&Aring;tervinningssatationen</p>
-        <p>Parkeringen bortom IKEAs utg&aring;ng</p>
-        <p>Kompanigatan/Bataljonsgatan</p>
-        <p>16:00-16:30</p>
-        <p>&nbsp;</p>
-        <p>A6</p>
-        <p>&Aring;tervinningssatationen</p>
-        <p>Parkeringen bortom IKEAs utg&aring;ng</p>
-        <p>Kompanigatan/Bataljonsgatan</p>
-        <p>18:00-18:30</p>
+        <p>-inga leveranser</p>
         <p>&nbsp;</p>
         <h4>Söndagar</h4>
         <p>-inga leveranser</p>
