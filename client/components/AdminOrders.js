@@ -11,13 +11,13 @@ class AdminOrders extends Component {
 
   render() {
     const {orders} = this.props;
-
     return (
       <div>{orders.map((item, i) =>
         <div className="admin-order" id="admin-order-id" key={i}>
-          <p>Address: {item.delivery.location.street_address}</p>
-          <p>Name: {item.profile_full_name}</p>
-          <p>id: {item.id} Price: {item.total}kr</p>
+          <p>Adress: {item.delivery.location.street_address}</p>
+          <p>Tid: {item.time} {item.day}</p>
+          <p>Namn: {item.profile_full_name}</p>
+          <p>id: {item.id} Pris: {item.total}kr</p>
             <div className="admin-order-dishes" >
             {item.items.map((dish, i) =>
               <div key={i} className="admin-order-dish">

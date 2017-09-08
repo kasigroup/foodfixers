@@ -95,6 +95,8 @@ class AdminContainer extends Component {
      var formattedOrders = orders.reduce((sum, item) => {
           item.delivery.delivery_at = new Date(item.delivery.delivery_at);
           item['weekday'] = item.delivery.delivery_at.getDay();
+          item['time'] = item.delivery.delivery_at.getHours() + ":" + item.delivery.delivery_at.getMinutes();
+          item['day'] = moment(item.delivery.delivery_at).format('dddd');
           sum.push(item);
           return sum;
       }, []);

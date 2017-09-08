@@ -28,6 +28,7 @@ import css from './styles/style.styl';
 // Import Components
 import App from './containers/App';
 import FrontPage from './containers/FrontPage';
+import AboutAppContainer from './containers/AboutAppContainer';
 import HomeContainer from './containers/HomeContainer';
 import SideDishesContainer from './containers/SideDishesContainer';
 import CartContainer from './containers/CartContainer';
@@ -39,6 +40,7 @@ import RegisterContainer from './containers/RegisterContainer';
 import AllergiesContainer from './containers/AllergiesContainer';
 import AboutContainer from './containers/AboutContainer';
 import StopsContainer from './containers/StopsContainer';
+import ExampleDishesContainer from './containers/ExampleDishesContainer';
 import AdminContainer from './containers/AdminContainer';
 import NotFound from './containers/NotFound';
 import CreateProfileContainer from './containers/CreateProfileContainer';
@@ -78,6 +80,8 @@ const Root = () => {
           <Route path="createprofile" component={CreateProfileContainer} />
           <Route path="about" component={AboutContainer} />
           <Route path="stops" component={StopsContainer} />
+          <Route path="exampledishes" component={ExampleDishesContainer} />
+          <Route path="aboutapp" component={AboutAppContainer} />
           <Route path="allergies" component={AllergiesContainer} />
           <IndexRoute component={FrontPage} />
           <Route path="categories" component={CategoriesContainer} onEnter={requireAuth}/>

@@ -35,12 +35,13 @@ class FrontPage extends Component {
          <p>I den här appen kan du beställa sushi och välja att
             få den levererad till en av tjugosex platser runt omkring
             i Jönköping, Huskvarna och Torsvik!</p>
-         <Link className="btn main-btn-red" to="/about">LÄS MER OM OSS</Link>
+         <Link className="btn main-btn-red" to="/categories">BESTÄLL HÄR</Link>
+         <Link className="btn main-btn-red" to="/about">OM OSS & KONTAKT</Link>
+         <Link className="btn main-btn-red" to="/exampledishes">KOLLA IN VÅR MENY</Link>
          <Link className="btn main-btn-red" to="/stops">SE ALLA VÅRA STOPP</Link>
-         <Link className="btn main-btn-red" to="/categories">KOLLA IN VÅR MENY</Link>
          <Link className="btn main-btn-red" to="/login">REGISTRERA KONTO/LOGGA IN</Link>
+         <Link className="btn main-btn-red" to="/aboutapp">SE HUR APPEN FUNGERAR</Link>
          <Link className="btn main-btn-red" to="/allergies">ALLERGIER</Link>
-         <Link className="btn main-btn-red" to="/categories">SE HUR APPEN FUNGERAR</Link>
 
          <div className="contact">
           <div className="inner-contact">
@@ -48,8 +49,8 @@ class FrontPage extends Component {
           <a className="social-logo" href="https://www.instagram.com/foodfixers.se"><i className="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
           <p className="social-media">@foodfixers.se</p>
           <br></br>
-           <a className="email-logo" href="mailto:foodfixersexpress@gmail.com" target="_blank">
-           <i className="fa fa-envelope fa-3x " aria-hidden="true"></i><p className="social-media email">foodfixersexpress@gmail.com</p></a>
+           <a className="email-logo" href="mailto:hello@foodfixers.se" target="_blank">
+           <i className="fa fa-envelope fa-3x " aria-hidden="true"></i><p className="social-media email">hello@foodfixers.se</p></a>
            </div>
          </div>
        </div>

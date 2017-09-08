@@ -16,7 +16,7 @@ const LocationFormFirstPage = (props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <fieldset className="form-group row">
+      <fieldset className="form-group">
         <div className="col-sm-6 margin-center align-left">
           <p className="align-center">Välj ett område nära dig och klicka nästa</p>
           {areas.map((item, i) => <div key={i}>
@@ -30,7 +30,7 @@ const LocationFormFirstPage = (props) => {
           </div>)}
         </div>
         <div>
-          <button type="submit" disabled={pristine || submitting} className="next btn main-btn btn-45">Nästa</button>
+          <button type="submit" disabled={pristine || submitting} className="btn main-btn">Nästa</button>
         </div>
       </fieldset>
     </form>

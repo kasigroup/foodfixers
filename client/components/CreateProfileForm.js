@@ -19,10 +19,10 @@ const SubmitCreateProfileForm = (props) => {
     <form className="ReduxForm" onSubmit={handleSubmit(create)}>
       <Field name="first_name" type="text" component={renderField} label="First Name" validate={[ required ]}/>
       <Field name="last_name" type="text" component={renderField} label="Last Name" validate={[ required ]}/>
-      <p>Please check so the name is correct</p>
+      <p>Kolla gärna så ditt namn stämmer</p>
       {error && <strong>{error}</strong>}
       <div>
-        <button className="btn main-btn" type="submit" disabled={pristine || submitting}>Save Profile</button>
+        <button className="btn main-btn" type="submit" disabled={pristine || submitting}>Spara Profil</button>
       </div>
     </form>
   )
