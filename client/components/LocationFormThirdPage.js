@@ -16,7 +16,7 @@ let LocationFormFirstPage = (props) => {
 
   const timeArray = deliveries.map(function(item){
      var date = new Date(item.delivery_at)
-     var day = moment(date).format('MM/DD/YYYY dddd');
+     var day = moment(date).format('DD/MM/YYYY dddd');
      var time = moment(date).format('HH:mm');
      return {day: day, time: time, id: item.id, location: item.location};
   });
