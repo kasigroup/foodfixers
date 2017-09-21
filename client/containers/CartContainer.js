@@ -112,7 +112,7 @@ class CartContainer extends Component {
           <p>&nbsp;</p>
           <p><span>Om du har n&aring;gon livsmedelsallergi m&aring;ste du l&auml;sa igenom det h&auml;r stycket:</span></p>
           <p>&nbsp;</p>
-          <p><span>Det &auml;r jobbigt med allergier! Vissa &auml;r k&auml;nsligare &auml;n andra och bara du vet hur k&auml;nslig du &auml;r. Meddela oss eventuella allergier genom att efter best&auml;llning skicka ett mejl till </span><a href="mailto:foodfixersexpress@gmail.com"><span>foodfixersexpress@gmail.com</span></a><span>. Kom ih&aring;g att l&auml;mna ditt namn och specificera vilken portion som ska anpassas om du har best&auml;llt flera. Vi har bra rutiner f&ouml;r att allergianpassa maten och anv&auml;nder separata redskap och ytor, MEN som alltid i ett k&ouml;k s&aring; finns det en liten risk f&ouml;r att sp&aring;r av det ena ska hamna i det andra och &auml;r du allvarligt allergisk mot n&aring;got s&aring; v&aring;gar vi helt enkelt inte garantera att din mat &auml;r 100% fri fr&aring;n din allergen. D&aring; &auml;r det s&auml;krast att bara &auml;ta hemmalagat.</span></p>
+          <p><span>Det &auml;r jobbigt med allergier! Vissa &auml;r k&auml;nsligare &auml;n andra och bara du vet hur k&auml;nslig du &auml;r. Meddela oss eventuella allergier genom att efter best&auml;llning skicka ett mejl till </span><a href="mailto:hello@foodfixers.se"><span>hello@foodfixers.se</span></a><span>. Kom ih&aring;g att l&auml;mna ditt namn och specificera vilken portion som ska anpassas om du har best&auml;llt flera. Vi har bra rutiner f&ouml;r att allergianpassa maten och anv&auml;nder separata redskap och ytor, MEN som alltid i ett k&ouml;k s&aring; finns det en liten risk f&ouml;r att sp&aring;r av det ena ska hamna i det andra och &auml;r du allvarligt allergisk mot n&aring;got s&aring; v&aring;gar vi helt enkelt inte garantera att din mat &auml;r 100% fri fr&aring;n din allergen. D&aring; &auml;r det s&auml;krast att bara &auml;ta hemmalagat.</span></p>
           <p>&nbsp;</p>
           <p><b><span>Till dig som &auml;r glutenintolerant:</span></b></p>
           <p>&nbsp;</p>
@@ -139,7 +139,7 @@ class CartContainer extends Component {
           <p>&nbsp;</p>
           <p><b><span>Kontakta oss</span></b></p>
           <p>&nbsp;</p>
-          <p><span>Vi fokuserar p&aring; att fixa din mat och d&aring; &auml;r det s&aring;klart enklast om alla best&auml;llningar och annat g&ouml;rs i appen. Men du kan alltid kontakta oss p&aring; telefon 010-3302077 eller via mejl foodfixersexpress@gmail.com om du undrar &ouml;ver n&aring;got eller vill meddela oss n&aring;got. Vi &aring;terkommer alltid s&aring; fort vi kan. Men ibland kan vi inte s&aring; fort&hellip;</span></p>
+          <p><span>Vi fokuserar p&aring; att fixa din mat och d&aring; &auml;r det s&aring;klart enklast om alla best&auml;llningar och annat g&ouml;rs i appen. Men du kan alltid kontakta oss p&aring; telefon 010-3302077 eller via mejl hello@foodfixers.se om du undrar &ouml;ver n&aring;got eller vill meddela oss n&aring;got. Vi &aring;terkommer alltid s&aring; fort vi kan. Men ibland kan vi inte s&aring; fort&hellip;</span></p>
           <button className="btn main-btn btn-45" onClick={this.handleCloseModal}>Stäng</button>
         </ReactModal>
       </div>

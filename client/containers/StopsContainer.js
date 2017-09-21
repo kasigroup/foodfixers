@@ -31,7 +31,10 @@ class StopsContainer extends Component {
      return (
        <div>
          <h3 className="title">Här stannar vi</h3>
+         <br></br>
          <h5>Här finner du alla våra stopp men du kan också skapa ett konto och logga in för att få en bättre överblick!</h5>
+         <br></br>
+         <h5>Det går även bra att hämta på Hedenstorp i mån av tid, ring oss i förväg!</h5>
          <div className="contact">
            Email: <a href="mailto:hello@foodfixers.se" target="_blank">hello@foodfixers.se</a><br></br>
            Tel: <a href="tel:+46103302077">010-330 20 77</a>
