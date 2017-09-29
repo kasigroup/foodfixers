@@ -47,11 +47,14 @@ class AboutAppContainer extends Component {
 
           <p><b>B&ouml;rja best&auml;lla</b></p>
 
-          <p> -Klicka p&aring; &rdquo;BEST&Auml;LL H&Auml;R&rdquo; f&ouml;r att se menyn.  -V&auml;lj n&aring;got och klicka p&aring; &rdquo;L&Auml;GG TILL&rdquo;.  -V&auml;lj tillbeh&ouml;r om du vill och klicka p&aring; L&Auml;GG TILL&rdquo;  -N&auml;r du &auml;r klar klicka antingen p&aring; knappen &rdquo;KUNDVAGN&rdquo; l&auml;ngst ner p&aring; sidan eller p&aring; kundvagnsikonen h&ouml;gst upp p&aring; sidan.</p>
+          <p> -Klicka p&aring; &rdquo;BEST&Auml;LL H&Auml;R&rdquo; f&ouml;r att se menyn. </p>
+          <p> -V&auml;lj n&aring;got och klicka p&aring; &rdquo;L&Auml;GG TILL&rdquo;. </p>
+          <p> -V&auml;lj tillbeh&ouml;r om du vill och klicka p&aring; L&Auml;GG TILL&rdquo; </p>
+          <p> -N&auml;r du &auml;r klar klicka antingen p&aring; knappen &rdquo;KUNDVAGN&rdquo; l&auml;ngst ner p&aring; sidan eller p&aring; kundvagnsikonen h&ouml;gst upp p&aring; sidan.</p>
 
           <p><b>V&auml;lj omr&aring;de</b></p>
 
-          <p>Nu ska du v&auml;lja i vilket omr&aring;de du vill h&auml;mta upp maten. Vi k&ouml;r enligt ett fast veckoschema. H&auml;r hittar du en lista som kan vara bra att bl&auml;ddra igenom f&ouml;r att l&auml;ttare hitta den tid och plats som passar dig b&auml;st. </p>
+          <p>Nu ska du v&auml;lja i vilket omr&aring;de du vill h&auml;mta upp maten. Vi k&ouml;r enligt ett fast veckoschema. <a href="foodfixers.se/stops">H&auml;r</a> hittar du en lista som kan vara bra att bl&auml;ddra igenom f&ouml;r att l&auml;ttare hitta den tid och plats som passar dig b&auml;st. </p>
 
           <p> -Klicka p&aring; ett omr&aring;de.</p>
           <p> -Bl&auml;ddra ner.</p>
@@ -65,7 +68,7 @@ class AboutAppContainer extends Component {
           <p> -Bl&auml;ddra ner.</p>
           <p> -Klicka p&aring; &rdquo;N&Auml;STA&rdquo;</p>
 
-          <p>Du kan se datum sex dagar fram&aring;t i tiden. Ser du inga datum att v&auml;lja bland, testa igen imorgon. Du kan ocks&aring; se hela listan med v&aring;ra stopp h&auml;r.</p>
+          <p>Du kan se datum sex dagar fram&aring;t i tiden. Ser du inga datum att v&auml;lja bland, testa igen imorgon. Du kan ocks&aring; se hela listan med v&aring;ra stopp <a href="foodfixers.se/stops">h&auml;r</a>.</p>
 
           <p><b>V&auml;lj tid och plats</b></p>
 
@@ -75,7 +78,7 @@ class AboutAppContainer extends Component {
           <p> -Bl&auml;ddra ner.</p>
           <p> -Klicka p&aring; &rdquo;SPARA&rdquo;</p>
 
-          <p>T&auml;nk p&aring; att vi k&ouml;r enligt ett schema och att vi oftast bara stannar fem minuter p&aring; varje plats. I regel stannar vi l&auml;ngre p&aring; det sista lunchstoppet varje dag och p&aring; A6 parkering. Se mer exakta tider h&auml;r.</p>
+          <p>T&auml;nk p&aring; att vi k&ouml;r enligt ett schema och att vi oftast bara stannar fem minuter p&aring; varje plats. I regel stannar vi l&auml;ngre p&aring; det sista lunchstoppet varje dag och p&aring; A6 parkering. Se mer exakta tider <a href="foodfixers.se/stops">h&auml;r</a>.</p>
 
           <p><b>Slutf&ouml;r best&auml;llningen</b></p>
 
